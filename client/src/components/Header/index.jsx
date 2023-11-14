@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <main>
       <header>
-        <h1>NAVIGATION</h1>
+        
         <nav>
           <NavLink to="/" style={styles}>
             Home

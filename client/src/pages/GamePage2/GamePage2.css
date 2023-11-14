@@ -1,0 +1,58 @@
+#root {
+    margin: 0;
+    height: 100%;
+    width:100%;
+  }
+.app-container {
+  display: flex;
+  border: solid 1px white;
+  height: 400px;
+  width: 100%;
+}
+
+.left-section {
+  flex: 1;
+  border: solid 1px white;
+  background-image: url('../../assets/mainframe.png'); /* Specify the path to your background image */
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+  width:100%;
+}
+
+.middle-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align items in the center horizontally */
+  justify-content: space-between; /* Add space between top and bottom containers */
+  width:100%;
+}
+
+.top-container {
+  /* Add styles for the container at the top */
+}
+
+.bottom-container {
+  
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 1px white;
+  width:100%;
+}
+
+.character-info {
+  border: solid 1px white;
+}
+
+.lives-remaining-container {
+  
+}
+.user-input{
+  width:440px;
+  height:30px;
+}

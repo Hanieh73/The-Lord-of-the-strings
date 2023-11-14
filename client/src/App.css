@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -39,4 +39,14 @@
 
 .read-the-docs {
   color: #888;
+}
+
+header {
+  color: #fff; 
+  padding: 20px; 
+  text-align: center;
+  position: fixed; /* Set position to fixed for fixed positioning */
+  top: 0; /* Position at the top of the viewport */
+  left: 0; /* Position at the left of the viewport */
+  width: 100%;
 }
