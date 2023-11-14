@@ -19,6 +19,11 @@ CREATE TABLE token (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+CREATE TABLE Game (
+    game_id INT GENERATED ALWAYS AS IDENTITY,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+)
 
 
 -- Insert data into Users table with 30 records
