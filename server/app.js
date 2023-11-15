@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-const exampleRouter = require('./routers/examples');
+const chatRouter = require('./routers/chats');
 const userRouter = require('./routers/users');
+const gameRouter = require('./routers/games');
 
 const app = express();
 
@@ -11,11 +12,12 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('This is an example API');
+  res.send('This is The Lord of The Strings API');
 });
 
 // Routes
-app.use('/examples', exampleRouter);
+app.use('/chats', chatRouter);
 app.use('/users', userRouter);
+app.use('/games', gameRouter);
 
 module.exports = app;
