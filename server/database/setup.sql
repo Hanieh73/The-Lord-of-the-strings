@@ -88,10 +88,10 @@ INSERT INTO Game (user_id, state, difficulty, created_at, updated_at) VALUES
     (4, 'completed', 'easy', '2023-01-07', '2023-01-08'),
     (5, 'in-progress', 'medium', '2023-01-09', '2023-01-10'),
     (6, 'completed', 'hard', '2023-01-11', '2023-01-12'),
-    (7, 'in-progress', 'easy', '2023-01-13', '2023-01-14'),
+    (1, 'in-progress', 'easy', '2023-01-13', '2023-01-14'),
     (8, 'completed', 'medium', '2023-01-15', '2023-01-16'),
     (9, 'in-progress', 'hard', '2023-01-17', '2023-01-18'),
-    (10, 'completed', 'easy', '2023-01-19', '2023-01-20');
+    (1, 'completed', 'easy', '2023-01-19', '2023-01-20');
 
 -- Insert fake data into Progress table
 INSERT INTO Progress (game_id, stats, branch_route, score, additional_data) VALUES
