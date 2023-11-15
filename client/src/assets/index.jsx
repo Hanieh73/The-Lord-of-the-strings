@@ -1,0 +1,9 @@
+export { default as DigitalMap } from './digital_map.png';
+export { default as Lab } from './lab.png';
+export { default as LOTR_Artifacts } from './LOTR_artifacts.png';
+export { default as Mainframe } from './mainframe.png';
+export { default as Recorder } from './recorder.png';
+export { default as settings } from './settings.svg';
+export { default as speaking } from './speaking.svg';
+export { default as Ava } from './Ava.png';
+export { default as Ava2 } from './Ava2.png';
