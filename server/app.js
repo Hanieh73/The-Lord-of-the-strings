@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-const exampleRouter = require('./routers/examples');
+const chatRouter = require('./routers/chats');
 const userRouter = require('./routers/users');
 const gameRouter = require('./routers/games');
 
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-app.use('/examples', exampleRouter);
+app.use('/chats', chatRouter);
 app.use('/users', userRouter);
 app.use('/games', gameRouter);
 
