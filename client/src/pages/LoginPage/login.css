@@ -1,0 +1,8 @@
+body.login-page {
+    background: linear-gradient(to top, #0f1130c2, #0f1130c2), url("./background.png");
+    background-size: cover;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; 
+  }

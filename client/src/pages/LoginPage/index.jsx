@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useExample } from '../../contexts';
 
-import logoutImg from "./logout.png";
+import logoImg from "./logo.png";
+
+import "./login.css"
+
+
 
 export default function LoginPage() {
   //NEED TO IMPORT FROM NEW CONTEXT
@@ -11,6 +15,18 @@ export default function LoginPage() {
   const [formUsername, setFormUsername] = useState('');
   const [formPassword, setFormPassword] = useState('');
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.add("login-page");
+    document.body.classList.remove("home-page");
+    document.body.classList.remove("signup-page")
+
+    return () => {
+      document.body.classList.remove("login-page");
+    };
+  }, []);
+
+
 
   const navigate = useNavigate();
 
@@ -77,16 +93,15 @@ export default function LoginPage() {
     <div className="login-page">
       <div className="row">
         <div className="col-3"></div>
-          <div className="col-6 login-title">
-            <img src={logoutImg} alt="city 72" className='img-fluid' />
+          <div className="col-6 login-title text-center">
+            <img src={logoImg} alt="city 72" className='img-fluid' />
 
             <form className='login-form'>
 
-            <label className="login-username">
-              Username:
-              <input type="text" placeholder="Enter Username" onChange={handleInput} required/>
-            </label>
-
+            
+            <input type="text" placeholder="Username" className="username-text" onChange={handleInput} required/>
+            <input type="text" placeholder="Password" className="password-text" onChange={handlePassword} required/>
+            
             </form>
           </div>
         <div className="col-3"></div> 
