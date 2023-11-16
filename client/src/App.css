@@ -1,16 +1,87 @@
-
-header {
-  display: none;
-  color: #fff; 
-  padding: 20px; 
-  text-align: center;
-  position: fixed;
-  top: 0; 
-  left: 0;
+#root {
+  height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-#root {
-  position: relative;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* background: linear-gradient(to top, #3204fdba, #9907facc), url(https://picsum.photos/1280/853/?random=1) no-repeat top center; */
+body {
+   
+  /* background-image: url("./pages/DashboardPage/background.png"); */
+  background: linear-gradient(to top, #0f1130c2, #0f1130c2), url("./pages/DashboardPage/background.png");
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; 
+}
+
+/* background-color: #0f1130;  */
+
+
+.dashboard {
+  color: rgb(255, 194, 247)
+}
+
+.dashboard-img img, .dashboard-btns-row2 img {
+  width: 100%;
+  height: 38vh;
+}
+
+
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+  font-family: "Press Start 2p";
+  color: rgb(255, 194, 247); /* Text color */
+  font-weight: bold; /* Optional: Adjust font weight as needed */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 30px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 1px rgb(255, 0, 119); /* Outline width and color */
   
+}
+
+
+
+
+.dashboard-btns {
+  width: 100%;
+  height: 80%;
+  margin-top: 10%;
+}
+
+.dashboard-btns-row2 {
+  width: 100%;
+  height: 80%;
+  margin-top: 2%;
+}
+
+
+.dashboard-btns:hover, .dashboard-btns-row2:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.login-title img{
+  width: 100%;
+  height: 25%;
 }

@@ -8,7 +8,8 @@ import {
   NotFoundPage,
   LoginPage,
   RegisterPage,
-  GamePage
+  GamePage,
+  DashboardPage
 } from './pages';
 import { ExampleProvider } from './contexts';
 
@@ -30,7 +31,9 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/game" element={<GamePage />} />
           <Route path="/*" element={<NotFoundPage />} />
+          
         </Route>
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </ExampleProvider>
   );

@@ -1,0 +1,47 @@
+{
+    "City 72 Main Story": {
+        "Digital Map of City 72": "Helps navigate the sprawling cyberpunk city.",
+        "Holo-Recorder": "Captures clues and information.",
+        "Access Keycard": "Unlocks the path to the mainframe.",
+        "Ancient Tech Detector": "Helps locate hidden relics and the mainframe.",
+        "Relic Container": "Safely stores collected relics.",
+        "Stealth Cloak": "Used for sneaking into high-security areas.",
+        "Neural Interface": "Connects the adventurer to the mainframe for experiencing history.",
+        "Data Pad": "Contains historical data to influence present-day decisions.",
+        "Holo-Disguise": "Assists in blending in during sensitive missions.",
+        "Time Capsule": "Contains relics and records for future generations."
+    },
+    "The Heist of the Neon Symphony": {
+        "Neon Decoder": "Decodes numerical codes from informants.",
+        "Heist Planner": "Interactive map for planning the heist.",
+        "Hacker's Toolkit": "Essential for hacking in the Inside Job branch.",
+        "Stealth Suit": "For evading detection in the Stealth Approach.",
+        "Laser Disruptor": "Disables laser grids in the Stealth Approach.",
+        "Safe Cracker": "Opens the safe containing the Neon Symphony in the Inside Job.",
+        "Power Surge Device": "Triggers a blackout for a distraction in the High Octane Heist.",
+        "High-Speed Hoverbike": "For a fast escape through City 72.",
+        "Escape Goggles": "Navigate the neon-lit streets during the chase."
+    },
+    "Echoes of the Forgotten War": {
+        "Historical Documents": "Contain key decisions, speeches, and battles.",
+        "Strategy Maps": "Outline the planned invasion, used for preparation.",
+        "Historical Maps and Tide Tables": "For navigating to the beach in the Commando Mission.",
+        "Encryption Tools": "Used for decoding messages in the Diplomatic Resolution.",
+        "Minefield Maps": "Aid in identifying safe paths in the Lone Survivor.",
+        "Tactical Unit Cards": "Represent different units for strategic deployment in the Commando Mission.",
+        "Paratrooper Communication Gear": "For negotiating with airborne units in the Diplomatic Resolution.",
+        "Historical Landmark Guide": "Helps navigate enemy territory in the Lone Survivor.",
+        "Report Forms": "Used for compiling the aftermath report.",
+        "Casualty and Equipment Lists": "Reference for matching historical facts and figures."
+    },
+    "Rise of the Tech-Magi": {
+        "Cybernetic Prototypes": "Early models of enhancements for integration testing.",
+        "Anatomical Models": "Display human anatomy for identifying enhancement integration points.",
+        "Presentation Toolkit": "Used for creating presentations addressing biological impacts.",
+        "Research Papers on Genetics": "Provide in-depth genetic knowledge.",
+        "Encoded Documents": "Contain sensitive biological data and jargon.",
+        "Decryption Software": "Used to decode stolen documents.",
+        "AI Algorithms": "Biology-based algorithms used by the AI.",
+        "Biology Textbooks": "Cover ecosystems and evolutionary biology to understand AI behavior."
+    }
+}

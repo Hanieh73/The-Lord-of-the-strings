@@ -9,20 +9,7 @@ export default function Header() {
 
   return (
     <main>
-      <header>
-        
-        <nav>
-          <NavLink to="/" style={styles}>
-            Home
-          </NavLink>
-          <NavLink to="/about" style={styles}>
-            About
-          </NavLink>
-          <NavLink id="loginButton" to="/login">
-            {isLoggedIn ? 'Logout' : 'Login'}
-          </NavLink>
-        </nav>
-      </header>
+      .
       <Outlet />
     </main>
   );
