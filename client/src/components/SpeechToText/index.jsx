@@ -15,6 +15,7 @@ const SpeechToText = ({userInput, setUserInput}) => {
       if (isListening) {
         annyang.start();
       } else {
+        setUserInput("");
         annyang.abort();
       }
 
