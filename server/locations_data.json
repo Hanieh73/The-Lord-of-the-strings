@@ -1,0 +1,46 @@
+{
+    "City 72 Main Story": {
+        "Central Plaza": "A bustling hub of activity in the heart of City 72.",
+        "Neon Streets": "Vibrant, neon-drenched streets filled with diverse characters and hidden secrets.",
+        "Underground Paths": "Hidden passages beneath the city, leading to secretive and forgotten places.",
+        "Industrial District": "Decrepit part of the city, housing abandoned factories and warehouses.",
+        "Secret Underground Lab": "Hidden laboratory, home to the ancient mainframe.",
+        "Mainframe Chamber": "Central location where the mainframe is housed, filled with advanced technology."
+    },
+    "The Heist of the Neon Symphony": {
+        "Market Stalls": "Colorful and bustling stalls in the night market where clues are gathered.",
+        "Shadowy Alleys": "Narrow, dimly lit paths behind the market, hiding secrets and informants.",
+        "Hidden Speakeasy": "A secret bar where crucial meetings take place.",
+        "High-tech Hideout": "A secure location overlooking the city skyline, equipped with advanced planning tools.",
+        "Digital City Map Display": "Interactive digital maps used for planning the heist.",
+        "Secure Communications Room": "A high-tech room for safe communication and hacking operations.",
+        "Ultra-Modern Museum": "A state-of-the-art museum with high-tech security, housing the Neon Symphony.",
+        "Laser Grid-Protected Exhibit": "Heavily guarded section where the Neon Symphony is displayed.",
+        "Main Power Control Room": "Central hub controlling the museum's power and security systems.",
+        "Crowded Market Streets": "Bustling streets that provide cover during the escape.",
+        "Narrow Alleyways": "Tight passages offering quick but risky escape routes.",
+        "High-Speed Main Avenues": "The city's main thoroughfares, perfect for a high-speed chase."
+    },
+    "Echoes of the Forgotten War": {
+        "Briefing Tents": "Where strategic meetings and briefings occur.",
+        "Training Grounds": "Areas for troops to prepare and train for the invasion.",
+        "Planning Rooms": "Where invasion strategies are developed and refined.",
+        "Landing Crafts": "Boats used to approach the Normandy beaches.",
+        "Choppy Sea Waters": "The rough waters of the English Channel.",
+        "Beach Landing Zones": "The designated areas on the Normandy beaches for landing.",
+        "Bombarded Beach Zones": "The initial landing areas, under heavy enemy fire.",
+        "Enemy Bunkers": "Fortified positions held by enemy forces.",
+        "Makeshift Command Centers": "Temporary strategic hubs set up on the beach.",
+        "Captured Enemy Bunkers": "Secured enemy positions used for gathering intelligence.",
+        "Makeshift Field Hospitals": "Emergency medical facilities for the wounded.",
+        "Debriefing Areas": "Locations for soldiers to report and debrief after the operation."
+    },
+    "Rise of the Tech-Magi": {
+        "High-tech Research Labs": "Where cybernetic enhancements are developed.",
+        "Experimental Testing Areas": "Spaces for testing and refining enhancements.",
+        "Innovation Brainstorming Rooms": "Creative spaces for developing new ideas.",
+        "Scientific Symposium": "Conference halls, debate stages, and private meeting rooms.",
+        "Corporate Boardrooms": "High-stakes world of corporate espionage and industrial sabotage.",
+        "AI Development Wing": "Advanced lab for the development and study of AI."
+    }
+}
