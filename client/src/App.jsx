@@ -8,6 +8,7 @@ import {
   NotFoundPage,
   LoginPage,
   RegisterPage,
+  DashboardPage
 } from './pages';
 import { ExampleProvider } from './contexts';
 //Don't forget to change name of Provider
@@ -31,7 +32,9 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/*" element={<NotFoundPage />} />
+          
         </Route>
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </ExampleProvider>
   );
