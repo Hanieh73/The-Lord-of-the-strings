@@ -1,3 +1,4 @@
+//look into test 'renders the Home link and checks style for active link'/second test later on
 import React from "react";
 import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
 import { screen, render, cleanup } from "@testing-library/react";
