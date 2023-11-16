@@ -13,7 +13,7 @@ const mockStatus = jest.fn((code) => ({
 }));
 const mockRes = { status: mockStatus };
 
-describe.skip('Character Controller', () => {
+describe('Character Controller', () => {
   describe('index', () => {
     it('successfully gets Characters and displays the 200 status code', async () => {
       const mockCharacters = [
