@@ -19,7 +19,7 @@ function App() {
   return (
     <ExampleProvider>
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route path="/" >
           <Route index element={<HomePage />} />
           <Route
             path="/about"
