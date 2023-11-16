@@ -32,10 +32,10 @@ async function showAllForUser(req, res) {
 
 const create = async (req, res) => {
   try {
-    const data = req.body;
+    const data = req.body; //SHOULD INCLUDE user_id, state, difficulty AND story_id
     const newGame = await Game.create(data);
     console.log(newGame.game_id);
-    const newProgress = await Progress.create(newGame.game_id);
+    const newProgress = await Progress.create(newGame.game_id, data);
     res.status(201).send({ Game: newGame, Progress: newProgress });
   } catch (err) {
     res.status(400).send({ error: err.message });
@@ -45,8 +45,8 @@ const create = async (req, res) => {
 async function update(req, res) {
   try {
     const id = parseInt(req.params.id);
-    const data = req.body;
-    const progress = await Progress.getOneById(id);
+    const data = req.body; //DATA SHOULD BE saved_chat, score, items
+    const progress = await Progress.getLatestOneByGameId(id);
     const updateProgress = await progress.update(data);
     const game = await Game.getOneById(id);
     const updateGame = await game.update();
@@ -59,13 +59,24 @@ async function update(req, res) {
 async function destroy(req, res) {
   try {
     const id = parseInt(req.params.id);
-    const progress = await Progress.getOneById(id);
-    const game = await Game.getOneById(id);
-    const destroyProgress = await progress.destroy();
-    const destroyGame = await game.destroy();
+
+    const allProgress = await Progress.getAllByGameId(id);
+    allProgress.forEach(async (el) => {
+      //console.log(el.progress_id);
+      const progress = await Progress.getOneByProgressId(el.progress_id);
+      const destroyProgress = await progress.destroy();
+    });
+    //LMAO, IF I DON'T USE TIMEOUT IT WILL GIVE A FOREIGN KEY ERROR AS IT TRIES
+    //TO DELETE THE GAME BEFORE THE PROGRESS HAS BEEN DELETED.
+    setTimeout(async () => {
+      const game = await Game.getOneById(id);
+      const destroyGame = await game.destroy();
+    }, 500);
+
     res.status(204).end();
   } catch (err) {
     res.status(404).json({ error: err.message });
+    console.log(err);
   }
 }
 
