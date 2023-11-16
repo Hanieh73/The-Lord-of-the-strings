@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 import { DigitalMap, Lab, LOTR_Artifacts, Mainframe, Recorder, settings, speaking, Ava, Ava2, RennHarlow } from '../../assets';
-import { SettingsPopup, CharacterCard, LivesRemaining } from '../../components';
+import { SettingsPopup, CharacterCard, LivesRemaining, SpeechToText } from '../../components';
 
 const GamePage = () => {
   const [dialogue, setDialogue] = useState('John Wick AKA the Boogeyman');
@@ -28,7 +28,7 @@ const GamePage = () => {
         const response = await fetch('http://localhost:3000/chats', {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
-          body: JSON.stringify([...conversation, userMessage]), // Use updated state
+          body: JSON.stringify([...conversation, userMessage]), 
         });
 
         const data = await response.json();
@@ -40,19 +40,10 @@ const GamePage = () => {
       } catch (error) {
         console.error('Error fetching response:', error);
       }
+      console.log(conversation);
     }
   };
 
-  const msg = new SpeechSynthesisUtterance();
-  const voices = window.speechSynthesis.getVoices();
-  const selectedVoice = voices.find((voice) => voice.name === 'Microsoft Susan - English (United Kingdom)');
-
-  msg.voice = selectedVoice;
-
-  const speechHandler = (msg) => {
-    msg.text = dialogue;
-    window.speechSynthesis.speak(msg);
-  };
 
   const toggleInventory = () => {
     setInventoryVisible(!inventoryVisible);
@@ -96,9 +87,7 @@ const GamePage = () => {
             placeholder="Enter something..."
           />
           <div className='settingsBar'>
-            <button className='speechToText' onClick={() => speechHandler(msg)}>
-              <img className='speechToTextIcon' src={speaking} />
-            </button>
+            <SpeechToText dialogue={dialogue} />
             <button className='speechToText' onClick={toggleSettings}>
               <img className='speechToTextIcon' src={settings} />
             </button>
