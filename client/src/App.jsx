@@ -32,7 +32,6 @@ function App() {
           <Route path="/game" element={<GamePage />} />
           <Route path="/*" element={<NotFoundPage />} />
           
-        </Route>
         <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </ExampleProvider>

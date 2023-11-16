@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 import { DigitalMap, Lab, LOTR_Artifacts, Mainframe, Recorder, settings, speaking, Ava, Ava2, RennHarlow } from '../../assets';
-import { SettingsPopup, CharacterCard, LivesRemaining, SpeechToText } from '../../components';
+import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText } from '../../components';
 
 const GamePage = () => {
-  const [dialogue, setDialogue] = useState('John Wick AKA the Boogeyman');
+  const [dialogue, setDialogue] = useState('The year is 3052 you have been sent as a future scout to investigate the lost communication from City 72. City 72 stands just off the English coast and is comprised of one tower raising 3 miles into the air. Since last Thursday all communication has ceased. As you fly closer to the city the auto defence torrents fail to recognise your union chip and begin to fire');
   const [userInput, setUserInput] = useState('');
+  const [visibleUserInput, setVisibleUserInput] = useState('')
   const [inventoryVisible, setInventoryVisible] = useState(false);
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [livesRemaining, setLivesRemaining] = useState(3);
@@ -14,7 +15,13 @@ const GamePage = () => {
     {
       role: 'system',
       content:
-        'You are John Wick from the John Wick movies. You are to answer questions as this character. Do not break character.',
+        "I am going to give you a story prompt. You are then going to act in the role of the story master. The story masters job is to tell the story and give players choices (labelled A , B and C) , each choice will lead to new piece of story.  This is called a choice selection" +
+        "Every 3 choice selections there should be a puzzle of some kind before the next choice this should be based on Maths GCSE try to work the puzzle into the story. "+
+        "Users should be able to ask for hints." + 
+        "Do not display hints unless people ask for them." + 
+        "After 5 choice selections the story should end with a positive, neutral or negative ending based on choices made." +
+        "Here is the prompt:" +
+        "The year is 3052 you have been sent as a future scout to investigate the lost communication from City 72. City 72 stands just off the English coast and is comprised of one tower raising 3 miles into the air. Since last Thursday all communication has ceased. As you fly closer to the city the auto defence torrents fail to recognise your union chip and begin to fire'",
     },
   ]);
 
@@ -22,7 +29,8 @@ const GamePage = () => {
     if (userInput.trim() !== '') {
       const userMessage = { role: 'user', content: userInput };
       setConversation((prevConversation) => [...prevConversation, userMessage]);
-      setUserInput('');
+      setVisibleUserInput(userInput)
+      
 
       try {
         const response = await fetch('http://localhost:3000/chats', {
@@ -37,6 +45,7 @@ const GamePage = () => {
           ...prevConversation,
           { role: 'assistant', content: data.message },
         ]);
+        setUserInput('');
       } catch (error) {
         console.error('Error fetching response:', error);
       }
@@ -64,10 +73,11 @@ const GamePage = () => {
       <div className="left-section"></div>
       <div className="middle-section">
         <div className="top-container">
+          <p className='visibleUserInput'>{visibleUserInput}</p>
           <TypeAnimation
               key={dialogue}
               sequence={[dialogue]}
-              speed={10}
+              speed={80}
               style={{
                 fontSize: '1em',
                 display: 'block',
@@ -87,18 +97,19 @@ const GamePage = () => {
             placeholder="Enter something..."
           />
           <div className='settingsBar'>
-            <SpeechToText dialogue={dialogue} />
-            <button className='speechToText' onClick={toggleSettings}>
-              <img className='speechToTextIcon' src={settings} />
+            <TextToSpeech dialogue={dialogue} />
+            <button className='toolBar' onClick={toggleSettings}>
+              <img className='toolBarIcon' src={settings} />
             </button>
+            <SpeechToText
+            userInput={userInput}
+            setUserInput={setUserInput}
+            />
           </div>
         </div>
       </div>
       <div className="right-section">
         <div className='top-container'>
-            <LivesRemaining 
-            livesRemaining={livesRemaining}
-            />
             <CharacterCard 
             name={"Renn Harlow"}
             img={RennHarlow}

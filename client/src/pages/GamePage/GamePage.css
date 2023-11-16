@@ -1,17 +1,29 @@
-body, html {
+html, body {
   margin: 0;
   height: 100%;
   width: 100%;
   overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: hidden;
+  background-color: #242424;
+}
+main {
+  
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
 }
 
 #root {
+  position: relative;
   margin: 0;
   height: 100%;
   width: 100%;
 }
 
 .app-container {
+  background-color: #242424;
   display: flex;
   border: solid 1px white;
   width: 100%;
@@ -20,7 +32,7 @@ body, html {
 }
 
 .left-section {
-  flex: 1;
+  flex: 1.5;
   border: solid 1px white;
   background-image: url('../../assets/lab.png');
   background-size: cover;
@@ -30,7 +42,7 @@ body, html {
 
 .middle-section {
   border: solid 1px white;
-  flex: 1;
+  flex: 2.5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +60,7 @@ body, html {
 }
 
 .right-section {
-  flex: 1;
+  flex: 1.15;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -77,11 +89,79 @@ body, html {
 }
 
 .user-input {
+  font-family: "Courier New";
   width: 100%;
   height: 30px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+
+
+.inventoryItem {
+  border: solid 1px white;
+  width:100px;
+  height:100px;
+}
+span {
+  color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.toolBar {
+  background-color: #242424;
+  border: solid 1px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:80px;
+}
+.toolBarIcon {
+  width:60px;
+  height:30px;
+}
+.toolBarIconPS {
+  width:60px;
+  height:20px;
+}
+
+.settingsBar {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  align-items: left;
+}
+.settings-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #242424;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;;
+}
+.characterImg{
+  border-radius: 10px;
+  width:150px;
+  height:170px;
+}
+h3, p {
+  text-align: center;
+  color: white;
+  font-family: "Courier New";
+}
+.visibleUserInput{
+  text-align: center;
+  color: red;
+  font-family: "Courier New";
+  padding:0px;
+  margin-bottom: 0;
 }
 
 /* Responsive Styles */
@@ -106,48 +186,3 @@ body, html {
     width: 100%;
   }
 }
-.inventoryItem {
-  border: solid 1px white;
-  width:100px;
-  height:100px;
-}
-span {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-.speechToText {
-  border: solid 1px white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:80px;
-}
-.speechToTextIcon {
-  width:60px;
-  height:30px;
-}
-.settingsBar {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-}
-.settings-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #242424;
-  padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;;
-}
-.characterImg{
-  border-radius: 10px;
-  width:150px;
-  height:170px;
-}
-
