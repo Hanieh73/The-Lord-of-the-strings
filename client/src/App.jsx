@@ -8,12 +8,10 @@ import {
   NotFoundPage,
   LoginPage,
   RegisterPage,
+  GamePage,
   DashboardPage
 } from './pages';
 import { ExampleProvider } from './contexts';
-//Don't forget to change name of Provider
-
-//To protect Route do this element={<Protected><Page /></Protected>}
 
 function App() {
   return (
@@ -31,6 +29,7 @@ function App() {
           />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/game" element={<GamePage />} />
           <Route path="/*" element={<NotFoundPage />} />
           
         </Route>
