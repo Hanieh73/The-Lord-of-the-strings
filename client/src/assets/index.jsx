@@ -7,3 +7,4 @@ export { default as settings } from './settings.svg';
 export { default as speaking } from './speaking.svg';
 export { default as Ava } from './Ava.png';
 export { default as Ava2 } from './Ava2.png';
+export { default as RennHarlow } from './RennHarlow.png';
