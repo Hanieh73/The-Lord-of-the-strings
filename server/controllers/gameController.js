@@ -76,7 +76,6 @@ async function destroy(req, res) {
     res.status(204).end();
   } catch (err) {
     res.status(404).json({ error: err.message });
-    console.log(err);
   }
 }
 

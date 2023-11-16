@@ -8,6 +8,8 @@ storyRouter.get('/', storyController.index);
 storyRouter.get('/:id', storyController.show);
 storyRouter.post('/', storyController.create);
 storyRouter.patch('/:id', storyController.update);
-storyRouter.delete('/:id', storyController.destroy);
+
+// SHOULD NOT DELETE AS STORY TABLE LINKED TO EVERY USERS PROGRESS TABLE
+// storyRouter.delete('/:id', storyController.destroy);
 
 module.exports = storyRouter;
