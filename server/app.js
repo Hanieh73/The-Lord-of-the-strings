@@ -4,6 +4,9 @@ const cors = require('cors');
 const chatRouter = require('./routers/chats');
 const userRouter = require('./routers/users');
 const gameRouter = require('./routers/games');
+const storyRouter = require('./routers/story');
+const characterRouter = require('./routers/character');
+const itemRouter = require('./routers/item');
 
 const app = express();
 
@@ -19,5 +22,8 @@ app.get('/', (req, res) => {
 app.use('/chats', chatRouter);
 app.use('/users', userRouter);
 app.use('/games', gameRouter);
+app.use('/stories', storyRouter);
+app.use('/characters', characterRouter);
+app.use('/items', itemRouter);
 
 module.exports = app;

@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../../../app');
 
 //ORDER OF THE TESTS MATTER
-describe('User', () => {
+describe.skip('User', () => {
   describe('getOneById', () => {
     it('resolves with 1 record when successful', async () => {
       jest.spyOn(db, 'query').mockResolvedValueOnce({

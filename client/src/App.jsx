@@ -17,6 +17,7 @@ function App() {
   return (
     <ExampleProvider>
       <Routes>
+        <Route path="/" >
           <Route index element={<HomePage />} />
           <Route
             path="/about"

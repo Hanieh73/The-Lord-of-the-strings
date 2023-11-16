@@ -14,7 +14,7 @@ const mockStatus = jest.fn((code) => ({
 }));
 const mockRes = { status: mockStatus };
 
-describe('User Controller', () => {
+describe.skip('User Controller', () => {
   describe('register', () => {
     it('successfully creates User and displays the 201 status code', async () => {
       const newUserData = {

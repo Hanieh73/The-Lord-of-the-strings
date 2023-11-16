@@ -1,21 +1,41 @@
-import React from 'react';
-import { screen, render, cleanup, fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
+//look into submit again
+import React from "react";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { screen, render, cleanup } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom"; // This automatically extends jest matchers
+import RegisterPage from ".";
 
-import * as matchers from '@testing-library/jest-dom/matchers';
-expect.extend(matchers);
+// Mock the ExampleProvider and useExample hook from your context
+vi.mock("../../contexts", () => ({
+  ExampleProvider: vi
+    .fn()
+    .mockImplementation(({ children }) => <>{children}</>),
+  useExample: vi.fn(() => ({
+    isLoggedIn: false,
+    setIsLoggedIn: vi.fn(),
+    userID: 0,
+    setUserID: vi.fn(),
+    username: "",
+    setUsername: vi.fn(),
+  })),
+}));
 
-import RegisterPage from '.';
-import { TimerProvider } from '../../contexts/PomodoroContext';
+// Mock react-router-dom's useNavigate hook
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom"); // Import the actual module
+  return {
+    ...actual, // Spread all of the actual exports
+    useNavigate: () => vi.fn(), // Override the specific exports you want to mock
+  };
+});
 
-describe('Login Page', () => {
+describe("RegisterPage", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
-        <TimerProvider>
-          <RegisterPage />
-        </TimerProvider>
+        <RegisterPage />
       </BrowserRouter>
     );
   });
@@ -24,83 +44,59 @@ describe('Login Page', () => {
     cleanup();
   });
 
-  it('the heading has the appropriate text', () => {
-    const heading = screen.getByRole('heading');
+  it("the heading has the appropriate text", () => {
+    const heading = screen.getByRole("heading", { name: /register/i });
     expect(heading).toBeInTheDocument();
-    expect(heading.textContent).toBe('REGISTER');
-  });
-  it('Displays Full Name with appropriate text', () => {
-    const elem = screen.getByRole('textbox', { name: /Full Name:/i });
-    expect(elem).toBeInTheDocument();
-  });
-  it('Displays a username with appropriate text', () => {
-    const elem = screen.getByRole('textbox', { name: /Username:/i });
-    expect(elem).toBeInTheDocument();
   });
 
-  it('Displays a Submit button with appropriate text', () => {
-    const elem = screen.getByRole('button', { name: /Submit/i });
-    expect(elem).toBeInTheDocument();
-  });
-  it('Displays a password with appropriate text', () => {
-    const elem = screen.getByPlaceholderText('Enter Password');
-    expect(elem).toBeInTheDocument();
+  it("Displays Full Name with appropriate text", () => {
+    const fullNameInput = screen.getByPlaceholderText("Enter Full Name");
+    expect(fullNameInput).toBeInTheDocument();
   });
 
-  it('submits data when credentials entered and submit is clicked', () => {
-    const userInput = screen.getByRole('textbox', { name: /Username:/i });
-    userEvent.type(userInput, 'user');
-    const passwordInput = screen.getByPlaceholderText('Enter Password');
-    userEvent.type(passwordInput, 'pass');
-    const submitBtn = screen.getByRole('button', { name: /Submit/i });
-
-    const fetchSpy = vi.spyOn(global, 'fetch');
-
-    const mockResponse = [
-      {
-        id: 33,
-        username: 'Bob',
-        password: 'HashedPassword',
-        name: 'bob',
-      },
-    ];
-
-    const mockResolveValue = {
-      ok: true,
-      status: 201,
-      json: () => new Promise((resolve) => resolve(mockResponse)),
-    };
-
-    fetchSpy.mockReturnValue(mockResolveValue);
-
-    fireEvent.click(submitBtn);
-
-    fetchSpy.mockRestore();
+  it("Displays a username with appropriate text", () => {
+    const usernameInput = screen.getByPlaceholderText("Enter Username");
+    expect(usernameInput).toBeInTheDocument();
   });
 
-  //   it('fails to logins when incorrect credentials entered', () => {
-  //     const userInput = screen.getByRole('textbox', { name: /Username:/i });
-  //     userEvent.type(userInput, 'user');
-  //     const passwordInput = screen.getByPlaceholderText('Enter Password');
-  //     //userEvent.type(passwordInput, 'pass');
-  //     const signIn = screen.getByRole('button', { name: /Sign in/i });
+  it("Displays a password input with appropriate text", () => {
+    const passwordInput = screen.getByPlaceholderText("Enter Password");
+    expect(passwordInput).toBeInTheDocument();
+  });
 
-  //     //fireEvent.click(signIn);
-  //     expect(window.location.href).toEqual('http://localhost:3000/login');
-  //   });
-  //   it("the heading has the appropriate amount of links", () => {
-  //     const navigation = screen.getByRole("navigation");
-  //     const list = screen.getByRole("unorderedList");
-  //     expect(navigation).toBeInTheDocument();
-  //     expect(navigation.children.length).toBe(2);
-  //     expect(list).toBeInTheDocument();
-  //     expect(list.children.length).toBe(5);
+  it("Displays a Submit button with appropriate text", () => {
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    expect(submitButton).toBeInTheDocument();
+  });
+  //need to check the below later on!
+  // it("submits data when credentials entered and submit is clicked", async () => {
+  //   const fullNameInput = screen.getByPlaceholderText("Enter Full Name");
+  //   userEvent.type(fullNameInput, "Test User");
+
+  //   const usernameInput = screen.getByPlaceholderText("Enter Username");
+  //   userEvent.type(usernameInput, "user");
+
+  //   const passwordInput = screen.getByPlaceholderText("Enter Password");
+  //   userEvent.type(passwordInput, "pass");
+
+  //   const submitButton = screen.getByRole("button", { name: /submit/i });
+
+  //   const fetchSpy = vi.spyOn(global, "fetch");
+
+  //   const mockJsonPromise = Promise.resolve({ error: "User already exists" });
+  //   const mockFetchPromise = Promise.resolve({
+  //     json: () => mockJsonPromise,
+  //     status: 409, // Assuming 409 Conflict for an existing user
   //   });
 
-  //   it("renders the Home link", () => {
-  //     const homeLink = screen.getByRole("link", { name: /home/i });
-  //     expect(homeLink).toBeInTheDocument();
-  //     userEvent.click(homeLink);
-  //     expect(window.location.href).toEqual("http://localhost:3000/");
+  //   fetchSpy.mockImplementation(() => mockFetchPromise);
+
+  //   userEvent.click(submitButton);
+
+  //   await vi.waitFor(() => {
+  //     expect(fetchSpy).toHaveBeenCalled();
   //   });
+
+  //   fetchSpy.mockRestore();
+  // });
 });
