@@ -11,11 +11,9 @@ import {
   GamePage,
   DashboardPage
 } from './pages';
-import { ExampleProvider } from './contexts';
 
 function App() {
   return (
-    <ExampleProvider>
       <Routes>
         <Route path="/" > 
           <Route index element={<HomePage />} />
@@ -35,7 +33,6 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
       </Routes>
-    </ExampleProvider>
   );
 }
 
