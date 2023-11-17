@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<GamePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
