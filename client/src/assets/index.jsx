@@ -12,3 +12,4 @@ export { default as Ava2 } from './Ava2.png';
 export { default as RennHarlow } from './RennHarlow.png';
 export { default as BackgroundMusic } from './BackgroundMusic.mp3';
 export { default as BackgroundMusic2 } from './BackgroundMusic2.mp3';
+export { default as RennHarlowVideo } from './RennHarlow.mp4';

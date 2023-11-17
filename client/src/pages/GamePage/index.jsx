@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
-import { DigitalMap, Lab, LOTR_Artifacts, Mainframe, Recorder, settings, speaking, Ava, Ava2, RennHarlow } from '../../assets';
+import { DigitalMap, Lab, LOTR_Artifacts, Mainframe, Recorder, settings, speaking, Ava, Ava2, RennHarlow, RennHarlowVideo } from '../../assets';
 import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText } from '../../components';
 
 const GamePage = () => {
@@ -107,7 +107,7 @@ const GamePage = () => {
         <div className='top-container'>
             <CharacterCard 
             name={"Renn Harlow"}
-            img={RennHarlow}
+            VideoSrc={RennHarlowVideo}
             description={"An Adventurer"}
             />
         </div>
