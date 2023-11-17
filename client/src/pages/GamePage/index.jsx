@@ -29,14 +29,13 @@ const GamePage = () => {
     if (userInput.trim() !== '') {
       const userMessage = { role: 'user', content: userInput };
       setConversation((prevConversation) => [...prevConversation, userMessage]);
-      setVisibleUserInput(userInput)
-      
+      setVisibleUserInput(userInput);
 
       try {
         const response = await fetch('http://localhost:3000/chats', {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
-          body: JSON.stringify([...conversation, userMessage]), 
+          body: JSON.stringify([...conversation, userMessage]),
         });
 
         const data = await response.json();
@@ -45,7 +44,6 @@ const GamePage = () => {
           ...prevConversation,
           { role: 'assistant', content: data.message },
         ]);
-        setUserInput('');
       } catch (error) {
         console.error('Error fetching response:', error);
       }
@@ -101,10 +99,7 @@ const GamePage = () => {
             <button className='toolBar' onClick={toggleSettings}>
               <img className='toolBarIcon' src={settings} />
             </button>
-            <SpeechToText
-            userInput={userInput}
-            setUserInput={setUserInput}
-            />
+            <SpeechToText setUserInput={setUserInput} submitUserInput={submitUserInput} />
           </div>
         </div>
       </div>
