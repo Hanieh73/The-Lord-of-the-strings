@@ -1,5 +1,5 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Protected } from './components';
 import './App.css';
 import {
   HomePage,
@@ -11,27 +11,17 @@ import {
   DashboardPage
 } from './pages';
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" > 
-          <Route index element={<HomePage />} />
-          <Route
-            path="/about"
-            element={
-              <Protected>
-                <AboutPage />
-              </Protected>
-            }
-          />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/game" element={<GamePage />} />
-          <Route path="/*" element={<NotFoundPage />} />
-          
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/game" element={<GamePage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
-        </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
