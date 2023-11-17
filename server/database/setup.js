@@ -1,5 +1,5 @@
 require("dotenv").config();
-const fs = require("node:fs");
+const fs = require("node-fs");
 const db = require("./connect");
 
 const sql = fs.readFileSync(__dirname + "/setup.sql").toString();
