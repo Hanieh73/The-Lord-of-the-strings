@@ -17,7 +17,7 @@ function App() {
   return (
     <ExampleProvider>
       <Routes>
-        <Route path="/" >
+        <Route path="/" > 
           <Route index element={<HomePage />} />
           <Route
             path="/about"
@@ -33,6 +33,7 @@ function App() {
           <Route path="/*" element={<NotFoundPage />} />
           
         <Route path="/dashboard" element={<DashboardPage />} />
+        </Route>
       </Routes>
     </ExampleProvider>
   );
