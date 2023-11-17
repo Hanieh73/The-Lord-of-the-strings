@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //import { Footer } from '../../components';
+import logoImg from "./logo.png";
+
+import "../LoginPage/login.css";
 
 export default function RegisterPage() {
   const [formUsername, setFormUsername] = useState('');
   const [formPassword, setFormPassword] = useState('');
   const [formName, setFormName] = useState('');
+
+
+  useEffect(() => {
+    document.body.classList.add("login-page");
+    document.body.classList.remove("home-page");
+    document.body.classList.remove("signup-page")
+
+    return () => {
+      document.body.classList.remove("login-page");
+    };
+  }, []);
 
   const navigate = useNavigate();
 
@@ -36,7 +50,7 @@ export default function RegisterPage() {
       }),
     };
     const response = await fetch(
-      'http://localhost:3000/users/register',
+      'https://city-72-wez6.onrender.com/users/register',
       options
     );
     const data = await response.json();
@@ -50,43 +64,30 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="register-page">
-      <div className="register-container">
-        <h1 className="register-header">REGISTER</h1>
-        <form className="register-form" onSubmit={handleSubmit}>
-          <label className="register-name">
-            Full Name:
-            <input
-              type="text"
-              placeholder="Enter Full Name"
-              onChange={handleName}
-              required
-            />
-          </label>
-          <label className="register-username">
-            Username:
-            <input
-              type="text"
-              placeholder="Enter Username"
-              onChange={handleInput}
-              required
-            />
-          </label>
-          <label className="register-password">
-            Password:
-            <input
-              type="password"
-              placeholder="Enter Password"
-              onChange={handlePassword}
-              required
-            />
-          </label>
-          <button type="submit" className="btn-submit">
-            Submit
-          </button>
-        </form>
+    <div className="login-page">
+      <div className="row">
+        <div className="col-3"></div>
+          <div className="col-6 login-title text-center">
+            <img src={logoImg} alt="city 72" className='img-fluid' />
+
+            <form className='login-form'>
+
+            <input type="text" placeholder="Name" className="name-text" onChange={handleInput} required/>
+            <input type="text" placeholder="Username" className="username-text" onChange={handleInput} required/>
+            <input type="password" placeholder="Password" className="password-text" onChange={handlePassword} required/>
+            
+
+            <button type="submit" className='register-btn' onClick={handleSubmit}>
+              register
+            </button>
+
+
+            </form>
+          </div>
+        <div className="col-3"></div> 
       </div>
-      {/* <Footer /> */}
+
+
     </div>
   );
 }
