@@ -8,9 +8,9 @@ export default function Header() {
   const { isLoggedIn } = useExample();
 
   return (
-    <main>
+    <>
       .
       <Outlet />
-    </main>
+    </>
   );
 }
