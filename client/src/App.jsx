@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header, Protected } from './components';
 import './App.css';
@@ -14,6 +13,7 @@ import {
 
 function App() {
   return (
+    <>
       <Routes>
         <Route path="/" > 
           <Route index element={<HomePage />} />
@@ -33,6 +33,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
       </Routes>
+    </>
   );
 }
 
