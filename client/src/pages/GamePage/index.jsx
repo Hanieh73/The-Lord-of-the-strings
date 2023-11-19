@@ -35,7 +35,7 @@ const GamePage = () => {
     }
     
   ]);
-  const [location, setLocation] = useState(city72)
+  const [location, setLocation] = useState(locationImages.city72)
   const [narrative, setNarrative] = useState('narrative')
   const [items, setItems] = useState([])
   const [characterdisplayed, setCharacterdisplayed] = useState('Renn Harlow')
@@ -59,12 +59,9 @@ const GamePage = () => {
         console.log(data.message)
         const formatedData = JSON.parse(data.message)
         console.log(formatedData)
-        // const formattedLocation = formatedData.currentLocation ? formatedData.currentLocation.replace(/\s/g, '').toLowerCase() : '';
+        const formattedLocation = formatedData.currentLocation ? formatedData.currentLocation.replace(/\s/g, '').toLowerCase() : '';
         console.log(formattedLocation)
-        setLocation(formattedLocation)
-        // setLocation(locationImages.formattedLocation)
-        
-        console.log(location)
+        setLocation(locationImages[formattedLocation]);
         setDialogue(formatedData.narrative)
         setItems(formatedData.items)
         setCharacterdisplayed(formatedData.character)
