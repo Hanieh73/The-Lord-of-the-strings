@@ -31,7 +31,7 @@ class Progress {
 
   static async getLatestOneByGameId(id) {
     const response = await db.query(
-      'SELECT * FROM Progress WHERE game_id = $1 ORDER BY progress_id DESC Limit 1;',
+      'SELECT * FROM Progress WHERE game_id = $1;',
       [id]
     );
     if (response.rows.length != 1) {

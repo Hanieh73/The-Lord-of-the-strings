@@ -1,0 +1,13 @@
+body {
+  color: blue;
+}
+
+.game-container {
+  width: 1000px;
+  border: 5px solid white;
+}
+
+.game-card {
+  border: 5px solid white;
+  width: 200px;
+}

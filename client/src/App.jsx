@@ -9,7 +9,8 @@ import {
   LoginPage,
   RegisterPage,
   GamePage,
-  DashboardPage
+  DashboardPage,
+  GameLibraryPage,
 } from './pages';
 import { ExampleProvider } from './contexts';
 
@@ -17,7 +18,7 @@ function App() {
   return (
     <ExampleProvider>
       <Routes>
-        <Route path="/" > 
+        <Route path="/">
           <Route index element={<HomePage />} />
           <Route
             path="/about"
@@ -30,9 +31,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/game" element={<GamePage />} />
+          <Route path="load" element={<GameLibraryPage />} />
           <Route path="/*" element={<NotFoundPage />} />
-          
-        <Route path="/dashboard" element={<DashboardPage />} />
+
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Route>
       </Routes>
     </ExampleProvider>
