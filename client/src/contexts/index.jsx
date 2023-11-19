@@ -10,6 +10,8 @@ export const ExampleProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userID, setUserID] = useState(0);
   const [username, setUsername] = useState('');
+  const [allGames, setAllGames] = useState([]);
+  const [currentGameID, setCurrentGameID] = useState(0);
 
   return (
     <ExampleContext.Provider
@@ -22,6 +24,10 @@ export const ExampleProvider = ({ children }) => {
         setUserID,
         username,
         setUsername,
+        allGames,
+        setAllGames,
+        currentGameID,
+        setCurrentGameID,
       }}
     >
       {children}

@@ -7,6 +7,7 @@ const gameRouter = require('./routers/games');
 const storyRouter = require('./routers/story');
 const characterRouter = require('./routers/character');
 const itemRouter = require('./routers/item');
+const progressRouter = require('./routers/progress');
 
 const app = express();
 
@@ -25,5 +26,6 @@ app.use('/games', gameRouter);
 app.use('/stories', storyRouter);
 app.use('/characters', characterRouter);
 app.use('/items', itemRouter);
+app.use('/progress', progressRouter);
 
 module.exports = app;
