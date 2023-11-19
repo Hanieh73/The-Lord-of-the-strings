@@ -9,12 +9,12 @@ export { default as undergroundpaths } from './location/UndergroundPaths.png';
 export { default as virtualrealitypod } from './location/VirtualRealityPod.png';
 export { default as city72 } from './location/City72.png';
 //Items
-export { default as digitalmap } from './items/digital_map.png';
+export { default as digitalmapofcity72 } from './items/digital_map.png';
 export { default as lotrartifacts } from './items/LOTR_artifacts.png';
 export { default as mainframe } from './items/mainframe.png';
-export { default as recorder } from './items/recorder.png';
-export { default as ancientdetector } from './items/AncientDetector.png';
-export { default as cloak } from './items/Cloak.png';
+export { default as holorecorder } from './items/recorder.png';
+export { default as ancienttechdetector } from './items/AncientDetector.png';
+export { default as stealthcloak } from './items/Cloak.png';
 export { default as datapad } from './items/DataPad.png';
 export { default as neuralinterface } from './items/NeuralInterface.png';
 export { default as timecapsule } from './items/TimeCapsule.png';
@@ -24,14 +24,14 @@ export { default as speaking } from './settings/speaking.svg';
 export { default as PlayButton } from './settings/play-button.svg';
 export { default as StopButton } from './settings/stop-button.svg';
 //Characters
-export { default as Ava } from './characters/Ava.png';
+export { default as ava } from './characters/Ava.png';
 export { default as Ava2 } from './characters/Ava2.png';
-export { default as RennHarlow } from './characters/RennHarlow.png';
-export { default as Cipher } from './characters/Cipher.png';
-export { default as DepictMayorAnikaVoss } from './characters/DepictMayorAnikaVoss.png';
-export { default as DrElaraMorn } from './characters/Dr.ElaraMorn.png';
-export { default as Echo } from './characters/Echo.png';
-export { default as Vega } from './characters/Vega.png';
+export { default as rennharlow } from './characters/RennHarlow.png';
+export { default as cipher } from './characters/Cipher.png';
+export { default as depictmayoranikavoss } from './characters/DepictMayorAnikaVoss.png';
+export { default as drelaramorn } from './characters/Dr.ElaraMorn.png';
+export { default as echo } from './characters/Echo.png';
+export { default as vega } from './characters/Vega.png';
 
 //Animated Characters
 export { default as RennHarlowVideo } from './animatedCharacters/RennHarlowVideo.mp4';
