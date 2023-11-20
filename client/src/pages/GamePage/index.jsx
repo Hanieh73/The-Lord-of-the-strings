@@ -211,7 +211,7 @@ const GamePage = () => {
       console.log(conversation);
     }
   };
-  
+
 
   const toggleInventory = () => {
     setInventoryVisible(!inventoryVisible);
@@ -228,10 +228,7 @@ const GamePage = () => {
 
   return (
     <div className="app-container">
-      <div
-        className="left-section"
-        style={{ backgroundImage: `url(${location})` }}
-      ></div>
+      <div className="left-section" style={{ backgroundImage: `url(${location})` }}></div>
       <div className="middle-section">
         <div className="top-container">
           <p className="visibleUserInput">{visibleUserInput}</p>
@@ -249,16 +246,13 @@ const GamePage = () => {
               }}
             />
           </div>
-
           <div className='choices'>
-          {choices.map((choice, index) => (
-            <div key={index} className={`choice${index + 1}`}>
-              <p>{Object.keys(choice)[0]}</p>
-              <p>{choice[Object.keys(choice)[0]]}</p>
-            </div>
-          ))}
-          </div>
-
+            {choices.map((choice, index) => (
+              <div key={index} className={`choice${index + 1}`}>
+                <p>{Object.keys(choice)[0]}</p>
+                <p>{choice[Object.keys(choice)[0]]}</p>
+              </div>
+            ))}
           </div>
         </div>
         <div className="bottom-container">
@@ -280,17 +274,12 @@ const GamePage = () => {
         </div>
       </div>
       <div className="right-section">
-
         <div className='topr-container'>
-            <CharacterCard 
-
+          <CharacterCard
             name={characterName}
-            // VideoSrc={RennHarlowVideo}
             img={characterdisplayed}
-
             description={charactersInfo[characterName]}
-            />
-
+          />
         </div>
         <div className="bottom-container">
           <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
@@ -318,6 +307,7 @@ const GamePage = () => {
       {settingsVisible && <SettingsPopup onClose={toggleSettings} />}
     </div>
   );
+  
 };
 
 export default GamePage;
