@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import {BackgroundMusic} from'./assets'
 import { Protected } from './components';
 
@@ -27,11 +28,11 @@ const App = () => {
         setAudioPlayed(true);
       }
     };
-     document.addEventListener('click', handleFirstInteraction, { once: true });
-     return () => {
-       document.removeEventListener('click', handleFirstInteraction);
-     };
-   }, [audioPlayed]);
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+    return () => {
+      document.removeEventListener('click', handleFirstInteraction);
+    };
+  }, [audioPlayed]);
   return (
     <ExampleProvider>
       <Routes>
@@ -57,6 +58,6 @@ const App = () => {
       </Routes>
     </ExampleProvider>
   );
-}
+};
 
 export default App;

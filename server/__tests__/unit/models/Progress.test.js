@@ -9,7 +9,6 @@ describe.skip('Progress', () => {
     it('Updates the progress', async () => {
       const newProgressData = {
         saved_chat: 'some chat',
-        score: 21341,
         items: [2, 5, 9, 10],
       };
       jest.spyOn(db, 'query').mockResolvedValueOnce({
@@ -19,7 +18,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 2,
             items: [2, 5, 9, 10],
           },
         ],
@@ -38,13 +36,11 @@ describe.skip('Progress', () => {
       const progress = await Progress.getOneByProgressId(42);
       const updatedProgress = await progress.update(newProgressData);
       expect(updatedProgress).toBeInstanceOf(Progress); // Check if it's an instance of the Skill class.
-      expect(updatedProgress.score).toBe(21341);
     });
 
     it('throws an error', async () => {
       const newProgressData = {
         saved_chat: 'some chat',
-        score: 21341,
         items: [2, 5, 9, 10],
       };
 
@@ -55,7 +51,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             saved_chat: 'some chat',
             branch_route: '1a,2a,3b',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -86,7 +81,6 @@ describe.skip('Progress', () => {
             story_id: 3,
             saved_chat: 'some chat',
             branch_route: '1a,2a,3b',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -100,7 +94,6 @@ describe.skip('Progress', () => {
             story_id: 3,
             saved_chat: 'some chat',
             branch_route: '1a,2a,3b',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -121,7 +114,6 @@ describe.skip('Progress', () => {
             story_id: 3,
             saved_chat: 'some chat',
             branch_route: '1a,2a,3b',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -152,7 +144,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
           {
@@ -160,7 +151,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
           {
@@ -168,7 +158,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -204,7 +193,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -225,21 +213,18 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
           {
             progress_id: 38,
             game_id: 4,
             saved_chat: 'some chat',
-            score: 334532,
             items: [2, 5, 9, 10],
           },
           {
             progress_id: 22,
             game_id: 42,
             saved_chat: 'some chat',
-            score: 1212,
             items: [2, 5, 9, 10],
           },
         ],
@@ -263,7 +248,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -284,21 +268,18 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
           {
             progress_id: 38,
             game_id: 4,
             saved_chat: 'some chat',
-            score: 334532,
             items: [2, 5, 9, 10],
           },
           {
             progress_id: 22,
             game_id: 42,
             saved_chat: 'some chat',
-            score: 1212,
             items: [2, 5, 9, 10],
           },
         ],
@@ -322,7 +303,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
           {
@@ -330,7 +310,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
           {
@@ -338,7 +317,6 @@ describe.skip('Progress', () => {
             game_id: 42,
             story_id: 3,
             saved_chat: 'some chat',
-            score: 21341,
             items: [2, 5, 9, 10],
           },
         ],
@@ -371,7 +349,6 @@ describe.skip('Progress', () => {
       // Create a mock data object
       const newProgressData = {
         saved_chat: 'none',
-        score: 0,
         items: [],
         story_id: 5,
       };

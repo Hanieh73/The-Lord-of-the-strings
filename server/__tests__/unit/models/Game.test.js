@@ -14,6 +14,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-13',
           },
@@ -26,6 +27,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -34,7 +36,7 @@ describe.skip('Game', () => {
 
       //not static so need an instance
       const game = await Game.getOneById(12);
-      const updatedGame = await game.update();
+      const updatedGame = await game.update({ score: 100 });
       expect(updatedGame).toBeInstanceOf(Game); // Check if it's an instance of the Skill class.
       expect(updatedGame.updated_at).toBe('2023-11-14');
     });
@@ -49,6 +51,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -79,6 +82,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -92,6 +96,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -112,6 +117,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -141,6 +147,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -149,6 +156,7 @@ describe.skip('Game', () => {
             user_id: 7,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -157,6 +165,7 @@ describe.skip('Game', () => {
             user_id: 112,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -191,6 +200,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -211,6 +221,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -219,6 +230,7 @@ describe.skip('Game', () => {
             user_id: 7,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -227,6 +239,7 @@ describe.skip('Game', () => {
             user_id: 112,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -251,6 +264,7 @@ describe.skip('Game', () => {
             user_id: 1,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
@@ -258,6 +272,51 @@ describe.skip('Game', () => {
       });
 
       const game = await Game.getAllByUser(12);
+      expect(game[0]).toHaveProperty('state');
+      expect(game[0]).toHaveProperty('difficulty');
+      expect(game[0]).toHaveProperty('created_at');
+    });
+
+    it('should throw an error (length of respose != 1)', async () => {
+      jest.spyOn(db, 'query').mockResolvedValueOnce({
+        rows: [],
+      });
+
+      try {
+        await Game.getAllByUser(3);
+      } catch (err) {
+        expect(err).toBeDefined();
+        expect(err.message).toBe('No games available.');
+      }
+    });
+  });
+
+  describe('getAllByScore', () => {
+    it('resolves with 1 or more record when successful', async () => {
+      jest.spyOn(db, 'query').mockResolvedValueOnce({
+        rows: [
+          {
+            game_id: 12,
+            user_id: 1,
+            state: 'in-progress',
+            difficulty: 'easy',
+            score: 100,
+            created_at: '2023-11-14',
+            updated_at: '2023-11-14',
+          },
+          {
+            game_id: 16,
+            user_id: 1,
+            state: 'in-progress',
+            difficulty: 'easy',
+            score: 10,
+            created_at: '2023-11-14',
+            updated_at: '2023-11-14',
+          },
+        ],
+      });
+
+      const game = await Game.getAllByScore();
       expect(game[0]).toHaveProperty('state');
       expect(game[0]).toHaveProperty('difficulty');
       expect(game[0]).toHaveProperty('created_at');
@@ -285,6 +344,7 @@ describe.skip('Game', () => {
         user_id: 112,
         state: 'in-progress',
         difficulty: 'easy',
+        score: 100,
       };
 
       // Mock the database query
@@ -295,6 +355,7 @@ describe.skip('Game', () => {
             user_id: 112,
             state: 'in-progress',
             difficulty: 'easy',
+            score: 100,
             created_at: '2023-11-14',
             updated_at: '2023-11-14',
           },
