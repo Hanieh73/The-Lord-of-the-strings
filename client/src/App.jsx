@@ -33,15 +33,25 @@ const App = () => {
   return (
     <>
       <Routes>
-
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/" >
+          <Route index element={<HomePage />} />
+          <Route
+            path="/about"
+            element={
+              <Protected>
+                <AboutPage />
+              </Protected>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/*" element={<NotFoundPage />} />
+          
+        </Route>
+        <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
         <Route path="/game" element={<GamePage />} />
         <Route path="load" element={<GameLibraryPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+
       </Routes>
     </>
   );

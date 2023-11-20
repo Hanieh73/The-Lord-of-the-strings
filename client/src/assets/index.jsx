@@ -1,6 +1,6 @@
 //Locations
 export { default as lab } from './location/lab.png';
-export { default as centralplaza } from './location/CentralPlaza.png';
+export { default as centralplaza } from './location/centralplaza.png';
 export { default as industrialdistrict } from './location/IndustrialDistrict.png';
 export { default as mainframechamber } from './location/MainframeChamber.png';
 export { default as mainframeconsole} from './location/MainframeConsole.png';
