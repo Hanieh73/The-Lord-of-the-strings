@@ -86,6 +86,17 @@ const GamePage = () => {
   // }
 
 
+  useEffect(() => {
+    document.body.classList.add("game-page-text");
+    document.body.classList.remove("home-page");
+    document.body.classList.remove("signup-page")
+
+    return () => {
+      document.body.classList.remove("game-page-text");
+    };
+  }, []);
+
+
   const submitUserInput = async () => {
     if (userInput.trim() !== '') {
       const userMessage = { role: 'user', content: userInput };
