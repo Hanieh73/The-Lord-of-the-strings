@@ -82,6 +82,7 @@ export default function LoginPage() {
         option
       );
       const resData = await res.json();
+      console.log(resData);
       const dataUser = resData.username;
       setUserID(resData.id);
       setAchievements(resData.achievements);
