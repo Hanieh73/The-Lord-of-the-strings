@@ -201,6 +201,7 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 2;
 }
 
 .visibleUserInput{
