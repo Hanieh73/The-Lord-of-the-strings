@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //import { Footer } from '../../components';
 import logoImg from "./logo.png";
+import registerImg from "./register.png";
 
 import "../LoginPage/login.css";
-
+import backgroundmp4 from "./background.mp4"
 export default function RegisterPage() {
   const [formUsername, setFormUsername] = useState('');
   const [formPassword, setFormPassword] = useState('');
@@ -63,8 +64,21 @@ export default function RegisterPage() {
     }
   }
 
+  function loginPage() {
+    navigate("/login")
+  }
+
   return (
-    <div className="login-page">
+    
+    <div className="login-page reg-login">
+
+      <video id="video-background" autoPlay loop muted>
+            <source src={backgroundmp4} type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+        <div id="overlay"></div>
+
+
       <div className="row">
         <div className="col-3"></div>
           <div className="col-6 login-title text-center">
@@ -78,13 +92,19 @@ export default function RegisterPage() {
             
 
             <button type="submit" className='register-btn' onClick={handleSubmit}>
-              register
+              <img src={registerImg} alt="register"/>
             </button>
 
 
             </form>
           </div>
         <div className="col-3"></div> 
+      </div>
+
+      <div className="row">
+        <div className="col-12 text-center">
+        <button className='register-acc login-acc' onClick={loginPage}>Already have an account?</button>
+        </div>
       </div>
 
 

@@ -34,7 +34,7 @@ function App() {
           <Route path="/*" element={<NotFoundPage />} />
           
         </Route>
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
       </Routes>
     </ExampleProvider>
   );

@@ -7,8 +7,43 @@ import resumeImg from "./resume.png"
 import dashImg from "./dash2.png"
 import leaderboardImg from "./leaderboard.png"
 import settingsImg from "./settings.png"
+import { TypeAnimation } from 'react-type-animation';
+
 
 export default function DashboardPage() {
+
+    const navigate = useNavigate();
+    const [user, setUser] = useState("");
+    useEffect(() => {
+        async function fetchUser() {
+            const option = {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  token: localStorage.token,
+                }),
+              };
+              const res = await fetch('https://city-72-wez6.onrender.com/users/showId', option);
+              const resData = await res.json();
+
+              setUser(resData.username);
+              console.log(user);
+              
+        }
+        fetchUser();
+        console.log(user);
+        
+    }, [])
+    
+
+    function logout() {
+        localStorage.removeItem("token");
+        navigate('/login');
+    }
+    console.log(user);
     return (
         <div className="dashboard">
 
@@ -21,11 +56,22 @@ export default function DashboardPage() {
                 </div>
             </div> */}
 
-
+            <div className="about">?</div>
             <div className="row dashboard2">
                 <div className="col-12">
                     <div className="dashboard-img">                    
-                        <div className="overlay-text">Welcome Name</div>
+                        <div className="overlay-text text-center">
+                        
+                        {user && (
+                            <TypeAnimation
+                            key={"Welcome"}
+                            sequence={[`Welcome ${user}`]}
+                            speed={10}
+                            
+                            />
+                        )}
+                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +112,7 @@ export default function DashboardPage() {
             <div className="row dashboard2">
                 <div className="col-3"></div>
                 <div className="col-2 text-right">
-                    <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns'/>
+                    <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns' onClick={logout}/>
                 </div>
                 <div className="col-2 text-center">
                     <img src={settingsImg} alt="settings" className='img-fluid dashboard-btns'/>
