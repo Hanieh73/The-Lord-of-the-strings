@@ -40,6 +40,7 @@ async function login(req, res) {
   }
 }
 
+//USE THIS TO GET ACHIEVEMENTS
 async function getUserId(req, res) {
   const data = req.body;
   try {

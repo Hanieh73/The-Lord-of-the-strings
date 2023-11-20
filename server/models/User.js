@@ -32,8 +32,8 @@ class User {
   static async create(data) {
     const { username, password, name, isAdmin } = data;
     let response = await db.query(
-      'INSERT INTO Users (username, password, name) VALUES ($1, $2, $3) RETURNING user_id;',
-      [username, password, name]
+      'INSERT INTO Users (username, password, name, achievements) VALUES ($1, $2, $3, $4) RETURNING user_id;',
+      [username, password, name, '{achievements: placeholder}']
     );
     const newId = response.rows[0].user_id;
     const newUser = await User.getOneById(newId);

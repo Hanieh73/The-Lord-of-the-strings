@@ -6,7 +6,6 @@ class Progress {
     this.game_id = data.game_id;
     this.story_id = data.story_id;
     this.saved_chat = data.saved_chat;
-    this.score = data.score;
     this.items = data.items;
   }
 
@@ -68,10 +67,10 @@ class Progress {
   }
 
   async update(data) {
-    const { saved_chat, score, items } = data;
+    const { saved_chat, items } = data;
     const response = await db.query(
-      'UPDATE Progress SET saved_chat = $1, score = $2, items = $3 WHERE game_id = $4 AND story_id = $5 RETURNING *;',
-      [saved_chat, score, items, this.game_id, this.story_id]
+      'UPDATE Progress SET saved_chat = $1, items = $2 WHERE game_id = $3 AND story_id = $4 RETURNING *;',
+      [saved_chat, items, this.game_id, this.story_id]
     );
     if (response.rows.length != 1) {
       throw new Error('Unable to update progress.');
