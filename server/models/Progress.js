@@ -30,7 +30,7 @@ class Progress {
 
   static async getLatestOneByGameId(id) {
     const response = await db.query(
-      'SELECT * FROM Progress WHERE game_id = $1;',
+      'SELECT * FROM Progress WHERE game_id = $1 LIMIT 1;',
       [id]
     );
     if (response.rows.length != 1) {

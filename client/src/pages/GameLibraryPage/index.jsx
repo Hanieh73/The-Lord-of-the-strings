@@ -11,7 +11,7 @@ export default function GameLibraryPage() {
       try {
         const response = await fetch(`http://localhost:3000/games/show/1`); //HARDCODED FOR 1 FOR NOW
         const data = await response.json();
-
+        // console.log(data);
         setAllGames(data);
       } catch (error) {
         console.log(error);
