@@ -3,6 +3,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useExample } from '../../contexts';
 
 import logoImg from "./logo.png";
+import signInImg from "./sign in2.png";
+
+import backgroundmp4 from "./background.mp4"
 
 import "./login.css"
 
@@ -15,6 +18,7 @@ export default function LoginPage() {
   const [formUsername, setFormUsername] = useState('');
   const [formPassword, setFormPassword] = useState('');
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     document.body.classList.add("login-page");
@@ -25,6 +29,8 @@ export default function LoginPage() {
       document.body.classList.remove("login-page");
     };
   }, []);
+
+  
 
 
 
@@ -51,7 +57,7 @@ export default function LoginPage() {
         password: formPassword,
       }),
     };
-    const response = await fetch('http://localhost:3000/users/login', options);
+    const response = await fetch('https://city-72-wez6.onrender.com/users/login', options);
     const data = await response.json();
 
     if (response.status == 200) {
@@ -68,11 +74,14 @@ export default function LoginPage() {
           token: data.token,
         }),
       };
-      const res = await fetch('http://localhost:3000/users/showId', option);
+      const res = await fetch('https://city-72-wez6.onrender.com/users/showId', option);
       const resData = await res.json();
+      const dataUser = resData.username;
       setUserID(resData.id);
       setUsername(resData.name);
-      navigate('/');
+      setUser(dataUser);
+      navigate('/dashboard');
+      // navigate('/dashboard', { state: { user: "user" } });
     } else {
       //alert(data.error);
       setIsLoggedIn(false);
@@ -83,14 +92,27 @@ export default function LoginPage() {
     }
   }
 
-  useEffect(() => {
-    setIsLoggedIn(false);
-    localStorage.clear();
-    setUserID(0);
-  }, []);
+  function register() {
+    navigate("/register")
+  }
+
+  // useEffect(() => {
+  //   setIsLoggedIn(false);
+  //   localStorage.clear();
+  //   setUserID(0);
+  // }, []);
 
   return (
-    <div className="login-page">
+
+    
+    <div className="login-page real-login">
+
+  <video id="video-background" autoPlay loop muted>
+        <source src={backgroundmp4} type="video/mp4"/>
+        Your browser does not support the video tag.
+    </video>
+    <div id="overlay"></div>
+
       <div className="row">
         <div className="col-3"></div>
           <div className="col-6 login-title text-center">
@@ -100,12 +122,33 @@ export default function LoginPage() {
 
             
             <input type="text" placeholder="Username" className="username-text" onChange={handleInput} required/>
-            <input type="text" placeholder="Password" className="password-text" onChange={handlePassword} required/>
+            <input type="password" placeholder="Password" className="password-text" onChange={handlePassword} required/>
+
+            <button type="submit" className='sign-in-btn' onClick={handleSubmit}>
+              <img src={signInImg} alt="sign in" />
+            </button>
             
             </form>
           </div>
         <div className="col-3"></div> 
       </div>
+
+      
+
+      <div className="row">
+        <div className="col-12 text-center">
+        <button className='register-acc' onClick={register}>Create an Account</button>
+        </div>
+      </div>
+
+      {incorrectCredentials ? (
+          <h3 className="incorrect" style={{ color: '#FF0000', textAlign: 'center' }}>
+            Incorrect Credentials
+          </h3>
+        ) : (
+          ''
+        )}
+      
 
 
     </div>
