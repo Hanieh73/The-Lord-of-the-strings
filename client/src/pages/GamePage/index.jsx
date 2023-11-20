@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
-
 import {city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
-
 //Character imports
 import {
   ava,
@@ -16,26 +14,10 @@ import {
   rennharlow,
 } from '../../assets';
 //Item imports
-import {
-  digitalmapofcity72,
-  lotrartifacts,
-  mainframe,
-  holorecorder,
-  stealthcloak,
-  datapad,
-  ancienttechdetector,
-  neuralinterface,
-  timecapsule,
-  settings,
-  RennHarlowVideo,
-} from '../../assets';
-import {
-  SettingsPopup,
-  CharacterCard,
-  TextToSpeech,
-  SpeechToText,
-} from '../../components';
-import '../../assets';
+import { digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule, settings, RennHarlowVideo } from '../../assets';
+import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText} from '../../components';
+import {Background} from '../../assets';
+
 const locationImages = {
   city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod
 };
@@ -100,7 +82,10 @@ const GamePage = () => {
   const [conversation, setConversation] = useState([
     {
       role: 'system',
-      content: `I will provide a story setting, and your role is to act as the story master, guiding the narrative and presenting choices to the players. Each choice, labeled A, B, and C, leads to new developments in the story. Format the response JSON object with the keys: 'current_location', 'narrative', 'items', 'character', 'choices'. Here's the story prompt: ${mainStory} \n\nResponse format:\n\n{\n  'currentLocation': 'the current character location',\n'narrative': 'Approaching City 72, athe adventurer turned to the crowded streets.',\n'items': ['List of currently possessed items'],\n'character': 'Main character name or name of character being interacted with by main character',\n'choices': [\n{'A': 'Choice A description'},\n{'B': 'Choice B description'},\n{'C': 'Choice C description'}\n]\n }`,
+      content: `I will provide a story setting, and your role is to act as the story master, guiding the narrative and presenting choices to the players. Each choice, labeled A, B, and C, leads to new developments in the story. 
+      Format the response JSON object with the keys: 'current_location', 'narrative', 'items', 'character', 'choices'.The name of these keys must be exactly like this. Here's the story prompt: ${mainStory} \n\nResponse format:\n\n{\n  'currentLocation': 'the current character location',
+      \n'narrative': 'Approaching City 72, athe adventurer turned to the crowded streets.',\n'items': ['List of currently possessed items'],\n'character': 'Main character name or name of character being interacted with by main character',\n'choices': [\n{'A': 'Choice A description'},
+      \n{'B': 'Choice B description'},\n{'C': 'Choice C description'}\n]\n }`,
     },
   ]);
 
@@ -167,47 +152,53 @@ const GamePage = () => {
     if (userInput.trim() !== '') {
       const userMessage = { role: 'user', content: userInput };
       setConversation((prevConversation) => [...prevConversation, userMessage]);
-      setVisibleUserInput(userInput);
-
+      // Extract the choice from the user input
+      const userChoice = userInput.trim().toUpperCase();
+      console.log(choices);
+      // Show the choice in visibleUserInput
+      if (userChoice == "CONTINUE") {
+        setVisibleUserInput(`You Chose: ${userChoice}`);
+      } else {
+        const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
+        setVisibleUserInput(`You Chose: ${choices[choiceIndex][userChoice]}`);
+      }
       try {
-        const response = await fetch(
-          'https://city-72-wez6.onrender.com/chats',
-          {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify([...conversation, userMessage]),
-          }
-        );
-
+        const response = await fetch('https://city-72-wez6.onrender.com/chats', {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json' },
+          body: JSON.stringify([...conversation, userMessage]),
+        });
+  
         const data = await response.json();
-
-        console.log(data.message)
-        const formatedData = JSON.parse(data.message)
-
-        console.log(formatedData)
-        const formattedLocation = formatedData.current_location ? formatedData.current_location.replace(/\s/g, '').toLowerCase() : '';
-
+        console.log(data.message);
+        const formatedData = JSON.parse(data.message);
+  
+        console.log(formatedData);
+        const formattedLocation = formatedData.current_location
+          ? formatedData.current_location.replace(/\s/g, '').toLowerCase()
+          : '';
         setLocation(locationImages[formattedLocation]);
         console.log('Formatted Location:', formattedLocation.toString());
-        console.log('Location Image:', locationImages[formattedLocation]);
-
+        console.log('Location Image:', locationImages[formattedLocation.toString()]);
+  
         setDialogue(formatedData.narrative);
-
+  
         const formattedItems = formatedData.items.map((item) =>
-          item
-            .replace(/\s/g, '')
-            .replace(/[^\w\s]/g, '')
-            .toLowerCase()
+          item.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase()
         );
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
-
-        const formattedCharacter = formatedData.character
-          ? formatedData.character.replace(/\s/g, '').toLowerCase()
-          : '';
-        setCharacterdisplayed(characterImages[formattedCharacter]);
-        setCharacterName(formatedData.character);
-
+  
+        if (formatedData.character == '') {
+          setCharacterName('Renn Harlow');
+          setCharacterdisplayed('rennharlow');
+        } else {
+          const formattedCharacter = formatedData.character
+            ? formatedData.character.replace(/\s/g, '').toLowerCase()
+            : '';
+          setCharacterdisplayed(characterImages[formattedCharacter]);
+          setCharacterName(formatedData.character);
+        }
         setChoices(formatedData.choices);
         setConversation((prevConversation) => [
           ...prevConversation,
@@ -220,6 +211,7 @@ const GamePage = () => {
       console.log(conversation);
     }
   };
+  
 
   const toggleInventory = () => {
     setInventoryVisible(!inventoryVisible);

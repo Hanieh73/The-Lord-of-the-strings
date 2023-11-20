@@ -122,3 +122,4 @@ export { default as theaientity } from './characters/tech-magi/TheAIEntity.png';
 export { default as RennHarlowVideo } from './animatedCharacters/RennHarlowVideo.mp4';
 //Music
 export { default as BackgroundMusic } from './music/BackgroundMusic.mp3';
+export { default as Background } from './music/Background.mp4';
