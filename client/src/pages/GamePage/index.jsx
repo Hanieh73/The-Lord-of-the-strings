@@ -58,6 +58,7 @@ const mainStory =
 
 
 const GamePage = () => {
+  
   const [dialogue, setDialogue] = useState('enter continue');
   const [userInput, setUserInput] = useState('');
   const [visibleUserInput, setVisibleUserInput] = useState('');

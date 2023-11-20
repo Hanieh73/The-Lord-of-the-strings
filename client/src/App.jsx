@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {BackgroundMusic} from'./assets'
+import { Protected } from './components';
+
 import './App.css';
 import {
   HomePage,
@@ -12,7 +14,7 @@ import {
   DashboardPage,
   GameLibraryPage,
 } from './pages';
-
+import { ExampleProvider } from './contexts';
 const App = () => {
   const [audioPlayed, setAudioPlayed] = useState(false);
 
@@ -31,7 +33,7 @@ const App = () => {
      };
    }, [audioPlayed]);
   return (
-    <>
+    <ExampleProvider>
       <Routes>
         <Route path="/" >
           <Route index element={<HomePage />} />
@@ -53,7 +55,7 @@ const App = () => {
         <Route path="load" element={<GameLibraryPage />} />
 
       </Routes>
-    </>
+    </ExampleProvider>
   );
 }
 
