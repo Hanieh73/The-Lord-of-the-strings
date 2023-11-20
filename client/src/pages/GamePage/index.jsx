@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
-import {city72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
+import {city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
 //Character imports
 import {ava, cipher, depictmayoranikavoss, drelaramorn, echo, vega, rennharlow} from '../../assets'
 //Item imports
@@ -10,7 +10,7 @@ import { digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak
 import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText} from '../../components';
 import '../../assets'
 const locationImages = {
-  city72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod
+  city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod
 };
 const characterImages = {
   ava, cipher, depictmayoranikavoss, drelaramorn, echo, vega, rennharlow
@@ -18,7 +18,6 @@ const characterImages = {
 const itemImages = {
   digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule
 }
-
 
 import { useExample } from '../../contexts';
 
@@ -45,45 +44,45 @@ const GamePage = () => {
   const [characterdisplayed, setCharacterdisplayed] = useState(rennharlow)
   const [characterName, setCharacterName] = useState('Renn Harlow')
   const [choices, setChoices] = useState([]);
-  const { currentGameID } = useExample();
-  const [saveData, setSaveData] = useState();
+  // const { currentGameID } = useExample();
+  // const [saveData, setSaveData] = useState();
 
-  async function grabSaveData() {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/progress/game/${currentGameID}`
-      );
-      const data = await response.json();
+  // async function grabSaveData() {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:3000/progress/game/${currentGameID}`
+  //     );
+  //     const data = await response.json();
 
-      setSaveData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     setSaveData(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  async function saveGame() {
-    const options = {
-      method: 'PATCH',
-      body: JSON.stringify({
-        //CHANGE TO APPROPRIATE DATA FOR UPDATE
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    };
+  // async function saveGame() {
+  //   const options = {
+  //     method: 'PATCH',
+  //     body: JSON.stringify({
+  //       //CHANGE TO APPROPRIATE DATA FOR UPDATE
+  //     }),
+  //     headers: {
+  //       'Content-type': 'application/json; charset=UTF-8',
+  //     },
+  //   };
 
-    try {
-      const response = await fetch(
-        `http://localhost:3000/games/${currentGameID}`,
-        options
-      );
-      const data = await response.json();
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:3000/games/${currentGameID}`,
+  //       options
+  //     );
+  //     const data = await response.json();
 
-      setSaveData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     setSaveData(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
 
   const submitUserInput = async () => {
@@ -102,12 +101,14 @@ const GamePage = () => {
         const data = await response.json();
         console.log(data.message)
         const formatedData = JSON.parse(data.message)
+
         console.log(formatedData)
         const formattedLocation = formatedData.currentLocation ? formatedData.currentLocation.replace(/\s/g, '').toLowerCase() : '';
+        console.log('Formatted Location:', formattedLocation);
         setLocation(locationImages[formattedLocation]);
 
         setDialogue(formatedData.narrative)
-
+        
         const formattedItems = formatedData.items.map(item => item.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase())
         const itemsArray = formattedItems.map(item => itemImages[item]);
         setItems(itemsArray);
@@ -194,6 +195,7 @@ const GamePage = () => {
         <div className='top-container'>
             <CharacterCard 
             name={characterName}
+            // VideoSrc={RennHarlowVideo}
             img={characterdisplayed}
             description={"An Adventurer"}
             />

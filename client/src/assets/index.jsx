@@ -8,6 +8,8 @@ export { default as secretundergroundlab } from './location/SecretUndergroundLab
 export { default as undergroundpaths } from './location/UndergroundPaths.png';
 export { default as virtualrealitypod } from './location/VirtualRealityPod.png';
 export { default as city72 } from './location/City72.png';
+export { default as arrivalincity72 } from './location/City72.png';
+export { default as neonstreets } from './location/City72.png';
 //Items
 export { default as digitalmapofcity72 } from './items/digital_map.png';
 export { default as lotrartifacts } from './items/LOTR_artifacts.png';
