@@ -9,6 +9,7 @@ gameRouter.get('/:id', gameController.show);
 gameRouter.post('/', gameController.create);
 gameRouter.delete('/:id', gameController.destroy);
 gameRouter.get('/show/:id', gameController.showAllForUser);
+gameRouter.get('/scores/leaderboard', gameController.showScores);
 //No updating game settings once created.
 gameRouter.patch('/:id', gameController.update);
 

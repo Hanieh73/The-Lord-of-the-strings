@@ -4,18 +4,32 @@ import { TypeAnimation } from 'react-type-animation';
 //Location imports
 import {city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
 //Character imports
-import {ava, cipher, depictmayoranikavoss, drelaramorn, echo, vega, rennharlow} from '../../assets'
+import {
+  ava,
+  cipher,
+  depictmayoranikavoss,
+  drelaramorn,
+  echo,
+  vega,
+  rennharlow,
+} from '../../assets';
 //Item imports
 import { digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule, settings, RennHarlowVideo } from '../../assets';
 import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText} from '../../components';
 import {Background} from '../../assets';
-import '../../assets'
+
 const locationImages = {
   city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod
 };
 const characterImages = {
-  ava, cipher, depictmayoranikavoss, drelaramorn, echo, vega, rennharlow
-}
+  ava,
+  cipher,
+  depictmayoranikavoss,
+  drelaramorn,
+  echo,
+  vega,
+  rennharlow,
+};
 const itemImages = {
   digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule
 }
@@ -52,11 +66,11 @@ const charactersInfo = {
       "The AI Entity": "Newly conscious AI, interacts with the lab's work and poses ethical questions."
   }
 
+
 import { useExample } from '../../contexts';
 
 const mainStory =
   "Main Story of City 72 Adventure\n\nAct 1: Arrival in City 72\n\n- Introduction: The adventurer, Renn Harlow, arrives in City 72, intrigued by rumors of ancient technology and hidden truths.\n- Exploration: Players navigate the neon-lit streets of City 72, interacting with characters like street vendors and corporate agents, and gathering information about the city's history and the rumored mainframe.\n- Discovery: Renn discovers the mainframe's location in an abandoned sector beneath the city, guided by characters like Vega, the mysterious local guide.\n- Key Locations: Central plaza, neon streets, underground paths.\n- Items: Digital Map of City 72, Holo-Recorder.\n\nAct 2: The Mainframe and the Relics\n\n- Revelation: The mainframe, an ancient AI, is discovered in a secret underground lab. It's a repository of historical data and experiences.\n- First Contact: The AI communicates with Renn, expressing a desire to share the stories within the relics.\n- Gathering Relics: Renn seeks relics across City 72, facing puzzles, negotiations, or confrontations.\n- Key Locations: Industrial district, underground lab, mainframe chamber.\n- Items: Access Keycard, Ancient Tech Detector.\n\nAct 3: Unlocking the Past\n\n- Activation: Each relic, connected to the mainframe, unlocks a unique story from the past.\n- Choices and Consequences: Decisions impact both the historical stories and Renn's understanding of City 72's history.\n- Unraveling Secrets: Renn uncovers narratives about City 72's formation and the mainframe's origins.\n- Key Locations: Virtual reality pods, historical data banks.\n- Items: Neural Interface.\n\nAct 4: The Present Echoes the Past\n\n- Integration: Past experiences influence Renn's present interactions, creating new pathways and alliances in City 72.\n- Revelation of Purpose: The mainframe's intention is revealed, potentially guiding someone to alter the city's future.\n- Climactic Decision: Renn makes a critical decision shaping City 72's future, influenced by past lessons.\n- Key Locations: Political centers, key landmarks.\n- Items: Data Pad, Holo-Disguise.\n\nEpilogue\n\n- Reflections and Consequences: The game concludes with City 72 reflecting the changes brought by Renn's choices, leading to various endings.\n- Conclusion: The story provides a rich context for the player, intertwining Renn's journey with City 72's history, setting the stage for the three branching stories experienced through the relics.\n\nItems Description:\n\n- Digital Map of City 72: Helps navigate the sprawling cyberpunk city.\n- Holo-Recorder: Captures clues and information.\n- Access Keycard: Unlocks the path to the mainframe.\n- Ancient Tech Detector: Helps locate hidden relics and the mainframe.\n- Relic Container: Safely stores collected relics.\n- Stealth Cloak: Used for sneaking into high-security areas.\n- Neural Interface: Connects the adventurer to the mainframe for experiencing history.\n- Data Pad: Contains historical data to influence present-day decisions.\n- Holo-Disguise: Assists in blending in during sensitive missions.\n- Time Capsule: Contains relics and records for future generations.\n\nLocations Description:\n\n- Central Plaza: A bustling hub of activity in the heart of City 72.\n- Neon Streets: Vibrant, neon-drenched streets filled with diverse characters and hidden secrets.\n- Underground Paths: Hidden passages beneath the city, leading to secretive and forgotten places.\n- Industrial District: Decrepit part of the city, housing abandoned factories and warehouses.\n- Secret Underground Lab: Hidden laboratory, home to the ancient mainframe.\n- Mainframe Chamber: Central location where the mainframe is housed, filled with advanced technology.\n\nCharacters Description:\n\n- Renn Harlow: Dynamic, resourceful adventurer. Skilled in navigating through the cyberpunk city and uncovering its secrets.\n- Vega: Mysterious guide with deep knowledge of City 72's hidden truths. Enigmatic and knowledgeable.\n- Dr. Elara Morn: Reclusive tech savant. Brilliant mind with expertise in ancient technology and the mainframe.\n- Cipher: Street-smart hacker with a rebellious edge. Savvy in digital espionage and hacking.\n- Mayor Anika Voss: Charismatic and influential politician. Holds significant power and ambition within City 72.\n- Echo: Well-connected informant. Resourceful and knowledgeable about the city's affairs.";
-
 
 const GamePage = () => {
   
@@ -75,14 +89,15 @@ const GamePage = () => {
     },
   ]);
 
-  const [location, setLocation] = useState(locationImages.city72)
-  const [narrative, setNarrative] = useState('narrative')
-  const [items, setItems] = useState([])
-  const [characterdisplayed, setCharacterdisplayed] = useState(rennharlow)
-  const [characterName, setCharacterName] = useState('Renn Harlow')
+  const [location, setLocation] = useState(locationImages.city72);
+  const [narrative, setNarrative] = useState('narrative');
+  const [items, setItems] = useState([]);
+  const [characterdisplayed, setCharacterdisplayed] = useState(rennharlow);
+  const [characterName, setCharacterName] = useState('Renn Harlow');
   const [choices, setChoices] = useState([]);
   // const { currentGameID } = useExample();
   // const [saveData, setSaveData] = useState();
+
 
   // async function grabSaveData() {
   //   try {
@@ -120,6 +135,17 @@ const GamePage = () => {
   //     console.log(error);
   //   }
   // }
+
+
+  useEffect(() => {
+    document.body.classList.add("game-page-text");
+    document.body.classList.remove("home-page");
+    document.body.classList.remove("signup-page")
+
+    return () => {
+      document.body.classList.remove("game-page-text");
+    };
+  }, []);
 
 
   const submitUserInput = async () => {
@@ -202,12 +228,15 @@ const GamePage = () => {
 
   return (
     <div className="app-container">
-      <div className="left-section" style={{backgroundImage: `url(${location})`}}></div>
+      <div
+        className="left-section"
+        style={{ backgroundImage: `url(${location})` }}
+      ></div>
       <div className="middle-section">
         <div className="top-container">
-          <p className='visibleUserInput'>{visibleUserInput}</p>
+          <p className="visibleUserInput">{visibleUserInput}</p>
           <div className="dialogue">
-          <TypeAnimation
+            <TypeAnimation
               key={dialogue}
               sequence={[dialogue]}
               speed={80}
@@ -220,6 +249,7 @@ const GamePage = () => {
               }}
             />
           </div>
+
           <div className='choices'>
           {choices.map((choice, index) => (
             <div key={index} className={`choice${index + 1}`}>
@@ -228,9 +258,10 @@ const GamePage = () => {
             </div>
           ))}
           </div>
+
           </div>
+        </div>
         <div className="bottom-container">
-        
           <input
             className="user-input"
             type="text"
@@ -249,13 +280,17 @@ const GamePage = () => {
         </div>
       </div>
       <div className="right-section">
+
         <div className='topr-container'>
             <CharacterCard 
+
             name={characterName}
             // VideoSrc={RennHarlowVideo}
             img={characterdisplayed}
+
             description={charactersInfo[characterName]}
             />
+
         </div>
         <div className="bottom-container">
           <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
@@ -266,14 +301,17 @@ const GamePage = () => {
               </span>
             </div>
             {inventoryVisible && (
-            <>
-              {items.map((item, index) => (
-                <img key={index} src={item} alt={item} className='inventoryItem' />
-              ))} 
-            </>
-
+              <>
+                {items.map((item, index) => (
+                  <img
+                    key={index}
+                    src={item}
+                    alt={item}
+                    className="inventoryItem"
+                  />
+                ))}
+              </>
             )}
-           
           </div>
         </div>
       </div>

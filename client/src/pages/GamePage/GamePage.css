@@ -136,7 +136,7 @@ h3 {
   width:100px;
   height:100px;
 }
-span {
+span.game-page.text {
   color:white;
   display: flex;
   flex-direction: column;

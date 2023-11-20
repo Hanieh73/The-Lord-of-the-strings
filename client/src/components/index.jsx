@@ -7,4 +7,5 @@ export { default as TextToSpeech } from './TextToSpeech';
 export { default as SpeechToText } from './SpeechToText';
 export { default as LoadGames } from './LoadGames';
 export { default as ContinueGameButton } from './ContinueGameButton';
+export { default as NewGameButton } from './NewGameButton';
 // export {default as Prompts} from './prompts'
