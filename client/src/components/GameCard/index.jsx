@@ -63,9 +63,9 @@ export default function GameCard({ game }) {
   function ifClicked() {
     setCurrentGameID(gameID);
     grabSaveData();
-    // setTimeout(() => {
-    //   navigate('/game');
-    // }, 250);
+    setTimeout(() => {
+      navigate('/game');
+    }, 250);
   }
 
   //MAKE THEM A LINK TO THE GAME PAGE
