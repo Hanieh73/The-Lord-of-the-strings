@@ -18,6 +18,38 @@ const characterImages = {
 const itemImages = {
   digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule
 }
+const charactersInfo = {
+  
+      "Renn Harlow": "Dynamic, resourceful adventurer. Skilled in navigating through the cyberpunk city and uncovering its secrets.",
+      "Vega": "Mysterious guide with deep knowledge of City 72's hidden truths. Enigmatic and knowledgeable.",
+      "Dr. Elara Morn": "Reclusive tech savant. Brilliant mind with expertise in ancient technology and the mainframe.",
+      "Cipher": "Street-smart hacker with a rebellious edge. Savvy in digital espionage and hacking.",
+      "Mayor Anika Voss": "Charismatic and influential politician. Holds significant power and ambition within City 72.",
+      "Echo": "Well-connected informant. Resourceful and knowledgeable about the city's affairs.",
+      "Mika Redstorm": "Key informant with insights into the city's underworld. Resourceful and cunning.",
+      "Axel Blackwell": "Mastermind of the heist. Strategic thinker and planner.",
+      "Jade Vortex": "Security expert specializing in infiltration and tech. Analytical and detail-oriented.",
+      // "Echo": "Tech-savvy hacker, crucial for information gathering and digital support.",
+      "Zephyr": "Stealth specialist with expertise in disabling security systems.",
+      "Iris Flint": "Safe cracking expert, skilled in breaking into high-security vaults.",
+      "Luna Vega": "Escape driver, adept at high-speed chases and evasive maneuvers.",
+      "Captain Rhys Dalton": "Determined police officer. Persistent in thwarting criminal activities.",
+      "Major Johnathan Ellis": "Intelligence officer, strategic and serious, focused on war strategies.",
+      "Sergeant Emily Turner": "Drill sergeant, authoritative and commanding, responsible for troop training.",
+      "Commander William Harper": "Naval commander, leads with courage and determination.",
+      "Lieutenant Grace Bennett": "Communications expert, critical in maintaining lines of communication.",
+      "Private Samuel King": "Lone survivor, resilient and resourceful in challenging situations.",
+      "Captain Lucas Ford": "Tactical leader, excels in strategizing and leading operations.",
+      "Scout Oliver Thompson": "Recon expert, adept at stealth and gathering crucial intel.",
+      "Dr. Ava Lin": "Leading bio-engineer, innovative in developing cybernetic enhancements.",
+      "Professor Leo Zheng": "Neurobiologist, expert in integrating technology with the human nervous system.",
+      "Ethicist Dr. Maya Singh": "Ethics specialist, challenges the moral implications of human augmentation.",
+      "Geneticist Dr. Rajiv Kumar": "Geneticist, explores the genetic impact of cybernetics on human evolution.",
+      "Corporate Spy Alex Mercer": "Sly and cunning, attempts to steal groundbreaking research.",
+      "Security Expert Hana Kim": "Protects sensitive information, specialized in security measures.",
+      "AI Researcher Dr. Emily Carter": "Studies the integration of AI with biological systems.",
+      "The AI Entity": "Newly conscious AI, interacts with the lab's work and poses ethical questions."
+  }
 
 import { useExample } from '../../contexts';
 
@@ -103,12 +135,13 @@ const GamePage = () => {
         const formatedData = JSON.parse(data.message)
 
         console.log(formatedData)
-        const formattedLocation = formatedData.currentLocation ? formatedData.currentLocation.replace(/\s/g, '').toLowerCase() : '';
-        console.log('Formatted Location:', formattedLocation);
+        const formattedLocation = formatedData.current_location ? formatedData.current_location.replace(/\s/g, '').toLowerCase() : '';
         setLocation(locationImages[formattedLocation]);
+        console.log('Formatted Location:', formattedLocation.toString());
+        console.log('Location Image:', locationImages[formattedLocation]);
 
         setDialogue(formatedData.narrative)
-        
+
         const formattedItems = formatedData.items.map(item => item.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase())
         const itemsArray = formattedItems.map(item => itemImages[item]);
         setItems(itemsArray);
@@ -170,7 +203,7 @@ const GamePage = () => {
               <p>{choice[Object.keys(choice)[0]]}</p>
             </div>
           ))}
-        </div>
+          </div>
           </div>
         <div className="bottom-container">
         
@@ -192,12 +225,12 @@ const GamePage = () => {
         </div>
       </div>
       <div className="right-section">
-        <div className='top-container'>
+        <div className='topr-container'>
             <CharacterCard 
             name={characterName}
             // VideoSrc={RennHarlowVideo}
             img={characterdisplayed}
-            description={"An Adventurer"}
+            description={charactersInfo[characterName]}
             />
         </div>
         <div className="bottom-container">
