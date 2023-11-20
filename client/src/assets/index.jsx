@@ -90,7 +90,7 @@ export { default as vega } from './characters/main/Vega.png';
 export { default as mikaredstorm } from './characters/heist/MikaRedstorm.png';
 export { default as axelblackwell } from './characters/heist/AxelBlackwell.png';
 export { default as jadevortex } from './characters/heist/JadeVortex.png';
-export { default as echo } from './characters/heist/Echo.png';
+// export { default as echo } from './characters/heist/Echo.png';
 export { default as zephyr } from './characters/heist/Zephyr.png';
 export { default as irisflint } from './characters/heist/IrisFlint.png';
 export { default as lunavega } from './characters/heist/LunaVega.png';
