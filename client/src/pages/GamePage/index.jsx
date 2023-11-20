@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
-import {city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
+import {mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
 //Character imports
 import {
   ava,
@@ -147,21 +147,23 @@ const GamePage = () => {
     };
   }, []);
 
-
+  let choiceMade = ""
   const submitUserInput = async () => {
     if (userInput.trim() !== '') {
-      const userMessage = { role: 'user', content: userInput };
-      setConversation((prevConversation) => [...prevConversation, userMessage]);
       // Extract the choice from the user input
       const userChoice = userInput.trim().toUpperCase();
+      
       console.log(choices);
       // Show the choice in visibleUserInput
       if (userChoice == "CONTINUE") {
         setVisibleUserInput(`You Chose: ${userChoice}`);
       } else {
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
-        setVisibleUserInput(`You Chose: ${choices[choiceIndex][userChoice]}`);
+        choiceMade =choices[choiceIndex][userChoice]
+        setVisibleUserInput(`You Chose: ${choiceMade}`);
       }
+      const userMessage = { role: 'user', content: userInput };
+      setConversation((prevConversation) => [...prevConversation, userMessage]);
       try {
         const response = await fetch('https://city-72-wez6.onrender.com/chats', {
           method: 'POST',
@@ -230,8 +232,19 @@ const GamePage = () => {
     <div className="app-container">
       <div className="left-section" style={{ backgroundImage: `url(${location})` }}></div>
       <div className="middle-section">
+      <video autoPlay muted loop className="background-video">
+        <source src={Background} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
         <div className="top-container">
           <p className="visibleUserInput">{visibleUserInput}</p>
+          <div className='conversation'>{conversation.map((message, index) => (
+            <div key={index}>
+              {message.role === 'user' && <p>User: {message.content}</p>}
+              {message.role === 'assistant' && <p>Assistant: {JSON.parse(message.content).narrative}</p>}
+            </div>
+          ))}
+          </div>
           <div className="dialogue">
             <TypeAnimation
               key={dialogue}
@@ -240,9 +253,10 @@ const GamePage = () => {
               style={{
                 fontSize: '1em',
                 display: 'block',
-                minHeight: '375px',
+                maxHeight: '250px',
                 color: 'white',
                 fontFamily: 'Courier New',
+                overflowY: 'auto',
               }}
             />
           </div>
@@ -284,7 +298,7 @@ const GamePage = () => {
         <div className="bottom-container">
           <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
             <div className="inventory-toggle" onClick={toggleInventory}>
-              <span>
+              <span className='inventoryIcons'>
                 <h3>Inventory</h3>
                 {inventoryVisible ? '▼' : '▲'}
               </span>
