@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Protected } from './components';
+import {BackgroundMusic} from'./assets'
 import './App.css';
 import {
   HomePage,
@@ -8,16 +8,30 @@ import {
   NotFoundPage,
   LoginPage,
   RegisterPage,
-  DashboardPage
+  GamePage,
+  DashboardPage,
+  GameLibraryPage,
 } from './pages';
-import { ExampleProvider } from './contexts';
-//Don't forget to change name of Provider
 
-//To protect Route do this element={<Protected><Page /></Protected>}
+const App = () => {
+  const [audioPlayed, setAudioPlayed] = useState(false);
 
-function App() {
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      if (!audioPlayed) {
+        const audio = new Audio(BackgroundMusic);
+        audio.volume = 0.2;
+        audio.play();
+        setAudioPlayed(true);
+      }
+    };
+     document.addEventListener('click', handleFirstInteraction, { once: true });
+     return () => {
+       document.removeEventListener('click', handleFirstInteraction);
+     };
+   }, [audioPlayed]);
   return (
-    <ExampleProvider>
+    <>
       <Routes>
         <Route path="/" >
           <Route index element={<HomePage />} />
@@ -35,8 +49,11 @@ function App() {
           
         </Route>
         <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
+        <Route path="/game" element={<GamePage />} />
+        <Route path="load" element={<GameLibraryPage />} />
+
       </Routes>
-    </ExampleProvider>
+    </>
   );
 }
 
