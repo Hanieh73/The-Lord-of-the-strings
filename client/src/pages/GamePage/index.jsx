@@ -45,45 +45,45 @@ const GamePage = () => {
   const [characterdisplayed, setCharacterdisplayed] = useState(rennharlow)
   const [characterName, setCharacterName] = useState('Renn Harlow')
   const [choices, setChoices] = useState([]);
-  const { currentGameID } = useExample();
-  const [saveData, setSaveData] = useState();
+  // const { currentGameID } = useExample();
+  // const [saveData, setSaveData] = useState();
 
-  async function grabSaveData() {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/progress/game/${currentGameID}`
-      );
-      const data = await response.json();
+  // async function grabSaveData() {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:3000/progress/game/${currentGameID}`
+  //     );
+  //     const data = await response.json();
 
-      setSaveData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     setSaveData(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  async function saveGame() {
-    const options = {
-      method: 'PATCH',
-      body: JSON.stringify({
-        //CHANGE TO APPROPRIATE DATA FOR UPDATE
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    };
+  // async function saveGame() {
+  //   const options = {
+  //     method: 'PATCH',
+  //     body: JSON.stringify({
+  //       //CHANGE TO APPROPRIATE DATA FOR UPDATE
+  //     }),
+  //     headers: {
+  //       'Content-type': 'application/json; charset=UTF-8',
+  //     },
+  //   };
 
-    try {
-      const response = await fetch(
-        `http://localhost:3000/games/${currentGameID}`,
-        options
-      );
-      const data = await response.json();
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:3000/games/${currentGameID}`,
+  //       options
+  //     );
+  //     const data = await response.json();
 
-      setSaveData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     setSaveData(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
 
   const submitUserInput = async () => {
