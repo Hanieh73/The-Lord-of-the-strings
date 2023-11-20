@@ -90,11 +90,11 @@ export { default as vega } from './characters/main/Vega.png';
 export { default as mikaredstorm } from './characters/heist/MikaRedstorm.png';
 export { default as axelblackwell } from './characters/heist/AxelBlackwell.png';
 export { default as jadevortex } from './characters/heist/JadeVortex.png';
-export { default as echo } from './characters/heist/Echo.png';
-export { default as zephyr } from './characters/heist/Zephyr.png';
-export { default as irisflint } from './characters/heist/IrisFlint.png';
-export { default as lunavega } from './characters/heist/LunaVega.png';
-export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
+// export { default as echo } from './characters/heist/Echo.png';
+// export { default as zephyr } from './characters/heist/Zephyr.png';
+// export { default as irisflint } from './characters/heist/IrisFlint.png';
+// export { default as lunavega } from './characters/heist/LunaVega.png';
+// export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
 //war
 // export { default as majorjohnathanellis } from './characters/war/MajorJohnathanEllis.png';
 // export { default as sergeantemilyturner } from './characters/war/SergeantEmilyTurner.png';
@@ -122,3 +122,4 @@ export { default as theaientity } from './characters/tech-magi/TheAIEntity.png';
 export { default as RennHarlowVideo } from './animatedCharacters/RennHarlowVideo.mp4';
 //Music
 export { default as BackgroundMusic } from './music/BackgroundMusic.mp3';
+export { default as Background } from './music/Background.mp4';
