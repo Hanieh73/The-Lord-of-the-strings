@@ -92,7 +92,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 12%;
+  margin-top: 7%;
 }
 
 .login-form input{
@@ -107,17 +107,22 @@ body {
   border-bottom: 2px solid #ffffff;
 }
 
-.username-text, .password-text {
+.username-text, .password-text, .name-text {
   color: rgb(255, 255, 255);
   text-align: center;
   font-size: 20px;
+  font-family: "Press Start 2p";
 }
 
 .password-text {
   margin-top: 30px;
 }
 
-.username-text::placeholder, .password-text::placeholder {
+.name-text {
+  margin-bottom: 20px;
+}
+
+.username-text::placeholder, .password-text::placeholder, .name-text::placeholder {
   color: white;
 }
 
@@ -125,4 +130,25 @@ body {
 
 .dashboard2 {
   margin-top: 7%;
+}
+
+.login-page {
+  margin-top: 4%;
+}
+
+
+.sign-in-btn img{
+  width: 100%;
+}
+
+
+.about {
+  text-align: end;
+  color: rgb(255, 194, 247);
+  font-family: "Press Start 2p";
+  font-size: 40px;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  -webkit-text-stroke: 1px rgb(255, 0, 119);
 }
