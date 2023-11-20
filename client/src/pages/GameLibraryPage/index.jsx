@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LoadGames, ContinueGameButton } from '../../components';
+import { LoadGames, ContinueGameButton, NewGameButton } from '../../components';
 import { useExample } from '../../contexts';
 import './GameLibrary.css';
 
@@ -23,7 +23,7 @@ export default function GameLibraryPage() {
   return (
     <div>
       <ContinueGameButton allGames={allGames} />
-      <button>New Game</button>
+      <NewGameButton />
       <LoadGames allGames={allGames} />
     </div>
   );
