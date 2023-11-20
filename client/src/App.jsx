@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { BackgroundMusic } from './assets';
+
+import {BackgroundMusic} from'./assets'
+import { Protected } from './components';
+
 import './App.css';
 import {
   HomePage,
@@ -31,20 +34,29 @@ const App = () => {
     };
   }, [audioPlayed]);
   return (
-    <>
-      <ExampleProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
+    <ExampleProvider>
+      <Routes>
+        <Route path="/" >
+          <Route index element={<HomePage />} />
+          <Route
+            path="/about"
+            element={
+              <Protected>
+                <AboutPage />
+              </Protected>
+            }
+          />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/game" element={<GamePage />} />
-          <Route path="load" element={<GameLibraryPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </ExampleProvider>
-    </>
+          <Route path="/*" element={<NotFoundPage />} />
+          
+        </Route>
+        <Route path="/dashboard" element={<Protected><DashboardPage /></Protected>} />
+        <Route path="/game" element={<GamePage />} />
+        <Route path="load" element={<GameLibraryPage />} />
+
+      </Routes>
+    </ExampleProvider>
   );
 };
 

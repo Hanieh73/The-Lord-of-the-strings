@@ -3,7 +3,7 @@ import { useExample } from '../../contexts';
 
 const Protected = ({ children }) => {
   const { isLoggedIn } = useExample();
-  if (!isLoggedIn) {
+  if (!localStorage.token) {
     return (
       <>
         <Navigate to="/login" replace />

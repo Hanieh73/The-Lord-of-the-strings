@@ -63,36 +63,6 @@ main {
 .bottom-container {
   width: 100%; 
 }
-
-.right-section {
-  flex: 1.15;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: solid 1px white;
-  width: 100%;
-}
-
-
-.character-info {
-  border: solid 1px white;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto ;
-  width:80%;
-}
-  
-.lives-remaining-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid white;
-}
-
 .user-input {
   font-family: "Courier New";
   width: 100%;
@@ -121,12 +91,50 @@ main {
   font-size: 1em;
 }
 
+.right-section {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 1px white;
+  width: 100%;
+}
+
+
+.character-info {
+  border: solid 1px white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+  margin: auto ;
+  width:80%;
+}
+.characterImg{
+  border-radius: 10px;
+  width:150px;
+  height:170px;
+}
+h3 {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Courier New";
+}
+ p {
+  font-size: 12px;;
+  text-align: center;
+  color: white;
+  font-family: "Courier New";
+}
+
 .inventoryItem {
   border: solid 1px white;
   width:100px;
   height:100px;
 }
-span {
+span.game-page.text {
   color:white;
   display: flex;
   flex-direction: column;
@@ -158,6 +166,8 @@ span {
   align-items: left;
 }
 .settings-popup {
+  height:200px;
+  width: 200px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -167,18 +177,11 @@ span {
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;;
-}
-.characterImg{
-  border-radius: 10px;
-  width:150px;
-  height:170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-h3, p {
-  text-align: center;
-  color: white;
-  font-family: "Courier New";
-}
 .visibleUserInput{
   text-align: center;
   color: red;
