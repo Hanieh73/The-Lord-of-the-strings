@@ -7,7 +7,6 @@ class Progress {
     this.story_id = data.story_id;
     this.saved_chat = data.saved_chat;
     this.items = data.items;
-    this.user_choices = data.user_choices;
   }
 
   static async getAll() {
@@ -54,14 +53,13 @@ class Progress {
 
   static async create(game_id, data) {
     const response = await db.query(
-      'INSERT INTO Progress (game_id, story_id, saved_chat, score, items, user_choices) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;',
+      'INSERT INTO Progress (game_id, story_id, saved_chat, score, items) VALUES ($1, $2, $3, $4, $5) RETURNING *;',
       [
         game_id,
         data.story_id,
         '',
         0,
         ['NOTHING HERE, MAKE SURE TO CHANGE BEFORE DEPLOY'],
-        '',
       ]
     );
 
@@ -69,10 +67,10 @@ class Progress {
   }
 
   async update(data) {
-    const { saved_chat, items, user_choices } = data;
+    const { saved_chat, items } = data;
     const response = await db.query(
-      'UPDATE Progress SET saved_chat = $1, items = $2, user_choices = $3 WHERE game_id = $4 AND story_id = $5 RETURNING *;',
-      [saved_chat, items, user_choices, this.game_id, this.story_id]
+      'UPDATE Progress SET saved_chat = $1, items = $2 WHERE game_id = $3 AND story_id = $4 RETURNING *;',
+      [saved_chat, items, this.game_id, this.story_id]
     );
     if (response.rows.length != 1) {
       throw new Error('Unable to update progress.');
