@@ -136,10 +136,10 @@ export { default as Background } from './music/Background.mp4';
 export { default as NeonNavigator } from './achievement/main/NeonNavigator.png';
 export { default as MainframeMaster } from './achievement/main/MainframeMaster.png';
 export { default as CyberSleuth } from './achievement/main/CyberSleuth.png';
-export { default as DiplomatOfTheDark } from './achievement/main/DiplomatOfTheDark.png';
+export { default as DiplomatOfTheDark } from './achievement/main/DiplomatOftheDark.png';
 export { default as FuturisticHistorian } from './achievement/main/FuturisticHistorian.png';
 export { default as DecisiveLeader } from './achievement/main/DecisiveLeader.png';
-export { default as GuardianOfThePast } from './achievement/main/GuardianOfThePast.png';
+export { default as GuardianOfThePast } from './achievement/main/GuardianOfthePast.png';
 
 //heist
 export { default as StealthySteps } from './achievement/heist/StealthySteps.png';
