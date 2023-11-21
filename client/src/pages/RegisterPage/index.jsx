@@ -65,7 +65,7 @@ export default function RegisterPage() {
       }),
     };
     const response = await fetch(
-      'http://localhost:3000/users/register',
+      'https://city-72-wez6.onrender.com/users/register',
       options
     );
     const data = await response.json();

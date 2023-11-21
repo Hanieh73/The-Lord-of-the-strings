@@ -57,7 +57,7 @@ export default function LoginPage() {
         password: formPassword,
       }),
     };
-    const response = await fetch('http://localhost:3000/users/login', options);
+    const response = await fetch('https://city-72-wez6.onrender.com/users/login', options);
     const data = await response.json();
 
     if (response.status == 200) {
@@ -74,7 +74,7 @@ export default function LoginPage() {
           token: data.token,
         }),
       };
-      const res = await fetch('http://localhost:3000/users/showId', option);
+      const res = await fetch('https://city-72-wez6.onrender.com/users/showId', option);
       const resData = await res.json();
       console.log(resData);
       const dataUser = resData.username;
