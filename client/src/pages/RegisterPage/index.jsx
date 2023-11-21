@@ -10,6 +10,8 @@ export default function RegisterPage() {
   const [formUsername, setFormUsername] = useState('');
   const [formPassword, setFormPassword] = useState('');
   const [formName, setFormName] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [incorrectCredentials, setIncorrectCredentials] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('login-page');
@@ -31,12 +33,25 @@ export default function RegisterPage() {
     setFormPassword(e.target.value);
   }
 
+  function handleConfirmPassword(e) {
+    setConfirmPassword(e.target.value);
+  }
+
   function handleName(e) {
     setFormName(e.target.value);
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (formPassword !== confirmPassword) {
+      setIncorrectCredentials(true);
+      setTimeout(() => {
+        setIncorrectCredentials(false);
+      }, 5000);
+      return;
+    }
+
     const options = {
       method: 'POST',
       headers: {
@@ -77,38 +92,21 @@ export default function RegisterPage() {
 
       <div className="row">
         <div className="col-3"></div>
-        <div className="col-6 login-title text-center">
-          <img src={logoImg} alt="city 72" className="img-fluid" />
 
-          <form className="login-form">
-            <input
-              type="text"
-              placeholder="Name"
-              className="name-text"
-              onChange={handleInput}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Username"
-              className="username-text"
-              onChange={handleInput}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="password-text"
-              onChange={handlePassword}
-              required
-            />
+          <div className="col-6 login-title text-center">
+            <img src={logoImg} alt="city 72" className='img-fluid' />
 
-            <button
-              type="submit"
-              className="register-btn"
-              onClick={handleSubmit}
-            >
-              <img src={registerImg} alt="register" />
+            <form className='login-form'>
+
+            <input type="text" placeholder="Name" className="name-text" onChange={handleInput} required/>
+            <input type="text" placeholder="Username" className="username-text" onChange={handleInput} required/>
+            <input type="password" placeholder="Password" className="password-text" onChange={handlePassword} required/>
+            <input type="password" placeholder="Confirm password" className="password-text" onChange={handleConfirmPassword} required/>
+            
+
+            <button type="submit" className='register-btn' onClick={handleSubmit}>
+              <img src={registerImg} alt="register"/>
+
             </button>
           </form>
         </div>
@@ -122,6 +120,18 @@ export default function RegisterPage() {
           </button>
         </div>
       </div>
+
+
+      {incorrectCredentials ? (
+          <h3 className="incorrect" style={{ color: '#FF0000', textAlign: 'center' }}>
+            Passwords do not match!
+          </h3>
+        ) : (
+          ''
+        )}
+
+
+
     </div>
   );
 }

@@ -88,6 +88,7 @@ export default function LoginPage() {
       //alert(data.error);
       setIsLoggedIn(false);
       setIncorrectCredentials(true);
+      console.log(incorrectCredentials);
       setTimeout(() => {
         setIncorrectCredentials(false);
       }, 5000);
