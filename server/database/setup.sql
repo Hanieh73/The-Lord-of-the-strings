@@ -69,8 +69,9 @@ CREATE TABLE Progress (
     progress_id INT GENERATED ALWAYS AS IDENTITY,
     game_id INT NOT NULL,
     story_id INT NOT NULL,
-    saved_chat VARCHAR(50), 
+    saved_chat VARCHAR(100000), 
     items INTEGER[],
+    user_choices VARCHAR(300),
     PRIMARY KEY(progress_id),
     FOREIGN KEY (game_id) REFERENCES Game(game_id),
     FOREIGN KEY (story_id) REFERENCES Story(story_id)
@@ -150,15 +151,15 @@ VALUES
     (5, 'Stealth Boots', 'Silent movement', 'boots.jpg');
 
 -- Progress table
-INSERT INTO Progress (game_id, story_id, saved_chat,  items)
+INSERT INTO Progress (game_id, story_id, saved_chat, items, user_choices)
 VALUES
-    (1, 1, 'Save point 1',  '{1, 2, 3}'),
-    (1, 2, 'Save point 2',  '{4, 5}'),
-    (2, 1, 'Save point 3',  '{1, 2, 3}'),
-    (2, 3, 'Save point 4',  '{6, 7}'),
-    (3, 2, 'Save point 5',  '{4, 5}'),
-    (3, 3, 'Save point 6',  '{8, 9}'),
-    (4, 4, 'Save point 7',  '{10}'),
-    (4, 5, 'Save point 8',  '{6, 7}'),
-    (5, 3, 'Save point 9',  '{8, 9}'),
-    (5, 1, 'Save point 10',  '{1, 2, 3}');
+    (1, 1, 'Save point 1',  '{1, 2, 3}', ''),
+    (1, 2, 'Save point 2',  '{4, 5}', ''),
+    (2, 1, 'Save point 3',  '{1, 2, 3}', ''),
+    (2, 3, 'Save point 4',  '{6, 7}', ''),
+    (3, 2, 'Save point 5',  '{4, 5}', ''),
+    (3, 3, 'Save point 6',  '{8, 9}', ''),
+    (4, 4, 'Save point 7',  '{10}', ''),
+    (4, 5, 'Save point 8',  '{6, 7}', ''),
+    (5, 3, 'Save point 9',  '{8, 9}', ''),
+    (5, 1, 'Save point 10',  '{1, 2, 3}', '');
