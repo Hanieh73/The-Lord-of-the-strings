@@ -5,9 +5,9 @@ html, body {
   overflow-x: hidden; /* Hide horizontal overflow */
   overflow-y: hidden;
   background-color: #242424;
+  
 }
 main {
-  
   margin: 0;
   height: 100%;
   width: 100%;
@@ -23,7 +23,7 @@ main {
 }
 
 .app-container {
-  background-color: #242424;
+  /* background-color: #242424; */
   display: flex;
   border: solid 1px white;
   width: 100%;
@@ -49,7 +49,19 @@ main {
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
+  position: relative; /* Ensure the video is positioned relative to this container */
 }
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
 
 .top-container {
   height:100%;
@@ -58,41 +70,16 @@ main {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  z-index: 1;
 }
-
+.conversation{
+  height:250px;
+  overflow-y: auto;
+}
 .bottom-container {
   width: 100%; 
+  z-index: 1;
 }
-
-.right-section {
-  flex: 1.15;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: solid 1px white;
-  width: 100%;
-}
-
-
-.character-info {
-  border: solid 1px white;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto ;
-  width:80%;
-}
-  
-.lives-remaining-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid white;
-}
-
 .user-input {
   font-family: "Courier New";
   width: 100%;
@@ -100,6 +87,7 @@ main {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 .dialogue{
   flex:1;
@@ -114,11 +102,52 @@ main {
   width: 100%;
   height: 100%;
   font-size: 0.75em;
+  
 }
 .choice1, .choice2, .choice3{
   height: 100%;
   border:solid 1px white;
   font-size: 1em;
+  
+}
+
+.right-section {
+  background-color: #242424;
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid 1px white;
+  width: 100%;
+}
+
+
+.character-info {
+  border: solid 1px white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+  margin: auto ;
+  width:80%;
+}
+.characterImg{
+  border-radius: 10px;
+  width:150px;
+  height:170px;
+}
+h3 {
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-family: "Courier New";
+}
+ p {
+  font-size: 12px;;
+  text-align: center;
+  color: white;
+  font-family: "Courier New";
 }
 
 .inventoryItem {
@@ -126,7 +155,7 @@ main {
   width:100px;
   height:100px;
 }
-span.game-page.text {
+.inventoryIcons {
   color:white;
   display: flex;
   flex-direction: column;
@@ -158,6 +187,8 @@ span.game-page.text {
   align-items: left;
 }
 .settings-popup {
+  height:200px;
+  width: 200px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -167,24 +198,20 @@ span.game-page.text {
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;;
-}
-.characterImg{
-  border-radius: 10px;
-  width:150px;
-  height:170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
 }
 
-h3, p {
-  text-align: center;
-  color: white;
-  font-family: "Courier New";
-}
 .visibleUserInput{
-  text-align: center;
+  width:100%;
+  text-align: left;
   color: red;
   font-family: "Courier New";
   padding:0px;
   margin-bottom: 0;
+  font-size: 12px;
 }
 
 /* Responsive Styles */

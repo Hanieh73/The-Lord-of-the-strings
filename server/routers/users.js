@@ -7,5 +7,6 @@ const userRouter = Router();
 userRouter.post('/register', userController.register);
 userRouter.post('/login', userController.login);
 userRouter.post('/showId', userController.getUserId);
+userRouter.patch('/', userController.updateAchievements);
 
 module.exports = userRouter;

@@ -10,8 +10,8 @@ import settingsImg from "./settings.png"
 import backgroundmp4 from "./background.mp4";
 import { TypeAnimation } from 'react-type-animation';
 
-
 export default function DashboardPage() {
+
 
     const navigate = useNavigate();
     const [user, setUser] = useState("");
@@ -91,14 +91,9 @@ export default function DashboardPage() {
 
                 <div id="overlay"></div>
 
-            {/* <div className="row">
-                <div className="col-12">
-                    <div className="dashboard-img">                    
-                        <img src={dashImg} alt="dashboard image" />
-                        <div className="overlay-text">Welcome Name</div>
-                    </div>
-                </div>
-            </div> */}
+        
+
+
 
             <div className="about" onClick={clickAbout}>?</div>
             <div className="row dashboard2">
@@ -115,14 +110,14 @@ export default function DashboardPage() {
                             />
                         )}
                         
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+    
 
-            
-            {/* <div className="row">
+                </div>
+              </div>
+            </div>
+          </div>
+
+      {/* <div className="row">
                 <div className="col-3"></div>
                 <div className="col-2 text-right">
                     <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns'/>
@@ -150,6 +145,7 @@ export default function DashboardPage() {
                 </div>
                 <div className="col-3"></div>
             </div> */}
+
 
 
 
@@ -196,10 +192,8 @@ export default function DashboardPage() {
 
 
 
-
-            
         </div>
-        
-        
-    )
+       
+     
+  );
 }

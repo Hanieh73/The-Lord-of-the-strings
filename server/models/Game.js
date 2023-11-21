@@ -6,6 +6,7 @@ class Game {
     this.user_id = data.user_id;
     this.state = data.state;
     this.difficulty = data.difficulty;
+    this.score = data.score;
     this.created_at = data.created_at;
     this.updated_at = data.updated_at;
   }
@@ -39,18 +40,29 @@ class Game {
     return new Game(response.rows[0]);
   }
 
+  static async getAllByScore() {
+    const response = await db.query(
+      'SELECT * from Game ORDER BY score DESC Limit 100'
+    );
+    if (response.rows.length === 0) {
+      throw new Error('No games available.');
+    }
+    return response.rows.map((g) => new Game(g));
+  }
+
   static async create(data) {
     const date = new Date().toDateString();
     const { user_id, state, difficulty } = data;
     const response = await db.query(
-      'INSERT INTO Game (user_id, state, difficulty, created_at, updated_at) VALUES ($1, $2, $3, $4, $5) RETURNING *;',
-      [user_id, state, difficulty, date, date]
+      'INSERT INTO Game (user_id, state, difficulty, score, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;',
+      [user_id, state, difficulty, 0, date, date]
     );
 
     return new Game(response.rows[0]);
   }
 
-  async update() {
+  async update(data) {
+    const { score } = data;
     const date = new Date().toDateString();
     const response = await db.query(
       'UPDATE Game SET updated_at = $1 WHERE game_id = $2 RETURNING *;',

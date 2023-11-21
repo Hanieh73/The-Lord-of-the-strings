@@ -40,6 +40,7 @@ async function login(req, res) {
   }
 }
 
+//USE THIS TO GET ACHIEVEMENTS
 async function getUserId(req, res) {
   const data = req.body;
   try {
@@ -52,8 +53,19 @@ async function getUserId(req, res) {
   }
 }
 
+async function updateAchievements(req, res) {
+  const data = req.body;
+  try {
+    const user = await User.getOneByUsername(data.username);
+    const updatedUser = await user.update(data);
+  } catch (err) {
+    res.status(404).json({ error: err.message });
+  }
+}
+
 module.exports = {
   register,
   login,
   getUserId,
+  updateAchievements,
 };

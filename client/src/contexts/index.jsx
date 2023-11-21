@@ -12,6 +12,8 @@ export const ExampleProvider = ({ children }) => {
   const [username, setUsername] = useState('');
   const [allGames, setAllGames] = useState([]);
   const [currentGameID, setCurrentGameID] = useState(0);
+  const [achievements, setAchievements] = useState({});
+  const [awardCount, setAwardCount] = useState(0);
 
   return (
     <ExampleContext.Provider
@@ -28,6 +30,10 @@ export const ExampleProvider = ({ children }) => {
         setAllGames,
         currentGameID,
         setCurrentGameID,
+        achievements,
+        setAchievements,
+        awardCount,
+        setAwardCount,
       }}
     >
       {children}
