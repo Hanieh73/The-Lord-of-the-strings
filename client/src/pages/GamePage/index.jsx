@@ -45,7 +45,7 @@ const GamePage = () => {
   const [audioPlayed, setAudioPlayed] = useState(true);
   console.log(audioPlayed)
   
-  const [dialogue, setDialogue] = useState('enter continue');
+  const [dialogue, setDialogue] = useState('Enter Continue');
   const [userInput, setUserInput] = useState('');
   const [visibleUserInput, setVisibleUserInput] = useState('');
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -144,9 +144,11 @@ const GamePage = () => {
       // Show the choice in visibleUserInput
       if (userChoice == "CONTINUE") {
         setVisibleUserInput(`You Chose: ${userChoice}`);
-      } else {
+      } else if (userChoice == "A" || userChoice == "B" || userChoice == "C") {
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
         choiceMade =choices[choiceIndex][userChoice]
+        setVisibleUserInput(`You Chose: ${choiceMade}`);
+      } else {
         setVisibleUserInput(`You Chose: ${choiceMade}`);
       }
       const userMessage = { role: 'user', content: userInput };
@@ -193,7 +195,7 @@ const GamePage = () => {
           ...prevConversation,
           { role: 'assistant', content: data.message },
         ]);
-        setUserInput('');
+        
       } catch (error) {
         console.error('Error fetching response:', error);
       }
@@ -212,6 +214,7 @@ const GamePage = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       submitUserInput();
+      setUserInput("");
     }
   };
 
@@ -234,27 +237,28 @@ const GamePage = () => {
       </video>
         <div className="top-container">
           <p className="visibleUserInput">{visibleUserInput}</p>
-          <div className='conversation'>{conversation.map((message, index) => (
-            <div key={index}>
-              {message.role === 'user' && <p>User: {message.content}</p>}
-              {message.role === 'assistant' && <p>Assistant: {JSON.parse(message.content).narrative}</p>}
-            </div>
-          ))}
-          </div>
-          <div className="dialogue">
-            <TypeAnimation
-              key={dialogue}
-              sequence={[dialogue]}
-              speed={80}
-              style={{
-                fontSize: '0.75em',
-                display: 'block',
-                maxHeight: '250px',
-                color: 'white',
-                fontFamily: 'Courier New',
-                overflowY: 'auto',
-              }}
-            />
+          <div className='conversation'>
+            {conversation.map((message, index) => (
+              <div key={index}>
+                {message.role === 'user' && <p>User: {message.content}</p>}
+                
+                {message.role === 'assistant' && 
+                  <TypeAnimation
+                    key={index}  // Use the index as the key
+                    sequence={[JSON.parse(message.content).narrative.toString()]}
+                    speed={80}
+                    cursor={false}
+                    style={{
+                      fontSize: '0.75em',
+                      display: 'block',
+                      color: 'white',
+                      fontFamily: 'Courier New',
+                      width: '100%',
+                    }}
+                  />
+                }
+              </div>
+            ))}
           </div>
           <div className='choices'>
             {choices.map((choice, index) => (
