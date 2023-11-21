@@ -1,0 +1,89 @@
+#main-awards-container {
+  border: 3px solid red;
+  width: 80%;
+  margin: 0px auto;
+}
+
+.awards-container {
+  border: 3px solid blue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.awards-card {
+  border: 3px solid white;
+  width: 190px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: url('./lock.jpg'); */
+}
+
+.awards-card:hover {
+  transition: transform 1s;
+  background: none;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+.flip-card {
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  background: transparent;
+  width: 200px;
+  height: 200px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  /* border: 1px solid blue; */
+  border-radius: 5px;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  /* background-color: #bbb; */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('./lock.jpg');
+  background-size: 200px 200px;
+}
+
+.flip-card-front:hover {
+  transition: 1s ease;
+  background: yellow;
+}
+/* Style the back side */
+.flip-card-back {
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotateY(180deg);
+}

@@ -77,7 +77,7 @@ export { default as speaking } from './settings/speaking.svg';
 export { default as PlayButton } from './settings/play-button.svg';
 export { default as StopButton } from './settings/stop-button.svg';
 //Characters
-//
+//main
 export { default as ava } from './characters/main/Ava.png';
 export { default as Ava2 } from './characters/main/Ava2.png';
 export { default as rennharlow } from './characters/main/RennHarlow.png';
@@ -86,25 +86,32 @@ export { default as depictmayoranikavoss } from './characters/main/DepictMayorAn
 export { default as drelaramorn } from './characters/main/Dr.ElaraMorn.png';
 export { default as echo } from './characters/main/Echo.png';
 export { default as vega } from './characters/main/Vega.png';
+//newly added
+export { default as lyra } from './characters/main/Lyra.png';
+export { default as knox } from './characters/main/Knox.png';
+export { default as aimainframe } from './characters/main/AIMainframe.png';
+
+
 //heist
 export { default as mikaredstorm } from './characters/heist/MikaRedstorm.png';
 export { default as axelblackwell } from './characters/heist/AxelBlackwell.png';
 export { default as jadevortex } from './characters/heist/JadeVortex.png';
 // export { default as echo } from './characters/heist/Echo.png';
-// export { default as zephyr } from './characters/heist/Zephyr.png';
-// export { default as irisflint } from './characters/heist/IrisFlint.png';
-// export { default as lunavega } from './characters/heist/LunaVega.png';
-// export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
+export { default as zephyr } from './characters/heist/Zephyr.png';
+export { default as irisflint } from './characters/heist/IrisFlint.png';
+export { default as lunavega } from './characters/heist/LunaVega.png';
+export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
+
 //war
-// export { default as majorjohnathanellis } from './characters/war/MajorJohnathanEllis.png';
-// export { default as sergeantemilyturner } from './characters/war/SergeantEmilyTurner.png';
-// export { default as commanderwilliamharper } from './characters/war/CommanderWilliamHarper.png';
-// export { default as lieutenantgracebennett } from './characters/war/LieutenantGraceBennett.png';
-// export { default as privatesamuelking } from './characters/war/PrivateSamuelKing.png';
-// export { default as captainlucasford } from './characters/war/CaptainLucasFord.png';
-// export { default as diplomaticenvoymariedupont } from './characters/war/DiplomaticEnvoyMarieDupont.png';
-// export { default as scoutoliverthompson } from './characters/war/ScoutOliverThompson.png';
-// export { default as historiandr.elizabethmorgan } from './characters/war/HistorianDrElizabethMorgan.png';
+export { default as majorjohnathanellis } from './characters/war/MajorJohnathanEllis.png';
+export { default as sergeantemilyturner } from './characters/war/SergeantEmilyTurner.png';
+export { default as commanderwilliamharper } from './characters/war/CommanderWilliamHarper.png';
+export { default as lieutenantgracebennett } from './characters/war/LieutenantGraceBennett.png';
+export { default as privatesamuelking } from './characters/war/PrivateSamuelKing.png';
+export { default as captainlucasford } from './characters/war/CaptainLucasFord.png';
+export { default as diplomaticenvoymariedupont } from './characters/war/DiplomaticEnvoyMarieDupont.png';
+export { default as scoutoliverthompson } from './characters/war/ScoutOliverThompson.png';
+export { default as historiandrelizabethmorgan } from './characters/war/HistorianDrElizabethMorgan.png';
 
 // tech-magi
 export { default as dravalin } from './characters/tech-magi/DrAvaLin.png';
@@ -123,3 +130,43 @@ export { default as RennHarlowVideo } from './animatedCharacters/RennHarlowVideo
 //Music
 export { default as BackgroundMusic } from './music/BackgroundMusic.mp3';
 export { default as Background } from './music/Background.mp4';
+
+//achievements
+//main
+export { default as NeonNavigator } from './achievement/main/NeonNavigator.png';
+export { default as MainframeMaster } from './achievement/main/MainframeMaster.png';
+export { default as CyberSleuth } from './achievement/main/CyberSleuth.png';
+export { default as DiplomatOfTheDark } from './achievement/main/DiplomatoftheDark.png';
+export { default as FuturisticHistorian } from './achievement/main/FuturisticHistorian.png';
+export { default as DecisiveLeader } from './achievement/main/DecisiveLeader.png';
+export { default as GuardianOfThePast } from './achievement/main/GuardianofthePast.png';
+
+//heist
+export { default as StealthySteps } from './achievement/heist/StealthySteps.png';
+export { default as InsideJobMastermind } from './achievement/heist/InsideJobMastermind.png';
+export { default as HighOctaneHeister } from './achievement/heist/HighOctaneHeister.png';
+export { default as CodeCrackerExtraordinaire } from './achievement/heist/CodeCrackerExtraordinaire.png';
+export { default as ArtfulDodger } from './achievement/heist/ArtfulDodger.png';
+export { default as NeonNightcrawler } from './achievement/heist/NeonNightcrawler.png';
+
+//war
+export { default as StrategicGenius } from './achievement/war/StrategicGenius.png';
+export { default as LoneSurvivor } from './achievement/war/LoneSurvivor.png';
+export { default as DiplomaticVictory } from './achievement/war/DiplomaticVictory.png';
+export { default as WarHistorian } from './achievement/war/WarHistorian.png';
+export { default as BeachheadHero } from './achievement/war/BeachheadHero.png';
+export { default as MasterTactician } from './achievement/war/MasterTactician.png';
+
+//tech-magi
+export { default as InnovationPioneer } from './achievement/tech-magi/InnovationPioneer.png';
+export { default as EthicalGuardian } from './achievement/tech-magi/EthicalGuardian.png';
+export { default as CorporateEspionageThwarted } from './achievement/tech-magi/CorporateEspionageThwarted.png';
+export { default as AIWhisperer } from './achievement/tech-magi/AIWhisperer.png';
+export { default as BiotechVisionary } from './achievement/tech-magi/BiotechVisionary.png';
+export { default as SecuritySentinel } from './achievement/tech-magi/SecuritySentinel.png';
+
+//general
+export { default as StoryWeaver } from './achievement/general/StoryWeaver.png';
+export { default as PuzzleProdigy } from './achievement/general/PuzzleProdigy.png';
+export { default as CyberpunkConnoisseur } from './achievement/general/CyberpunkConnoisseur.png';
+export { default as MasterOfCity72 } from './achievement/general/MasterofCity72.png';
