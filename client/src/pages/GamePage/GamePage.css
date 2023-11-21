@@ -81,7 +81,7 @@ main {
   margin-left: 5px;
 }
 .conversation::-webkit-scrollbar{
-  display: none;
+  display: none;;
 }
 .conversation p {
   text-align: left;
