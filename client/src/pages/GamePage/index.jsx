@@ -76,7 +76,7 @@ const GamePage = () => {
   const [audioPlayed, setAudioPlayed] = useState(true);
   console.log(audioPlayed)
   
-  const [dialogue, setDialogue] = useState('enter continue');
+  const [dialogue, setDialogue] = useState('Enter Continue');
   const [userInput, setUserInput] = useState('');
   const [visibleUserInput, setVisibleUserInput] = useState('');
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -208,7 +208,7 @@ const GamePage = () => {
           ...prevConversation,
           { role: 'assistant', content: data.message },
         ]);
-        setUserInput('');
+        
       } catch (error) {
         console.error('Error fetching response:', error);
       }
@@ -227,6 +227,7 @@ const GamePage = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       submitUserInput();
+      setUserInput("");
     }
   };
 
@@ -252,7 +253,7 @@ const GamePage = () => {
           <div className='conversation'>{conversation.map((message, index) => (
             <div key={index}>
               {message.role === 'user' && <p>User: {message.content}</p>}
-              {message.role === 'assistant' && <p>Assistant: {JSON.parse(message.content).narrative}</p>}
+              {message.role === 'assistant' && <p>Story: {JSON.parse(message.content).narrative}</p>}
             </div>
           ))}
           </div>
@@ -264,7 +265,6 @@ const GamePage = () => {
               style={{
                 fontSize: '0.75em',
                 display: 'block',
-                maxHeight: '250px',
                 color: 'white',
                 fontFamily: 'Courier New',
                 overflowY: 'auto',

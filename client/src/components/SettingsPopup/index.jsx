@@ -3,26 +3,22 @@ import { BackgroundMusic } from '../../assets'; // Adjust the import path based 
 
 const SettingsPopup = ({ onClose, audioPlayed, setAudioPlayed }) => {
   let vid = document.getElementById("GameAudio");
-
-  // Use useEffect to update the muted property when audioPlayed changes
   useEffect(() => {
-    vid.muted = !audioPlayed; // If audioPlayed is true, set muted to false, and vice versa
+    vid.muted = !audioPlayed; 
   }, [audioPlayed]);
   const handleCheckboxChange = () => {
     setAudioPlayed(!audioPlayed);}
   return (
     <div className="settings-popup">
       <h2>Settings</h2>
-      <p>
-        <label>
-          Background Sound
+        <label className='checkbox-label'>
+        <span style={{ marginRight: '20px' }}>Background Music</span>
           <input
             type="checkbox"
             defaultChecked={audioPlayed}
             onChange={handleCheckboxChange}
           />
         </label>
-      </p>
       <button>Save</button>
       <button onClick={onClose}>Close</button>
     </div>
