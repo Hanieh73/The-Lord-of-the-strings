@@ -77,7 +77,7 @@ export { default as speaking } from './settings/speaking.svg';
 export { default as PlayButton } from './settings/play-button.svg';
 export { default as StopButton } from './settings/stop-button.svg';
 //Characters
-//
+//main
 export { default as ava } from './characters/main/Ava.png';
 export { default as Ava2 } from './characters/main/Ava2.png';
 export { default as rennharlow } from './characters/main/RennHarlow.png';
@@ -86,30 +86,37 @@ export { default as depictmayoranikavoss } from './characters/main/DepictMayorAn
 export { default as drelaramorn } from './characters/main/Dr.ElaraMorn.png';
 export { default as echo } from './characters/main/Echo.png';
 export { default as vega } from './characters/main/Vega.png';
+//newly added
+export { default as lyra } from './characters/main/Lyra.png';
+export { default as knox } from './characters/main/Knox.png';
+export { default as aimainframe } from './characters/main/AIMainframe.png';
+
+
 //heist
 export { default as mikaredstorm } from './characters/heist/MikaRedstorm.png';
 export { default as axelblackwell } from './characters/heist/AxelBlackwell.png';
 export { default as jadevortex } from './characters/heist/JadeVortex.png';
 // export { default as echo } from './characters/heist/Echo.png';
-// export { default as zephyr } from './characters/heist/Zephyr.png';
-// export { default as irisflint } from './characters/heist/IrisFlint.png';
-// export { default as lunavega } from './characters/heist/LunaVega.png';
+export { default as zephyr } from './characters/heist/Zephyr.png';
+export { default as irisflint } from './characters/heist/IrisFlint.png';
+export { default as lunavega } from './characters/heist/LunaVega.png';
 export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
+
 //war
 export { default as majorjohnathanellis } from './characters/war/MajorJohnathanEllis.png';
-// export { default as sergeantemilyturner } from './characters/war/SergeantEmilyTurner.png';
+export { default as sergeantemilyturner } from './characters/war/SergeantEmilyTurner.png';
 export { default as commanderwilliamharper } from './characters/war/CommanderWilliamHarper.png';
 export { default as lieutenantgracebennett } from './characters/war/LieutenantGraceBennett.png';
 export { default as privatesamuelking } from './characters/war/PrivateSamuelKing.png';
 export { default as captainlucasford } from './characters/war/CaptainLucasFord.png';
-// export { default as diplomaticenvoymariedupont } from './characters/war/DiplomaticEnvoyMarieDupont.png';
+export { default as diplomaticenvoymariedupont } from './characters/war/DiplomaticEnvoyMarieDupont.png';
 export { default as scoutoliverthompson } from './characters/war/ScoutOliverThompson.png';
 export { default as historiandrelizabethmorgan } from './characters/war/HistorianDrElizabethMorgan.png';
 
 // tech-magi
 export { default as dravalin } from './characters/tech-magi/DrAvaLin.png';
 export { default as professorleoZheng } from './characters/tech-magi/ProfessorLeoZheng.png';
-// export { default as ethicistdrmayasingh } from './characters/tech-magi/EthicistDrMayaSingh.png';
+export { default as ethicistdrmayasingh } from './characters/tech-magi/EthicistDrMayaSingh.png';
 export { default as geneticistdrrajivkumar } from './characters/tech-magi/GeneticistDrRajivKumar.png';
 export { default as corporatespyalexmercer } from './characters/tech-magi/CorporateSpyAlexMercer.png';
 export { default as securityexperthanakim } from './characters/tech-magi/SecurityExpertHanaKim.png';
