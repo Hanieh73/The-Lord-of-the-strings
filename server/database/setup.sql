@@ -69,7 +69,7 @@ CREATE TABLE Progress (
     progress_id INT GENERATED ALWAYS AS IDENTITY,
     game_id INT NOT NULL,
     story_id INT NOT NULL,
-    saved_chat VARCHAR(50), 
+    saved_chat VARCHAR(5000), 
     items INTEGER[],
     PRIMARY KEY(progress_id),
     FOREIGN KEY (game_id) REFERENCES Game(game_id),

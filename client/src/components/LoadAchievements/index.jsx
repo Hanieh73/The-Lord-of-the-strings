@@ -2,11 +2,12 @@ import React from 'react';
 import GameCard from '../GameCard';
 import AchievementCard from '../AchievementCard';
 
-export default function LoadAchievements({ allGames }) {
+export default function LoadAchievements({ achievements }) {
+  console.log(achievements);
   return (
-    <div className="game-container">
-      {allGames.map((game, index) => (
-        <GameCard game={game} key={index} />
+    <div className="awards-container">
+      {achievements.map((trophy, index) => (
+        <AchievementCard trophy={trophy} key={index} />
       ))}
     </div>
   );
