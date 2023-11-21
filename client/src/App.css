@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 * {
@@ -225,4 +225,15 @@ body {
 .about-title-animation {
   animation: backInLeft;
   animation-duration: 0.8s;
+}
+
+
+
+.leaderboard-table{
+ 
+  color: red;
+}
+
+table {
+  width: 100%;
 }
