@@ -32,7 +32,7 @@ body {
 
 .dashboard-img img, .dashboard-btns-row2 img {
   width: 100%;
-  height: 38vh;
+  height: 38%;
 }
 
 
@@ -59,13 +59,11 @@ body {
 .dashboard-btns {
   width: 100%;
   height: 80%;
-  margin-top: 10%;
 }
 
 .dashboard-btns-row2 {
   width: 100%;
   height: 80%;
-  margin-top: 2%;
 }
 
 
@@ -151,4 +149,80 @@ body {
   margin-right: 10px;
   margin-bottom: 0;
   -webkit-text-stroke: 1px rgb(255, 0, 119);
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.push-left {
+  transform: translateX(-100%);
+}
+
+
+#all-dash-btns {
+  transition: transform 0.6s ease;
+}
+
+.about-box {
+  transform: translateX(100%);
+  top: 3%;
+  left: 23%;
+  height: 200px;
+  width: 1000px;
+}
+
+.about-box img {
+  height: 190%;
+  width: 600px;
+}
+
+
+.about:hover {
+  color: rgb(255, 104, 235);
+}
+
+
+.about-1 {
+  background: linear-gradient(to top, #0f11307a, #0f11307a), url("./pages/DashboardPage/stars.png");
+  background-size: cover;
+  height: 250px;
+  width: 1000px;
+  border: solid 3px #e600a4;
+  border-radius: 15px;
+  font-family: "Press Start 2p";
+}
+
+.about-2 {
+  background: linear-gradient(to top, #0f11307a, #0f11307a), url("./pages/DashboardPage/stars.png");
+  background-size: cover;
+  height: 230px;
+  width: 1000px;
+  border: solid 3px #d40098;
+  border-radius: 15px;
+  margin-top: 5%;
+  font-family: "Press Start 2p";
+  
+}
+
+.hr-about {
+  background-color: #d40098;
+  padding: 1px;
+}
+
+.about-gap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: #00d9ff;
+  font-size: 20px;
+  -webkit-text-stroke: 1px rgb(255, 0, 119);
+}
+
+.about-title-animation {
+  animation: backInLeft;
+  animation-duration: 0.8s;
 }

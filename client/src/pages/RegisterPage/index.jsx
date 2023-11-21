@@ -10,6 +10,8 @@ export default function RegisterPage() {
   const [formUsername, setFormUsername] = useState('');
   const [formPassword, setFormPassword] = useState('');
   const [formName, setFormName] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [incorrectCredentials, setIncorrectCredentials] = useState(false);
 
 
   useEffect(() => {
@@ -32,12 +34,25 @@ export default function RegisterPage() {
     setFormPassword(e.target.value);
   }
 
+  function handleConfirmPassword(e) {
+    setConfirmPassword(e.target.value);
+  }
+
   function handleName(e) {
     setFormName(e.target.value);
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (formPassword !== confirmPassword) {
+      setIncorrectCredentials(true);
+      setTimeout(() => {
+        setIncorrectCredentials(false);
+      }, 5000);
+      return;
+    }
+
     const options = {
       method: 'POST',
       headers: {
@@ -89,6 +104,7 @@ export default function RegisterPage() {
             <input type="text" placeholder="Name" className="name-text" onChange={handleInput} required/>
             <input type="text" placeholder="Username" className="username-text" onChange={handleInput} required/>
             <input type="password" placeholder="Password" className="password-text" onChange={handlePassword} required/>
+            <input type="password" placeholder="Confirm password" className="password-text" onChange={handleConfirmPassword} required/>
             
 
             <button type="submit" className='register-btn' onClick={handleSubmit}>
@@ -106,6 +122,14 @@ export default function RegisterPage() {
         <button className='register-acc login-acc' onClick={loginPage}>Already have an account?</button>
         </div>
       </div>
+
+      {incorrectCredentials ? (
+          <h3 className="incorrect" style={{ color: '#FF0000', textAlign: 'center' }}>
+            Passwords do not match!
+          </h3>
+        ) : (
+          ''
+        )}
 
 
     </div>

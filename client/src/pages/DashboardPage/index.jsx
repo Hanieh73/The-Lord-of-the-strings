@@ -7,6 +7,7 @@ import resumeImg from "./resume.png"
 import dashImg from "./dash2.png"
 import leaderboardImg from "./leaderboard.png"
 import settingsImg from "./settings.png"
+import backgroundmp4 from "./background.mp4";
 import { TypeAnimation } from 'react-type-animation';
 
 
@@ -14,6 +15,7 @@ export default function DashboardPage() {
 
     const navigate = useNavigate();
     const [user, setUser] = useState("");
+    const [about, setAbout] = useState(false);
     useEffect(() => {
         async function fetchUser() {
             const option = {
@@ -43,9 +45,51 @@ export default function DashboardPage() {
         localStorage.removeItem("token");
         navigate('/login');
     }
-    console.log(user);
+
+    
+    function clickAbout(){
+        if (about == false) {
+            setAbout(true);
+            const elements = document.querySelectorAll('#all-dash-btns');
+            elements.forEach(element => {
+                element.classList.add('push-left');
+            });
+
+            const aboutTitles = document.querySelectorAll('.about-gap');
+            aboutTitles.forEach(title => {
+                title.classList.add("about-title-animation");
+              });
+
+            
+            
+        } else {
+            
+            const elements = document.querySelectorAll('#all-dash-btns');
+            elements.forEach(element => {
+                element.classList.remove('push-left');
+            });
+
+            const aboutTitles = document.querySelectorAll('.about-gap');
+            aboutTitles.forEach(title => {
+                title.classList.remove("about-title-animation");
+              });
+
+            setAbout(false);
+        }
+        
+        
+    }
+
+    
     return (
         <div className="dashboard">
+
+            <video id="video-background" autoPlay loop muted>
+                    <source src={backgroundmp4} type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+
+                <div id="overlay"></div>
 
             {/* <div className="row">
                 <div className="col-12">
@@ -56,7 +100,7 @@ export default function DashboardPage() {
                 </div>
             </div> */}
 
-            <div className="about">?</div>
+            <div className="about" onClick={clickAbout}>?</div>
             <div className="row dashboard2">
                 <div className="col-12">
                     <div className="dashboard-img">                    
@@ -109,31 +153,43 @@ export default function DashboardPage() {
 
 
 
-            <div className="row dashboard2">
-                <div className="col-3"></div>
-                <div className="col-2 text-right">
-                    <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns' onClick={logout}/>
-                </div>
-                <div className="col-2 text-center">
-                    <img src={settingsImg} alt="settings" className='img-fluid dashboard-btns'/>
-                </div>
-                <div className="col-2 text-left">
-                    <img src={awardsImg} alt="Awards" className='img-fluid dashboard-btns'/>
-                </div>
-                <div className="col-3"></div>
-            </div>
-
-
-            <div className="row">
+            <div className="row dashboard2" id='all-dash-btns'>
                 <div className="col-3"></div>
                 <div className="col-2 text-right">
                     <img src={newgameImg} alt="newgame" className='img-fluid dashboard-btns-row2'/>
                 </div>
                 <div className="col-2 text-center">
-                    <img src={resumeImg} alt="resumegame" className='img-fluid dashboard-btns-row2'/>
+                    <img src={awardsImg} alt="Awards" className='img-fluid dashboard-btns'/>
                 </div>
                 <div className="col-2 text-left">
                     <img src={leaderboardImg} alt="leaderboards" className='img-fluid dashboard-btns-row2'/>
+                </div>
+                <div className="col-3 text-center about-box">
+                    <div className="about-1"><span className='about-gap'>How to Play:</span><hr className='hr-about'/>
+                    Navigate the game using simple text commands and make decisions to progress through challenges. 
+                    Interact with characters, solve puzzles, and choose your path wisely to conquer subjects. 
+                    Type your responses, explore, and immerse yourself in this retro-futuristic learning experience. 
+                    Remember, every choice matters on your quest for academic excellence!
+                    </div>
+                    <div className="about-2"><span className='about-gap'>Mission of the Game:</span><hr className='hr-about'/>
+                    Embark on a retro-futuristic educational journey where your decisions shape the course of learning. 
+                    Explore a dynamic, text-based world designed to enhance your GCSE knowledge through interactive challenges and engaging scenarios. 
+                    Your mission: master the subjects, overcome obstacles, and achieve academic success in this unique revision adventure.
+                    </div>
+                </div>
+            </div>
+            
+
+            <div className="row" id='all-dash-btns'>
+                <div className="col-3"></div>
+                <div className="col-2 text-right">
+                    <img src={resumeImg} alt="resumegame" className='img-fluid dashboard-btns-row2'/>
+                </div>
+                <div className="col-2 text-center">
+                    <img src={settingsImg} alt="settings" className='img-fluid dashboard-btns'/>
+                </div>
+                <div className="col-2 text-left">
+                    <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns' onClick={logout}/>
                 </div>
                 <div className="col-3"></div>
             </div>
