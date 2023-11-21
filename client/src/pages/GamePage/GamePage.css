@@ -73,10 +73,9 @@ main {
   z-index: 1;
 }
 .conversation{
-  height:200px;
+  height:350px;
   overflow-y: auto;
   border-top: solid 1px white;
-  border-bottom: solid 1px white;
   width: 100%;
   text-align: left;
   margin-left: 5px;
@@ -99,12 +98,6 @@ main {
   margin: 0;
   padding: 0;
   
-}
-.dialogue{
-  flex:1;
-  width:100%;
-  margin-left: 5px;
-  height: 300px;
 }
 .choices{
   background-color: black;
@@ -238,11 +231,12 @@ h3 {
 .visibleUserInput{
   width:100%;
   text-align: left;
-  color: red;
+  color: rgb(247, 27, 236);
   font-family: "Courier New";
   padding:0px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Responsive Styles */

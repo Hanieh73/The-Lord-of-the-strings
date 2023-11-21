@@ -85,7 +85,7 @@ const GamePage = () => {
     {
       role: 'system',
       content: `I will provide a story setting, and your role is to act as the story master, guiding the narrative and presenting choices to the players. Each choice, labeled A, B, and C, leads to new developments in the story. 
-      Format the response JSON object with the keys: 'current_location', 'narrative', 'items', 'character', 'choices'.The name of these keys must be exactly like this. Here's the story prompt: ${mainStory} \n\nResponse format:\n\n{\n  'currentLocation': 'the current character location',
+      Format the response JSON object with the keys: 'current_location', 'narrative', 'items', 'character', 'choices'.The name of these keys must be stored exactly like this. Here's the story prompt: ${mainStory} \n\nResponse format:\n\n{\n  'current_location': 'the current character location',
       \n'narrative': 'Approaching City 72, athe adventurer turned to the crowded streets.',\n'items': ['List of currently possessed items'],\n'character': 'Main character name or name of character being interacted with by main character',\n'choices': [\n{'A': 'Choice A description'},
       \n{'B': 'Choice B description'},\n{'C': 'Choice C description'}\n]\n }`,
     },
@@ -159,9 +159,11 @@ const GamePage = () => {
       // Show the choice in visibleUserInput
       if (userChoice == "CONTINUE") {
         setVisibleUserInput(`You Chose: ${userChoice}`);
-      } else {
+      } else if (userChoice == "A" || userChoice == "B" || userChoice == "C") {
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
         choiceMade =choices[choiceIndex][userChoice]
+        setVisibleUserInput(`You Chose: ${choiceMade}`);
+      } else {
         setVisibleUserInput(`You Chose: ${choiceMade}`);
       }
       const userMessage = { role: 'user', content: userInput };
@@ -250,26 +252,28 @@ const GamePage = () => {
       </video>
         <div className="top-container">
           <p className="visibleUserInput">{visibleUserInput}</p>
-          <div className='conversation'>{conversation.map((message, index) => (
-            <div key={index}>
-              {message.role === 'user' && <p>User: {message.content}</p>}
-              {message.role === 'assistant' && <p>Story: {JSON.parse(message.content).narrative}</p>}
-            </div>
-          ))}
-          </div>
-          <div className="dialogue">
-            <TypeAnimation
-              key={dialogue}
-              sequence={[dialogue]}
-              speed={80}
-              style={{
-                fontSize: '0.75em',
-                display: 'block',
-                color: 'white',
-                fontFamily: 'Courier New',
-                overflowY: 'auto',
-              }}
-            />
+          <div className='conversation'>
+            {conversation.map((message, index) => (
+              <div key={index}>
+                {message.role === 'user' && <p>User: {message.content}</p>}
+                
+                {message.role === 'assistant' && 
+                  <TypeAnimation
+                    key={index}  // Use the index as the key
+                    sequence={[JSON.parse(message.content).narrative.toString()]}
+                    speed={80}
+                    cursor={false}
+                    style={{
+                      fontSize: '0.75em',
+                      display: 'block',
+                      color: 'white',
+                      fontFamily: 'Courier New',
+                      width: '100%',
+                    }}
+                  />
+                }
+              </div>
+            ))}
           </div>
           <div className='choices'>
             {choices.map((choice, index) => (
