@@ -6,3 +6,4 @@ export { default as RegisterPage } from './RegisterPage';
 export { default as GamePage } from './GamePage';
 export { default as DashboardPage } from './DashboardPage';
 export { default as GameLibraryPage } from './GameLibraryPage';
+export { default as AchievementPage } from './AchievementPage';

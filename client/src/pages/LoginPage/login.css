@@ -25,6 +25,8 @@ body.login-page {
   .incorrect {
     font-family: "Press Start 2p";
     margin-top: 10px;
+    position: relative;
+    
   }
 
 
