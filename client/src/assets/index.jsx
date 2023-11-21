@@ -94,22 +94,22 @@ export { default as jadevortex } from './characters/heist/JadeVortex.png';
 // export { default as zephyr } from './characters/heist/Zephyr.png';
 // export { default as irisflint } from './characters/heist/IrisFlint.png';
 // export { default as lunavega } from './characters/heist/LunaVega.png';
-// export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
+export { default as captainrhysdalton } from './characters/heist/CaptainRhysDalton.png';
 //war
-// export { default as majorjohnathanellis } from './characters/war/MajorJohnathanEllis.png';
+export { default as majorjohnathanellis } from './characters/war/MajorJohnathanEllis.png';
 // export { default as sergeantemilyturner } from './characters/war/SergeantEmilyTurner.png';
-// export { default as commanderwilliamharper } from './characters/war/CommanderWilliamHarper.png';
-// export { default as lieutenantgracebennett } from './characters/war/LieutenantGraceBennett.png';
-// export { default as privatesamuelking } from './characters/war/PrivateSamuelKing.png';
-// export { default as captainlucasford } from './characters/war/CaptainLucasFord.png';
+export { default as commanderwilliamharper } from './characters/war/CommanderWilliamHarper.png';
+export { default as lieutenantgracebennett } from './characters/war/LieutenantGraceBennett.png';
+export { default as privatesamuelking } from './characters/war/PrivateSamuelKing.png';
+export { default as captainlucasford } from './characters/war/CaptainLucasFord.png';
 // export { default as diplomaticenvoymariedupont } from './characters/war/DiplomaticEnvoyMarieDupont.png';
-// export { default as scoutoliverthompson } from './characters/war/ScoutOliverThompson.png';
-// export { default as historiandr.elizabethmorgan } from './characters/war/HistorianDrElizabethMorgan.png';
+export { default as scoutoliverthompson } from './characters/war/ScoutOliverThompson.png';
+export { default as historiandrelizabethmorgan } from './characters/war/HistorianDrElizabethMorgan.png';
 
 // tech-magi
 export { default as dravalin } from './characters/tech-magi/DrAvaLin.png';
 export { default as professorleoZheng } from './characters/tech-magi/ProfessorLeoZheng.png';
-export { default as ethicistdrmayasingh } from './characters/tech-magi/EthicistDrMayaSingh.png';
+// export { default as ethicistdrmayasingh } from './characters/tech-magi/EthicistDrMayaSingh.png';
 export { default as geneticistdrrajivkumar } from './characters/tech-magi/GeneticistDrRajivKumar.png';
 export { default as corporatespyalexmercer } from './characters/tech-magi/CorporateSpyAlexMercer.png';
 export { default as securityexperthanakim } from './characters/tech-magi/SecurityExpertHanaKim.png';
