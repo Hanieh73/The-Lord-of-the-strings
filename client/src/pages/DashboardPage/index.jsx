@@ -8,11 +8,14 @@ import dashImg from './dash2.png';
 import leaderboardImg from './leaderboard.png';
 import settingsImg from './settings.png';
 import { TypeAnimation } from 'react-type-animation';
+import { useExample } from '../../contexts';
 
 export default function DashboardPage() {
+  const { setAwardCount } = useExample();
   const navigate = useNavigate();
   const [user, setUser] = useState('');
   useEffect(() => {
+    setAwardCount(0);
     async function fetchUser() {
       const option = {
         method: 'POST',

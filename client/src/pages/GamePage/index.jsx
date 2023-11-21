@@ -2,7 +2,20 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
-import {mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
+import {
+  mainpowercontrolroom,
+  city72,
+  neonstreets,
+  arrivalincity72,
+  lab,
+  centralplaza,
+  industrialdistrict,
+  mainframechamber,
+  mainframeconsole,
+  secretundergroundlab,
+  undergroundpaths,
+  virtualrealitypod,
+} from '../../assets';
 //Character imports
 import {
   ava,
@@ -14,14 +27,49 @@ import {
   rennharlow,
 } from '../../assets';
 //Item imports
-import { digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule, settings, RennHarlowVideo } from '../../assets';
-import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText} from '../../components';
-import '../../assets'
-import { mainStory, charactersInfo, StoryComponent, heistStory, warStory, techMagiStory, achievements } from '../../components/prompts/index'
-import {Background} from '../../assets';
+import {
+  digitalmapofcity72,
+  lotrartifacts,
+  mainframe,
+  holorecorder,
+  stealthcloak,
+  datapad,
+  ancienttechdetector,
+  neuralinterface,
+  timecapsule,
+  settings,
+  RennHarlowVideo,
+} from '../../assets';
+import {
+  SettingsPopup,
+  CharacterCard,
+  TextToSpeech,
+  SpeechToText,
+} from '../../components';
+import '../../assets';
+import {
+  mainStory,
+  charactersInfo,
+  StoryComponent,
+  heistStory,
+  warStory,
+  techMagiStory,
+  achievements,
+} from '../../components/prompts/index';
+import { Background } from '../../assets';
 
 const locationImages = {
-  city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod
+  city72,
+  neonstreets,
+  arrivalincity72,
+  lab,
+  centralplaza,
+  industrialdistrict,
+  mainframechamber,
+  mainframeconsole,
+  secretundergroundlab,
+  undergroundpaths,
+  virtualrealitypod,
 };
 const characterImages = {
   ava,
@@ -33,18 +81,24 @@ const characterImages = {
   rennharlow,
 };
 const itemImages = {
-  digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule
-}
-
-
+  digitalmapofcity72,
+  lotrartifacts,
+  mainframe,
+  holorecorder,
+  stealthcloak,
+  datapad,
+  ancienttechdetector,
+  neuralinterface,
+  timecapsule,
+};
 
 import { useExample } from '../../contexts';
-import {BackgroundMusic} from'../../assets'
+import { BackgroundMusic } from '../../assets';
 
 const GamePage = () => {
   const [audioPlayed, setAudioPlayed] = useState(true);
-  console.log(audioPlayed)
-  
+  console.log(audioPlayed);
+
   const [dialogue, setDialogue] = useState('enter continue');
   const [userInput, setUserInput] = useState('');
   const [visibleUserInput, setVisibleUserInput] = useState('');
@@ -65,7 +119,6 @@ const GamePage = () => {
   const [choices, setChoices] = useState([]);
   // const { currentGameID } = useExample();
   // const [saveData, setSaveData] = useState();
-
 
   // async function grabSaveData() {
   //   try {
@@ -104,61 +157,69 @@ const GamePage = () => {
   //   }
   // }
 
-
   useEffect(() => {
-    document.body.classList.add("game-page-text");
-    document.body.classList.remove("home-page");
-    document.body.classList.remove("signup-page")
+    document.body.classList.add('game-page-text');
+    document.body.classList.remove('home-page');
+    document.body.classList.remove('signup-page');
 
     return () => {
-      document.body.classList.remove("game-page-text");
+      document.body.classList.remove('game-page-text');
     };
   }, []);
 
-  let choiceMade = ""
+  let choiceMade = '';
   const submitUserInput = async () => {
     if (userInput.trim() !== '') {
       // Extract the choice from the user input
       const userChoice = userInput.trim().toUpperCase();
-      
+
       console.log(choices);
       // Show the choice in visibleUserInput
-      if (userChoice == "CONTINUE") {
+      if (userChoice == 'CONTINUE') {
         setVisibleUserInput(`You Chose: ${userChoice}`);
       } else {
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
-        choiceMade =choices[choiceIndex][userChoice]
+        choiceMade = choices[choiceIndex][userChoice];
         setVisibleUserInput(`You Chose: ${choiceMade}`);
       }
       const userMessage = { role: 'user', content: userInput };
       setConversation((prevConversation) => [...prevConversation, userMessage]);
       try {
-        const response = await fetch('https://city-72-wez6.onrender.com/chats', {
-          method: 'POST',
-          headers: { 'Content-type': 'application/json' },
-          body: JSON.stringify([...conversation, userMessage]),
-        });
-  
+        const response = await fetch(
+          'https://city-72-wez6.onrender.com/chats',
+          {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify([...conversation, userMessage]),
+          }
+        );
+
         const data = await response.json();
         console.log(data.message);
         const formatedData = JSON.parse(data.message);
-  
+
         console.log(formatedData);
         const formattedLocation = formatedData.current_location
           ? formatedData.current_location.replace(/\s/g, '').toLowerCase()
           : '';
         setLocation(locationImages[formattedLocation]);
         console.log('Formatted Location:', formattedLocation.toString());
-        console.log('Location Image:', locationImages[formattedLocation.toString()]);
-  
+        console.log(
+          'Location Image:',
+          locationImages[formattedLocation.toString()]
+        );
+
         setDialogue(formatedData.narrative);
-  
+
         const formattedItems = formatedData.items.map((item) =>
-          item.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase()
+          item
+            .replace(/\s/g, '')
+            .replace(/[^\w\s]/g, '')
+            .toLowerCase()
         );
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
-  
+
         if (formatedData.character == '') {
           setCharacterName('Renn Harlow');
           setCharacterdisplayed('rennharlow');
@@ -182,7 +243,6 @@ const GamePage = () => {
     }
   };
 
-
   const toggleInventory = () => {
     setInventoryVisible(!inventoryVisible);
   };
@@ -198,108 +258,120 @@ const GamePage = () => {
 
   return (
     <>
-    <audio id='GameAudio'
+      <audio
+        id="GameAudio"
         src={BackgroundMusic}
         autoPlay={audioPlayed}
-        loop 
-        volume={0.2} 
+        loop
+        volume={0.2}
       >
         Your browser does not support the audio tag.
       </audio>
-    <div className="app-container">
-      <div className="left-section" style={{ backgroundImage: `url(${location})` }}></div>
-      <div className="middle-section">
-      <video autoPlay muted loop className="background-video">
-        <source src={Background} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-        <div className="top-container">
-          <p className="visibleUserInput">{visibleUserInput}</p>
-          <div className='conversation'>{conversation.map((message, index) => (
-            <div key={index}>
-              {message.role === 'user' && <p>User: {message.content}</p>}
-              {message.role === 'assistant' && <p>Assistant: {JSON.parse(message.content).narrative}</p>}
+      <div className="app-container">
+        <div
+          className="left-section"
+          style={{ backgroundImage: `url(${location})` }}
+        ></div>
+        <div className="middle-section">
+          <video autoPlay muted loop className="background-video">
+            <source src={Background} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="top-container">
+            <p className="visibleUserInput">{visibleUserInput}</p>
+            <div className="conversation">
+              {conversation.map((message, index) => (
+                <div key={index}>
+                  {message.role === 'user' && <p>User: {message.content}</p>}
+                  {message.role === 'assistant' && (
+                    <p>Assistant: {JSON.parse(message.content).narrative}</p>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+            <div className="dialogue">
+              <TypeAnimation
+                key={dialogue}
+                sequence={[dialogue]}
+                speed={80}
+                style={{
+                  fontSize: '0.75em',
+                  display: 'block',
+                  maxHeight: '250px',
+                  color: 'white',
+                  fontFamily: '"Press Start 2p"',
+                  overflowY: 'auto',
+                }}
+              />
+            </div>
+            <div className="choices">
+              {choices.map((choice, index) => (
+                <div key={index} className={`choice${index + 1}`}>
+                  <p>{Object.keys(choice)[0]}</p>
+                  <p>{choice[Object.keys(choice)[0]]}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="dialogue">
-            <TypeAnimation
-              key={dialogue}
-              sequence={[dialogue]}
-              speed={80}
-              style={{
-                fontSize: '0.75em',
-                display: 'block',
-                maxHeight: '250px',
-                color: 'white',
-                fontFamily: 'Courier New',
-                overflowY: 'auto',
-              }}
+          <div className="bottom-container">
+            <input
+              className="user-input"
+              type="text"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Enter something..."
+            />
+            <div className="settingsBar">
+              <TextToSpeech dialogue={dialogue} />
+              <button className="toolBar" onClick={toggleSettings}>
+                <img className="toolBarIcon" src={settings} />
+              </button>
+              <SpeechToText userInput={userInput} setUserInput={setUserInput} />
+            </div>
+          </div>
+        </div>
+        <div className="right-section">
+          <div className="topr-container">
+            <CharacterCard
+              name={characterName}
+              img={characterdisplayed}
+              description={charactersInfo[characterName]}
             />
           </div>
-          <div className='choices'>
-            {choices.map((choice, index) => (
-              <div key={index} className={`choice${index + 1}`}>
-                <p>{Object.keys(choice)[0]}</p>
-                <p>{choice[Object.keys(choice)[0]]}</p>
+          <div className="bottom-container">
+            <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
+              <div className="inventory-toggle" onClick={toggleInventory}>
+                <span className="inventoryIcons">
+                  <h3>Inventory</h3>
+                  {inventoryVisible ? '▼' : '▲'}
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="bottom-container">
-          <input
-            className="user-input"
-            type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Enter something..."
-          />
-          <div className="settingsBar">
-            <TextToSpeech dialogue={dialogue} />
-            <button className="toolBar" onClick={toggleSettings}>
-              <img className="toolBarIcon" src={settings} />
-            </button>
-            <SpeechToText userInput={userInput} setUserInput={setUserInput} />
-          </div>
-        </div>
-      </div>
-      <div className="right-section">
-        <div className='topr-container'>
-          <CharacterCard
-            name={characterName}
-            img={characterdisplayed}
-            description={charactersInfo[characterName]}
-          />
-        </div>
-        <div className="bottom-container">
-          <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
-            <div className="inventory-toggle" onClick={toggleInventory}>
-              <span className='inventoryIcons'>
-                <h3>Inventory</h3>
-                {inventoryVisible ? '▼' : '▲'}
-              </span>
+              {inventoryVisible && (
+                <>
+                  {items.map((item, index) => (
+                    <img
+                      key={index}
+                      src={item}
+                      alt={item}
+                      className="inventoryItem"
+                    />
+                  ))}
+                </>
+              )}
             </div>
-            {inventoryVisible && (
-              <>
-                {items.map((item, index) => (
-                  <img
-                    key={index}
-                    src={item}
-                    alt={item}
-                    className="inventoryItem"
-                  />
-                ))}
-              </>
-            )}
           </div>
         </div>
+        {settingsVisible && (
+          <SettingsPopup
+            onClose={toggleSettings}
+            audioPlayed={audioPlayed}
+            setAudioPlayed={setAudioPlayed}
+          />
+        )}
       </div>
-      {settingsVisible && <SettingsPopup onClose={toggleSettings} audioPlayed={audioPlayed} setAudioPlayed={setAudioPlayed} />}
-    </div>
     </>
   );
-  
 };
 
 export default GamePage;
