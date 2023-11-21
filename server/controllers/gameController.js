@@ -30,6 +30,15 @@ async function showAllForUser(req, res) {
   }
 }
 
+async function showScores(req, res) {
+  try {
+    const game = await Game.getAllByScore();
+    res.status(200).json(game);
+  } catch (err) {
+    res.status(404).json({ error: err.message });
+  }
+}
+
 const create = async (req, res) => {
   try {
     const data = req.body; //SHOULD INCLUDE user_id, state, difficulty AND story_id
@@ -49,7 +58,7 @@ async function update(req, res) {
     const progress = await Progress.getLatestOneByGameId(id);
     const updateProgress = await progress.update(data);
     const game = await Game.getOneById(id);
-    const updateGame = await game.update();
+    const updateGame = await game.update(data);
     res.status(200).json({ Game: updateGame, Progress: updateProgress });
   } catch (err) {
     res.status(404).json({ error: err.message });
@@ -79,4 +88,12 @@ async function destroy(req, res) {
   }
 }
 
-module.exports = { index, show, showAllForUser, create, update, destroy };
+module.exports = {
+  index,
+  show,
+  showAllForUser,
+  showScores,
+  create,
+  update,
+  destroy,
+};

@@ -14,7 +14,7 @@ const mockStatus = jest.fn((code) => ({
 }));
 const mockRes = { status: mockStatus };
 
-describe.skip('Game Controller', () => {
+describe('Game Controller', () => {
   describe('index', () => {
     it('successfully gets Games and displays the 200 status code', async () => {
       const mockGames = [
@@ -23,6 +23,7 @@ describe.skip('Game Controller', () => {
           user_id: 1,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           created_at: '2023-11-14',
           updated_at: '2023-11-14',
         }),
@@ -31,6 +32,7 @@ describe.skip('Game Controller', () => {
           user_id: 1,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           created_at: '2023-11-14',
           updated_at: '2023-11-14',
         }),
@@ -39,6 +41,7 @@ describe.skip('Game Controller', () => {
           user_id: 1,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           created_at: '2023-11-14',
           updated_at: '2023-11-14',
         }),
@@ -82,6 +85,7 @@ describe.skip('Game Controller', () => {
         user_id: 1,
         state: 'in-progress',
         difficulty: 'easy',
+        score: 100,
         created_at: '2023-11-14',
         updated_at: '2023-11-14',
       });
@@ -132,6 +136,7 @@ describe.skip('Game Controller', () => {
           user_id: 1,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           created_at: '2023-11-14',
           updated_at: '2023-11-14',
         }),
@@ -140,6 +145,7 @@ describe.skip('Game Controller', () => {
           user_id: 1,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           created_at: '2023-11-14',
           updated_at: '2023-11-14',
         }),
@@ -148,6 +154,7 @@ describe.skip('Game Controller', () => {
           user_id: 1,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           created_at: '2023-11-14',
           updated_at: '2023-11-14',
         }),
@@ -163,6 +170,74 @@ describe.skip('Game Controller', () => {
         json: jest.fn(),
       };
       await GameController.showAllForUser(req, res);
+
+      // Expectations
+      expect(res.status).toHaveBeenCalledWith(200); // Should set status code to 200
+      expect(res.json).toHaveBeenCalledWith(mockGames);
+    });
+
+    it('fails to gets Games and displays the 404 status code', async () => {
+      jest
+        .spyOn(Game, 'getAllByUser')
+        .mockRejectedValue(new Error('Unable to locate games.'));
+
+      const req = {
+        params: { id: '999' },
+      };
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+
+      await GameController.showAllForUser(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(404);
+      expect(res.json).toHaveBeenCalledWith({
+        error: 'Unable to locate games.',
+      });
+    });
+  });
+
+  describe('getAllByScore', () => {
+    it('gets id from params and successfully gets Games, displaying the 200 status code', async () => {
+      const mockGames = [
+        new Game({
+          game_id: 12,
+          user_id: 1,
+          state: 'in-progress',
+          difficulty: 'easy',
+          score: 100,
+          created_at: '2023-11-14',
+          updated_at: '2023-11-14',
+        }),
+        new Game({
+          game_id: 4,
+          user_id: 1,
+          state: 'in-progress',
+          difficulty: 'easy',
+          score: 10,
+          created_at: '2023-11-14',
+          updated_at: '2023-11-14',
+        }),
+        new Game({
+          game_id: 16,
+          user_id: 1,
+          state: 'in-progress',
+          difficulty: 'easy',
+          score: 1,
+          created_at: '2023-11-14',
+          updated_at: '2023-11-14',
+        }),
+      ];
+
+      // Mock the Game.getAll method to resolve with mockGames
+      jest.spyOn(Game, 'getAllByScore').mockResolvedValue(mockGames);
+      const req = {};
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+      await GameController.showScores(req, res);
 
       // Expectations
       expect(res.status).toHaveBeenCalledWith(200); // Should set status code to 200
@@ -220,6 +295,7 @@ describe.skip('Game Controller', () => {
           user_id: 12,
           state: 'in-progress',
           difficulty: 'easy',
+          score: 100,
           story_id: 5,
         },
       };
@@ -272,6 +348,7 @@ describe.skip('Game Controller', () => {
         user_id: 12,
         state: 'in-progress',
         difficulty: 'easy',
+        score: 100,
         created_at: '2023-01-01',
         updated_at: '2023-01-01',
       });
@@ -281,6 +358,7 @@ describe.skip('Game Controller', () => {
         user_id: 12,
         state: 'in-progress',
         difficulty: 'easy',
+        score: 100,
         created_at: '2023-01-01',
         updated_at: '2023-11-15',
       });
@@ -290,7 +368,6 @@ describe.skip('Game Controller', () => {
         game_id: 12,
         saved_chat: 'none',
         branch_route: '',
-        score: 0,
         items: [],
       });
 
@@ -353,7 +430,6 @@ describe.skip('Game Controller', () => {
         game_id: 12,
         saved_chat: 'none',
         branch_route: '',
-        score: 0,
         items: [],
       });
 
@@ -389,6 +465,7 @@ describe.skip('Game Controller', () => {
         user_id: 12,
         state: 'in-progress',
         difficulty: 'easy',
+        score: 100,
         created_at: '2023-01-01',
         updated_at: '2023-01-01',
       });
@@ -399,7 +476,6 @@ describe.skip('Game Controller', () => {
           game_id: 21,
           saved_chat: 'none',
           branch_route: '',
-          score: 0,
           items: [],
         }),
       ];
@@ -409,7 +485,6 @@ describe.skip('Game Controller', () => {
         game_id: 21,
         saved_chat: 'none',
         branch_route: '',
-        score: 0,
         items: [],
       });
 
