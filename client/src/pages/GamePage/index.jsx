@@ -2,16 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
-import {mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod} from '../../assets'
+import {neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs } from '../../assets'
 //Character imports
-import {
-  ava,
-  cipher,
-  depictmayoranikavoss,
-  drelaramorn,
-  echo,
-  vega,
-  rennharlow,
+import {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
 } from '../../assets';
 //Item imports
 import { digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule, settings, RennHarlowVideo } from '../../assets';
@@ -21,16 +14,9 @@ import { mainStory, charactersInfo, StoryComponent, heistStory, warStory, techMa
 import {Background} from '../../assets';
 
 const locationImages = {
-  city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths, virtualrealitypod
+  neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs 
 };
-const characterImages = {
-  ava,
-  cipher,
-  depictmayoranikavoss,
-  drelaramorn,
-  echo,
-  vega,
-  rennharlow,
+const characterImages = {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
 };
 const itemImages = {
   digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule
@@ -42,12 +28,12 @@ import { useExample } from '../../contexts';
 import {BackgroundMusic} from'../../assets'
 
 const GamePage = () => {
-  const [audioPlayed, setAudioPlayed] = useState(true);
-  console.log(audioPlayed)
+  const [audioPlayed, setAudioPlayed] = useState(false);
+
   
   const [dialogue, setDialogue] = useState('Enter Continue');
   const [userInput, setUserInput] = useState('');
-  const [visibleUserInput, setVisibleUserInput] = useState('');
+  const [visibleUserInput, setVisibleUserInput] = useState('Enter Continue');
   const [inventoryVisible, setInventoryVisible] = useState(false);
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [conversation, setConversation] = useState([
@@ -82,6 +68,7 @@ const GamePage = () => {
   const [characterdisplayed, setCharacterdisplayed] = useState(rennharlow);
   const [characterName, setCharacterName] = useState('Renn Harlow');
   const [choices, setChoices] = useState([]);
+  console.log(characterdisplayed);
   // const { currentGameID } = useExample();
   // const [saveData, setSaveData] = useState();
 
@@ -140,7 +127,6 @@ const GamePage = () => {
       // Extract the choice from the user input
       const userChoice = userInput.trim().toUpperCase();
       
-      console.log(choices);
       // Show the choice in visibleUserInput
       if (userChoice == "CONTINUE") {
         setVisibleUserInput(`You Chose: ${userChoice}`);
@@ -151,7 +137,7 @@ const GamePage = () => {
       } else {
         setVisibleUserInput(`You Chose: ${choiceMade}`);
       }
-      const userMessage = { role: 'user', content: userInput };
+      const userMessage = { role: 'user', content: userInput};
       setConversation((prevConversation) => [...prevConversation, userMessage]);
       try {
         const response = await fetch('https://city-72-wez6.onrender.com/chats', {
@@ -180,7 +166,7 @@ const GamePage = () => {
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
   
-        if (formatedData.character == '') {
+        if (formatedData.character == ""||formatedData.character == null) {
           setCharacterName('Renn Harlow');
           setCharacterdisplayed('rennharlow');
         } else {
@@ -203,7 +189,7 @@ const GamePage = () => {
     }
   };
 
-
+  const userChoiceIsABC = (choice) => ['A', 'B', 'C'].includes(choice);
   const toggleInventory = () => {
     setInventoryVisible(!inventoryVisible);
   };
@@ -240,8 +226,13 @@ const GamePage = () => {
           <div className='conversation'>
             {conversation.map((message, index) => (
               <div key={index}>
-                {message.role === 'user' && <p>User: {message.content}</p>}
-                
+                {message.role === 'user' && (
+              <p>
+                User: {userChoiceIsABC(message.content)
+                  ? choices[message.content.charCodeAt(0) - 'A'.charCodeAt(0)][message.content]
+                  : message.content}
+              </p>
+            )}
                 {message.role === 'assistant' && 
                   <TypeAnimation
                     key={index}  // Use the index as the key
