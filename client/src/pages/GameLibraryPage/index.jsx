@@ -15,6 +15,16 @@ export default function GameLibraryPage() {
   const [hasGames, setHasGames] = useState(false);
 
   useEffect(() => {
+    document.body.classList.add('game-page-library');
+    document.body.classList.remove('home-page');
+    document.body.classList.remove('signup-page');
+
+    return () => {
+      document.body.classList.remove('game-page-library');
+    };
+  }, []);
+
+  useEffect(() => {
     async function fetchGames() {
       try {
         const response = await fetch(
