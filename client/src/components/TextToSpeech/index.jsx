@@ -14,7 +14,7 @@ const  TextToSpeech = ({ dialogue }) => {
 
   return (
     <button className='toolBar' onClick={speechHandler}>
-      <img className='toolBarIcon' src={speaking} alt="Speech to Text" />
+      <img className='toolBarIcon' src={speaking} alt="Start Speaking" />
     </button>
   );
 };
