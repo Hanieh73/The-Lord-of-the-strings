@@ -37,6 +37,7 @@ body {
 
 .game-card {
   /* border: 5px solid white; */
+  background-image: linear-gradient(180deg, #7d12ff, pink);
   border-radius: 10px;
   width: 250px;
   height: 330px;

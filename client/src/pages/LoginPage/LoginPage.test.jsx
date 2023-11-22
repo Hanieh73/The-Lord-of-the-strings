@@ -69,7 +69,7 @@ describe('Login Page', () => {
     };
 
     fetchSpy.mockReturnValue(mockResolveValue);
-    //expect(fetch).toHaveBeenCalledWith('http://localhost:3000/users/login');
+    //expect(fetch).toHaveBeenCalledWith('https://city-72-wez6.onrender.com//users/login');
     // const mockResponse2 = [
     //   {
     //     id: 1,
@@ -85,7 +85,7 @@ describe('Login Page', () => {
     // fetchSpy.mockReturnValue(mockResolveValue2);
 
     fireEvent.click(signIn);
-    expect(window.location.href).toEqual('http://localhost:3000/');
+    expect(window.location.href).toEqual('https://city-72-wez6.onrender.com//');
     fetchSpy.mockRestore();
   });
 
@@ -97,7 +97,7 @@ describe('Login Page', () => {
   //     const signIn = screen.getByRole('button', { name: /Sign in/i });
 
   //     //fireEvent.click(signIn);
-  //     expect(window.location.href).toEqual('http://localhost:3000/login');
+  //     expect(window.location.href).toEqual('https://city-72-wez6.onrender.com//login');
   //   });
   //   it("the heading has the appropriate amount of links", () => {
   //     const navigation = screen.getByRole("navigation");
@@ -112,6 +112,6 @@ describe('Login Page', () => {
   //     const homeLink = screen.getByRole("link", { name: /home/i });
   //     expect(homeLink).toBeInTheDocument();
   //     userEvent.click(homeLink);
-  //     expect(window.location.href).toEqual("http://localhost:3000/");
+  //     expect(window.location.href).toEqual("https://city-72-wez6.onrender.com//");
   //   });
 });

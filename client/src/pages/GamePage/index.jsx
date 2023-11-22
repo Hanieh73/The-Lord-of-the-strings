@@ -108,7 +108,7 @@ const GamePage = () => {
   // async function grabSaveData() {
   //   try {
   //     const response = await fetch(
-  //       `http://localhost:3000/progress/game/${currentGameID}`
+  //       `https://city-72-wez6.onrender.com//progress/game/${currentGameID}`
   //     );
   //     const data = await response.json();
 
@@ -131,7 +131,7 @@ const GamePage = () => {
 
   //   try {
   //     const response = await fetch(
-  //       `http://localhost:3000/games/${currentGameID}`,
+  //       `https://city-72-wez6.onrender.com//games/${currentGameID}`,
   //       options
   //     );
   //     const data = await response.json();
