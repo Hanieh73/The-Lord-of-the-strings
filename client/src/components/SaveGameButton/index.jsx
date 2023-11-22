@@ -14,7 +14,7 @@ export default function index() {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/games/${currentGameID}`,
+        `https://city-72-wez6.onrender.com/games/${currentGameID}`,
         options
       );
       const data = await response.json();

@@ -136,7 +136,6 @@ export { default as FuturisticHistorian } from './achievement/main/FuturisticHis
 export { default as DecisiveLeader } from './achievement/main/DecisiveLeader.png';
 export { default as GuardianofthePast } from './achievement/main/GuardianofthePast.png';
 
-
 //heist
 export { default as StealthySteps } from './achievement/heist/StealthySteps.png';
 export { default as InsideJobMastermind } from './achievement/heist/InsideJobMastermind.png';
@@ -165,8 +164,7 @@ export { default as SecuritySentinel } from './achievement/tech-magi/SecuritySen
 export { default as StoryWeaver } from './achievement/general/StoryWeaver.png';
 export { default as PuzzleProdigy } from './achievement/general/PuzzleProdigy.png';
 export { default as CyberpunkConnoisseur } from './achievement/general/CyberpunkConnoisseur.png';
+export { default as MasterofCity72 } from './achievement/general/MasterofCity72.png';
 
-export { default as MasterofCity72 } from './achievement/general/MasterOfCity72.png';
-
-export { default as lockPic } from './achievement/lock.jpg';
-
+// export { default as lockPic } from './achievement/lock.jpg';
+export { default as lockPic } from './achievement/pixel_lock.png';
