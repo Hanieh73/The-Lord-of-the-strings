@@ -11,6 +11,7 @@ export { default as virtualrealitypod } from './location/main/VirtualRealityPod.
 export { default as city72 } from './location/main/City72.png';
 export { default as arrivalincity72 } from './location/main/City72.png';
 export { default as neonstreets } from './location/main/City72.png';
+export { default as neonstreetsofcity72 } from './location/main/City72.png';
 
 //heist
 export { default as marketstalls } from './location/heist/MarketStalls.png';
@@ -41,15 +42,15 @@ export { default as makeshiftfieldhospitals } from './location/war/MakeshiftFiel
 export { default as debriefingareas } from './location/war/DebriefingAreas.png';
 
 //tech-magi
-// export { default as hightechresearchlabs } from './location/tech-magi/HighTechResearchLabs.png';
-// export { default as experimentaltestingareas } from './location/tech-magi/ExperimentalTestingAreas.png';
+export { default as hightechresearchlabs } from './location/tech-magi/hightechresearchlabs.png';
+export { default as experimentaltestingareas } from './location/tech-magi/experimentaltestingarea.png';
 // export { default as innovationbrainstormingrooms } from './location/tech-magi/InnovationBrainstormingRooms.png';
-// export { default as conferencehalls } from './location/tech-magi/ConferenceHalls.png';
-// export { default as debatestages } from './location/tech-magi/DebateStages.png';
-// export { default as privatemetingrooms } from './location/tech-magi/PrivateMeetingRooms.png';
-// export { default as corporateboardrooms } from './location/tech-magi/CorporateBoardrooms.png';
+export { default as conferencehalls } from './location/tech-magi/conferencehalls.png';
+export { default as debatestages } from './location/tech-magi/debatestage.png';
+export { default as privatemetingrooms } from './location/tech-magi/privatemeetingroom.png';
+export { default as corporateboardrooms } from './location/tech-magi/corporateboardroom.png';
 // export { default as shadowymeetingplaces } from './location/tech-magi/ShadowyMeetingPlaces.png';
-// export { default as highsecuritylabs } from './location/tech-magi/HighSecurityLabs.png';
+export { default as highsecuritylabs } from './location/tech-magi/highsecuritylab.png';
 // export { default as corporateoffices } from './location/tech-magi/CorporateOffices.png';
 // export { default as hiddendatastoragerooms } from './location/tech-magi/HiddenDataStorageRooms.png';
 // export { default as aidevelopmentwing } from './location/tech-magi/AIDevelopmentWing.png';
@@ -129,10 +130,12 @@ export { default as Background } from './music/Background.mp4';
 export { default as NeonNavigator } from './achievement/main/NeonNavigator.png';
 export { default as MainframeMaster } from './achievement/main/MainframeMaster.png';
 export { default as CyberSleuth } from './achievement/main/CyberSleuth.png';
+
 export { default as DiplomatoftheDark } from './achievement/main/DiplomatoftheDark.png';
 export { default as FuturisticHistorian } from './achievement/main/FuturisticHistorian.png';
 export { default as DecisiveLeader } from './achievement/main/DecisiveLeader.png';
 export { default as GuardianofthePast } from './achievement/main/GuardianofthePast.png';
+
 
 //heist
 export { default as StealthySteps } from './achievement/heist/StealthySteps.png';
@@ -162,6 +165,8 @@ export { default as SecuritySentinel } from './achievement/tech-magi/SecuritySen
 export { default as StoryWeaver } from './achievement/general/StoryWeaver.png';
 export { default as PuzzleProdigy } from './achievement/general/PuzzleProdigy.png';
 export { default as CyberpunkConnoisseur } from './achievement/general/CyberpunkConnoisseur.png';
+
 export { default as MasterofCity72 } from './achievement/general/MasterOfCity72.png';
 
 export { default as lockPic } from './achievement/lock.jpg';
+
