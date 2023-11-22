@@ -181,17 +181,15 @@ export default function DashboardPage() {
             
 
             <div className="row" id='all-dash-btns'>
-                <div className="col-3"></div>
-                <div className="col-2 text-right">
-                    <img src={resumeImg} alt="resumegame" className='img-fluid dashboard-btns-row2'/>
-                </div>
+                <div className="col-4"></div>
+                
                 <div className="col-2 text-center">
                     <img src={settingsImg} alt="settings" className='img-fluid dashboard-btns'/>
                 </div>
                 <div className="col-2 text-left">
                     <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns' onClick={logout}/>
                 </div>
-                <div className="col-3"></div>
+                <div className="col-4"></div>
             </div>
 
 
