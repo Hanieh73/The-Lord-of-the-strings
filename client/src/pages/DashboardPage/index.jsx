@@ -49,6 +49,10 @@ export default function DashboardPage() {
         navigate('/login');
     }
 
+    function leaderboard() {
+        navigate('/leaderboard');
+    }
+
     
     function clickAbout(){
         if (about == false) {
@@ -161,7 +165,7 @@ export default function DashboardPage() {
                     <img src={awardsImg} alt="Awards" className='img-fluid dashboard-btns'/>
                 </div>
                 <div className="col-2 text-left">
-                    <img src={leaderboardImg} alt="leaderboards" className='img-fluid dashboard-btns-row2'/>
+                    <img src={leaderboardImg} alt="leaderboards" className='img-fluid dashboard-btns-row2' onClick={leaderboard}/>
                 </div>
                 <div className="col-3 text-center about-box">
                     <div className="about-1"><span className='about-gap'>How to Play:</span><hr className='hr-about'/>
@@ -180,17 +184,15 @@ export default function DashboardPage() {
             
 
             <div className="row" id='all-dash-btns'>
-                <div className="col-3"></div>
-                <div className="col-2 text-right">
-                    <img src={resumeImg} alt="resumegame" className='img-fluid dashboard-btns-row2'/>
-                </div>
+                <div className="col-4"></div>
+                
                 <div className="col-2 text-center">
                     <img src={settingsImg} alt="settings" className='img-fluid dashboard-btns'/>
                 </div>
                 <div className="col-2 text-left">
                     <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns' onClick={logout}/>
                 </div>
-                <div className="col-3"></div>
+                <div className="col-4"></div>
             </div>
 
 
