@@ -71,7 +71,7 @@ export default function AchievementCard({ trophy, index }) {
   const { awardCount } = useExample();
   const [isActive, setActive] = useState(false);
   const [picture, setPicture] = useState();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const formattedAward = trophy.name.replace(/\s/g, '').replace(/-/g, '');

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import logoutImg from './logout.png';
-import awardsImg from './award.png';
-import newgameImg from './new game.png';
-import resumeImg from './resume.png';
-import dashImg from './dash2.png';
-import leaderboardImg from './leaderboard.png';
-import settingsImg from './settings.png';
-import backgroundmp4 from './background.mp4';
+
 import { TypeAnimation } from 'react-type-animation';
 import { useExample } from '../../contexts';
+import logoutImg from "./logout.png";
+import awardsImg from "./award.png";
+import newgameImg from "./new game.png";
+import resumeImg from "./resume.png"
+import dashImg from "./dash2.png"
+import leaderboardImg from "./leaderboard.png"
+import settingsImg from "./settings.png"
+import backgroundmp4 from "./background.mp4";
 
 export default function DashboardPage() {
   const { setAwardCount } = useExample();

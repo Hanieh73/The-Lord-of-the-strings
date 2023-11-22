@@ -148,7 +148,7 @@ export default function LoginPage() {
 
       <div className="row">
         <div className="col-12 text-center">
-          <button className="register-acc" onClick={register}>
+          <button className="register-acc" onClick={register} data-testid="registerBtn">
             Create an Account
           </button>
         </div>
