@@ -3,7 +3,7 @@ import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
 
-import {neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs } from '../../assets'
+import {virtualrealitypods, neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs } from '../../assets'
 
 //Character imports
 import {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
@@ -238,7 +238,7 @@ const achievements = {
 }
 const locationImages = {
 
-  neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs 
+  virtualrealitypods,neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs 
 
 };
 const characterImages = {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
@@ -266,7 +266,7 @@ const GamePage = () => {
       'The Heist of the Neon Symphony' tests mathematical skills.
       'Echoes of the Forgotten War' tests historical knowledge, focusing on D-Day.
       'Rise of the Tech-Magi' tests biology knowledge.
-      The choice of which relic to activate is labeled A, B, and C, with each mini-story unveiling new developments and challenges. Typing 'h' or 'hint' provides guidance relevant to the current puzzle or scenario within the narrative section. Responses should be formatted as a JSON object with the keys: 'current_location' using the names only in ${locationImages}, 'act', 'storyname', 'narrative', 'items' using the names only in ${itemImages}, 'character', 'choices', and 'achievements' where applicable.    
+      The choice of which relic to activate is labeled A, B, and C, with each mini-story unveiling new developments and challenges. Typing 'h' or 'hint' provides guidance relevant to the current puzzle or scenario within the narrative section. Responses should be formatted as a JSON object with the keys: 'current_location', 'act', 'storyname', 'narrative', 'items' using the names only in ${itemImages}, 'character', 'choices', and 'achievements' where applicable.    
       Story Prompt:
       ${mainStory}, ${achievements}. 
       Narrative Progression:
@@ -277,7 +277,7 @@ const GamePage = () => {
         Start from the beginning of the Main Story
         Make sure you finish the response every time
       Response format:{
-        "current_location": "The current character location, e.g., 'City 72'",
+        "current_location": "The current character location, e.g., 'neon streets of City 72'",
         "act": "current act e.g. Act 1",
         "storyname": "current story"
         "narrative": "Narrative text describing the scene, including a hint if requested, e.g., 'Lost in the labyrinthine paths, Renn notices a pattern in the wall markings, hinting at a hidden exit.'" Start every narrative except the first one with You chose: the message.content that the user gives and then what the user selected, then the narrative on another paragraph.",
@@ -408,10 +408,14 @@ const GamePage = () => {
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
 
-        if (formatedData.character == "" || formatedData.character == null) {
+        if (formatedData.character == "" || formatedData.character == null || formatedData.character == "None") {
           setCharacterName('Renn Harlow');
           setCharacterdisplayed(rennharlow);
-        } else {
+        }else if(formatedData.character == "Street vendor"){
+          setCharacterName('Mika Redstorm');
+          setCharacterdisplayed(mikaredstorm);
+        }
+        else {
           const formattedCharacter = formatedData.character
             ? formatedData.character.replace(/\s/g, '').toLowerCase()
             : '';
