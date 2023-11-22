@@ -271,6 +271,7 @@ const GamePage = () => {
               <div key={index}>
                 {message.role === 'assistant' && 
                   <TypeAnimation
+                    className={`${message.role}-text`}
                     key={index}  // Use the index as the key
                     sequence={[JSON.parse(message.content).narrative.toString()]}
                     speed={80}
@@ -278,7 +279,7 @@ const GamePage = () => {
                     style={{
                       fontSize: '0.75em',
                       display: 'block',
-                      color: 'white',
+                      color: 'yellow',
                       fontFamily: 'Courier New',
                       width: '100%',
                     }}
