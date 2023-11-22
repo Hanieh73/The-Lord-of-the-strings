@@ -90,6 +90,9 @@ main {
   margin:0;
   padding-top: 10px;
 }
+.conversation span {
+  padding-bottom: 10px;;
+}
 .bottom-container {
   width: 100%; 
   z-index: 1;
