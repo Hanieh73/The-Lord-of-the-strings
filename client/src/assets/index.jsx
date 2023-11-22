@@ -166,4 +166,5 @@ export { default as PuzzleProdigy } from './achievement/general/PuzzleProdigy.pn
 export { default as CyberpunkConnoisseur } from './achievement/general/CyberpunkConnoisseur.png';
 export { default as MasterofCity72 } from './achievement/general/MasterofCity72.png';
 
-export { default as lockPic } from './achievement/lock.jpg';
+// export { default as lockPic } from './achievement/lock.jpg';
+export { default as lockPic } from './achievement/pixel_lock.png';

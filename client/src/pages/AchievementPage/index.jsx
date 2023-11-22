@@ -7,9 +7,28 @@ import './awards.css';
 export default function AchievementPage() {
   //Achievements should have been grabbed when they logged in
   //GRAB ACHIEVEMENTS AGAIN
-  const { achievements, awardCount, setAwardCount } = useExample();
+  const { setAchievements, achievements, awardCount, setAwardCount } =
+    useExample();
 
   useEffect(() => {
+    async function getAchievements() {
+      const option = {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token: localStorage.getItem('token'),
+        }),
+      };
+      const res = await fetch('http://localhost:3000/users/showId', option);
+      const resData = await res.json();
+      // console.log('ACHIEVEMENT PAGE BABYYYYYY');
+      setAchievements(resData.achievements);
+    }
+    getAchievements();
+
     let count = 0;
     achievements['Main Storyline Achievements'].forEach((element) => {
       if (element.achieved == true) {
