@@ -35,10 +35,10 @@ const SpeechToText = ({userInput, setUserInput}) => {
   return (
       <>
       <button className="toolBar" onClick={startListening} disabled={isListening}>
-        <img className='toolBarIconPS' src={PlayButton} alt="Speech to Text" />
+        <img className='toolBarIconPS' src={PlayButton} alt="Start Listening" />
       </button>
       <button className="toolBar" onClick={stopListening} disabled={!isListening}>
-        <img className='toolBarIconPS' src={StopButton} alt="Speech to Text" />
+        <img className='toolBarIconPS' src={StopButton} alt="Stop Listening" />
       </button>
       </>
   );
