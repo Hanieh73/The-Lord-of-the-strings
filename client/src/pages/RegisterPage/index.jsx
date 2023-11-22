@@ -72,7 +72,7 @@ export default function RegisterPage() {
 
     if (response.status == 201) {
       //window.location.assign('/login');
-      navigate('/login');
+      navigate('/');
     } else {
       alert(data.error);
     }
