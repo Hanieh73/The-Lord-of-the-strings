@@ -9,4 +9,5 @@ export { default as LoadGames } from './LoadGames';
 export { default as ContinueGameButton } from './ContinueGameButton';
 export { default as NewGameButton } from './NewGameButton';
 export { default as LoadAchievements } from './LoadAchievements';
+export { default as Modal } from './Modal';
 // export {default as Prompts} from './prompts'

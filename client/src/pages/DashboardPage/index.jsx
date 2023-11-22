@@ -9,15 +9,18 @@ import leaderboardImg from "./leaderboard.png"
 import settingsImg from "./settings.png"
 import backgroundmp4 from "./background.mp4";
 import { TypeAnimation } from 'react-type-animation';
+import { useExample } from '../../contexts';
 
 export default function DashboardPage() {
 
-
-    const navigate = useNavigate();
-    const [user, setUser] = useState("");
-    const [about, setAbout] = useState(false);
-    useEffect(() => {
-        async function fetchUser() {
+  const { setAwardCount } = useExample();
+  const navigate = useNavigate();
+  const [user, setUser] = useState('');
+  const [about, setAbout] = useState(false);
+  
+  useEffect(() => {
+    setAwardCount(0);
+     async function fetchUser() {
             const option = {
                 method: 'POST',
                 headers: {

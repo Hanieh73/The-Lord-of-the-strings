@@ -2,17 +2,84 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useExample } from '../../contexts';
 
-export default function AchievementCard({ trophy, key }) {
-  //  const { setAwardCount, awardCount } = useExample();
-  const [isActive, setActive] = useState(false);
+import {
+  NeonNavigator,
+  MainframeMaster,
+  CyberSleuth,
+  DiplomatoftheDark,
+  FuturisticHistorian,
+  DecisiveLeader,
+  GuardianofthePast,
+  StealthySteps,
+  InsideJobMastermind,
+  HighOctaneHeister,
+  CodeCrackerExtraordinaire,
+  ArtfulDodger,
+  NeonNightcrawler,
+  StrategicGenius,
+  LoneSurvivor,
+  DiplomaticVictory,
+  WarHistorian,
+  BeachheadHero,
+  MasterTactician,
+  InnovationPioneer,
+  EthicalGuardian,
+  CorporateEspionageThwarted,
+  AIWhisperer,
+  BiotechVisionary,
+  SecuritySentinel,
+  StoryWeaver,
+  PuzzleProdigy,
+  CyberpunkConnoisseur,
+  MasterofCity72,
+  lockPic,
+} from '../../assets';
 
+const awardPictures = {
+  NeonNavigator,
+  MainframeMaster,
+  CyberSleuth,
+  DiplomatoftheDark,
+  FuturisticHistorian,
+  DecisiveLeader,
+  GuardianofthePast,
+  StealthySteps,
+  InsideJobMastermind,
+  HighOctaneHeister,
+  CodeCrackerExtraordinaire,
+  ArtfulDodger,
+  NeonNightcrawler,
+  StrategicGenius,
+  LoneSurvivor,
+  DiplomaticVictory,
+  WarHistorian,
+  BeachheadHero,
+  MasterTactician,
+  InnovationPioneer,
+  EthicalGuardian,
+  CorporateEspionageThwarted,
+  AIWhisperer,
+  BiotechVisionary,
+  SecuritySentinel,
+  StoryWeaver,
+  PuzzleProdigy,
+  CyberpunkConnoisseur,
+  MasterofCity72,
+};
+
+export default function AchievementCard({ trophy, index }) {
+  const { awardCount } = useExample();
+  const [isActive, setActive] = useState(false);
+  const [picture, setPicture] = useState();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (trophy.achieved == true) {
-  //     setAwardCount(awardCount + 1);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const formattedAward = trophy.name.replace(/\s/g, '').replace(/-/g, '');
+
+    setPicture(awardPictures[formattedAward]);
+    // if (trophy.achieved == true) {
+    // }
+  }, []);
   const toggleClass = () => {
     setActive(!isActive);
   };
@@ -26,15 +93,20 @@ export default function AchievementCard({ trophy, key }) {
   //MAKE THEM A LINK TO THE GAME PAGE
   return (
     <>
-      <div class="flip-card">
+      <div className="flip-card">
         <div
-          class={isActive ? 'flip-card-inner is-flipped' : 'flip-card-inner'}
+          className={
+            isActive ? 'flip-card-inner is-flipped' : 'flip-card-inner'
+          }
           onClick={toggleClass}
         >
-          <div class="flip-card-front">
-            <img />
+          <div
+            className="flip-card-front"
+            style={{ backgroundImage: `url(${picture})` }}
+          >
+            {trophy.achieved ? '' : <img src={lockPic} id="award-pic" />}
           </div>
-          <div class="flip-card-back">
+          <div className="flip-card-back">
             <p>{trophy.name}</p>
             <p>{trophy.description}</p>
             <p>{trophy.achieved}</p>

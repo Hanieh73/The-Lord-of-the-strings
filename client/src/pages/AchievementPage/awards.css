@@ -1,11 +1,9 @@
 #main-awards-container {
-  border: 3px solid red;
   width: 80%;
   margin: 0px auto;
 }
 
 .awards-container {
-  border: 3px solid blue;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -71,19 +69,58 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('./lock.jpg');
+  /* background: url('./lock.jpg'); */
   background-size: 200px 200px;
 }
 
-.flip-card-front:hover {
+/* .flip-card-front:hover {
   transition: 1s ease;
-  background: yellow;
-}
+  background: none;
+} */
 /* Style the back side */
 .flip-card-back {
   color: red;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   transform: rotateY(180deg);
+  width: 98%;
+  gap: 20px;
+}
+
+#root {
+  overflow: auto !important;
+}
+
+#example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 194, 247);
+  font-family: 'Press Start 2p';
+  -webkit-text-stroke: 1px rgb(255, 0, 119);
+  margin: 70px 0px;
+}
+
+p {
+  font-family: 'Press Start 2p';
+  font-size: 10px;
+  margin: 0px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+#award-pic {
+  image-size: cover;
+  width: 100%;
+  transition: opacity 1s ease-in;
+  opacity: 1;
+}
+
+#award-pic:hover {
+  transition: 1s ease;
+  opacity: 0;
 }

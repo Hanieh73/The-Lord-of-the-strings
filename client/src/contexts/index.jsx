@@ -14,6 +14,7 @@ export const ExampleProvider = ({ children }) => {
   const [currentGameID, setCurrentGameID] = useState(0);
   const [achievements, setAchievements] = useState({});
   const [awardCount, setAwardCount] = useState(0);
+  const [modalState, setModalState] = useState(false);
 
   return (
     <ExampleContext.Provider
@@ -34,6 +35,8 @@ export const ExampleProvider = ({ children }) => {
         setAchievements,
         awardCount,
         setAwardCount,
+        modalState,
+        setModalState,
       }}
     >
       {children}
