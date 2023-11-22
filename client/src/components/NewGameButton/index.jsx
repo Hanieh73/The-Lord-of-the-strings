@@ -1,6 +1,7 @@
 import React from 'react';
 import { useExample } from '../../contexts';
 import Modal from '../Modal';
+import newgameImg from './new game.png';
 
 export default function NewGameButton() {
   const { userID, allGames, setAllGames, modalState, setModalState } =
@@ -10,12 +11,14 @@ export default function NewGameButton() {
     console.log('hello');
   }
   return (
-    <button
+    <img
+      src={newgameImg}
+      alt="newgame"
+      className="img-fluid dashboard-btns-row2"
+      id="new-game-btn"
       onClick={() => {
         toggleModal();
       }}
-    >
-      New Game
-    </button>
+    />
   );
 }

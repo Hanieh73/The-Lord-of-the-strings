@@ -19,11 +19,21 @@ body {
   color: rgb(255, 194, 247);
 }
 .game-container {
-  width: 1300px;
-  border: 5px solid white;
+  /* border: 5px solid white; */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0px;
+  overflow: auto;
 }
+/* .awards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+} */
 
 .game-card {
   /* border: 5px solid white; */
@@ -51,23 +61,26 @@ button {
 }
 .modal {
   /* Hidden by default */
+  display: inline;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
+  left: 1;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  /* overflow: auto; Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  font-family: 'Press Start 2p';
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 60%; /* Could be more or less, depending on screen size */
+
   /* height: 80%; */
 }
 
@@ -83,4 +96,28 @@ button {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+#create-btn {
+  width: 300px;
+  margin: 150px auto 50px auto;
+}
+
+#form {
+  width: 1000px;
+  height: 150px;
+}
+
+.difficulty-btn {
+  border: 5px solid black;
+}
+
+#new-game-btn,
+#continue-btn {
+  width: 200px;
+  height: 190px;
+}
+
+#continue-btn {
+  margin-right: 10px;
 }

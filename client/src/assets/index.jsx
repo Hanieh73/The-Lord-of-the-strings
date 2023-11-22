@@ -162,6 +162,6 @@ export { default as SecuritySentinel } from './achievement/tech-magi/SecuritySen
 export { default as StoryWeaver } from './achievement/general/StoryWeaver.png';
 export { default as PuzzleProdigy } from './achievement/general/PuzzleProdigy.png';
 export { default as CyberpunkConnoisseur } from './achievement/general/CyberpunkConnoisseur.png';
-export { default as MasterofCity72 } from './achievement/general/MasterOfCity72.png';
+export { default as MasterofCity72 } from './achievement/general/MasterofCity72.png';
 
 export { default as lockPic } from './achievement/lock.jpg';
