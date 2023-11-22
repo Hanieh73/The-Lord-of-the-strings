@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 * {
@@ -50,6 +50,7 @@ body {
                0 0 20px rgba(255, 255, 255, 0.5),
                0 0 30px rgba(255, 255, 255, 0.5);
   -webkit-text-stroke: 1px rgb(255, 0, 119); /* Outline width and color */
+  width: 100%;
   
 }
 
@@ -225,4 +226,103 @@ body {
 .about-title-animation {
   animation: backInLeft;
   animation-duration: 0.8s;
+}
+
+
+
+.leaderboard-table{
+  font-family: "Press Start 2p";
+  color: red;
+}
+
+.retro-futuristic-table {
+  width: 50%;
+  position: absolute;
+  margin: 0 auto;
+  left: 25.5%;
+  top: 20%;
+}
+
+
+.retro-futuristic-table tr:nth-child(odd) {
+  color: rgb(255, 62, 152);
+}
+
+.retro-futuristic-table tr:nth-child(even) {
+  color: rgb(0, 204, 255);
+}
+
+.retro-futuristic-table th {
+  color: rgb(255, 0, 119);
+  -webkit-text-stroke: 0.1px rgb(6, 235, 243);
+  font-size: 28px;
+}
+
+.retro-futuristic-table tr:hover {
+  background-color: rgba(255, 0, 179, 0.119);
+}
+
+
+.scroll-bg {
+  position: relative;
+}
+
+
+
+.scroll-img {
+  width: 100%;
+  height: 70vh;
+  z-index: 0;
+}
+
+
+
+.back-leaderboard {
+  color: rgb(255, 194, 247);
+  font-family: "Press Start 2p";
+  font-size: 40px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 0;
+  -webkit-text-stroke: 1px rgb(255, 0, 119);
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.back-leaderboard:hover {
+  color: rgb(255, 104, 235);
+}
+
+
+.leaderboard-moveup {
+  margin-top: 3%;
+}
+
+
+.gold {
+	background: linear-gradient(-45deg, #fff18781, #eccf0281, #fff08781);
+	background-size: 50% 100%;
+	animation: linear-gradient 10s linear infinite;
+}
+
+.silver {
+	background: linear-gradient(-45deg, #d8d8d881, #9b9b9b81, #cccccc81);
+	background-size: 50% 100%;
+	animation: linear-gradient 10s linear infinite;
+}
+
+.bronze {
+	background: linear-gradient(-45deg, #ffd58781, #ec8e0281, #ffcf8781);
+	background-size: 50% 100%;
+	animation: linear-gradient 10s linear infinite;
+}
+@keyframes linear-gradient {
+	0% {
+		background-position: 0% 50%
+	}
+
+	100% {
+		background-position: 400% 400%
+	}
 }

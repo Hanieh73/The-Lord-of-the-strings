@@ -16,6 +16,7 @@ import {
   DashboardPage,
   GameLibraryPage,
   AchievementPage,
+  LeaderboardsPage,
 } from './pages';
 import { ExampleProvider } from './contexts';
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
         <Route path="/game" element={<GamePage />} />
         <Route path="/load" element={<GameLibraryPage />} />
         <Route path="/achievement" element={<AchievementPage />} />
+        <Route path="/leaderboard" element={<Protected><LeaderboardsPage /></Protected>} />
       </Routes>
     </ExampleProvider>
   );
