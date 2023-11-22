@@ -19,7 +19,7 @@ export default function GameCard({ game }) {
     setDifficulty(game.difficulty);
     setScore(game.score);
     setUpdatedAt(game.updated_at);
-  }, []);
+  }, [currentGameID]);
 
   async function deleteGame() {
     const options = {
@@ -63,14 +63,22 @@ export default function GameCard({ game }) {
   function ifClicked() {
     setCurrentGameID(gameID);
     grabSaveData();
-    setTimeout(() => {
-      navigate('/game');
-    }, 250);
+    // setTimeout(() => {
+    //   navigate('/game');
+    // }, 250);
   }
 
   //MAKE THEM A LINK TO THE GAME PAGE
   return (
-    <div className="game-card" onClick={() => ifClicked()}>
+    <div
+      className="game-card"
+      onClick={() => ifClicked()}
+      style={
+        gameID == currentGameID
+          ? { border: '5px solid black' }
+          : { border: '5px solid yellow' }
+      }
+    >
       <p>Game ID: {gameID}</p>
       <p>State: {state}</p>
       <p>Difficulty: {difficulty}</p>
@@ -79,3 +87,4 @@ export default function GameCard({ game }) {
     </div>
   );
 }
+// .substring(0, 10)

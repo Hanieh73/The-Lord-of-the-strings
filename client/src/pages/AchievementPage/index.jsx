@@ -6,6 +6,7 @@ import './awards.css';
 
 export default function AchievementPage() {
   //Achievements should have been grabbed when they logged in
+  //GRAB ACHIEVEMENTS AGAIN
   const { achievements, awardCount, setAwardCount } = useExample();
 
   useEffect(() => {
