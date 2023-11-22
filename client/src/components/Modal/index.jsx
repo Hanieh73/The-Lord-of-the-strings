@@ -28,7 +28,7 @@ export default function Modal() {
           'Content-type': 'application/json; charset=UTF-8',
         },
       };
-      const response = await fetch('https://city-72-wez6.onrender.com//games/', options);
+      const response = await fetch('https://city-72-wez6.onrender.com/games/', options);
       const data = await response.json();
 
       setGameData(data);

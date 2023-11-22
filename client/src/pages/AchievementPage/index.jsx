@@ -22,7 +22,7 @@ export default function AchievementPage() {
           token: localStorage.getItem('token'),
         }),
       };
-      const res = await fetch('https://city-72-wez6.onrender.com//users/showId', option);
+      const res = await fetch('https://city-72-wez6.onrender.com/users/showId', option);
       const resData = await res.json();
       // console.log('ACHIEVEMENT PAGE BABYYYYYY');
       setAchievements(resData.achievements);

@@ -30,7 +30,7 @@ export default function DashboardPage() {
           token: localStorage.token,
         }),
       };
-      const res = await fetch('https://city-72-wez6.onrender.com//users/showId', option);
+      const res = await fetch('https://city-72-wez6.onrender.com/users/showId', option);
       const resData = await res.json();
 
       setUser(resData.username);

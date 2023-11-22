@@ -18,7 +18,7 @@ export default function GameLibraryPage() {
     async function fetchGames() {
       try {
         const response = await fetch(
-          `https://city-72-wez6.onrender.com//games/show/${userID}`
+          `https://city-72-wez6.onrender.com/games/show/${userID}`
         ); //HARDCODED FOR 1 FOR NOW
         const data = await response.json();
         // console.log(data);
