@@ -266,7 +266,7 @@ const GamePage = () => {
       'The Heist of the Neon Symphony' tests mathematical skills.
       'Echoes of the Forgotten War' tests historical knowledge, focusing on D-Day.
       'Rise of the Tech-Magi' tests biology knowledge.
-      The choice of which relic to activate is labeled A, B, and C, with each mini-story unveiling new developments and challenges. Typing 'h' or 'hint' provides guidance relevant to the current puzzle or scenario within the narrative section. Responses should be formatted as a JSON object with the keys: 'current_location' using the names only in ${locationImages}, 'act', 'storyname', 'narrative', 'items' using the names only in ${itemImages}, 'character'using the names only in ${characterImages}, 'choices', and 'achievements' where applicable.    
+      The choice of which relic to activate is labeled A, B, and C, with each mini-story unveiling new developments and challenges. Typing 'h' or 'hint' provides guidance relevant to the current puzzle or scenario within the narrative section. Responses should be formatted as a JSON object with the keys: 'current_location' using the names only in ${locationImages}, 'act', 'storyname', 'narrative', 'items' using the names only in ${itemImages}, 'character', 'choices', and 'achievements' where applicable.    
       Story Prompt:
       ${mainStory}, ${achievements}. 
       Narrative Progression:
@@ -282,7 +282,7 @@ const GamePage = () => {
         "storyname": "current story"
         "narrative": "Narrative text describing the scene, including a hint if requested, e.g., 'Lost in the labyrinthine paths, Renn notices a pattern in the wall markings, hinting at a hidden exit.'" Start every narrative except the first one with You chose: the message.content that the user gives and then what the user selected, then the narrative on another paragraph.",
         "items": ["List of items currently in the player's possession"],
-        "character": "Name of the main character or character being interacted with or leave as Renn Harlow defaulted",
+        "character": "Name of the main character which is Renn Harlow and character being interacted with other than Renn Harlow",
         "choices": [
           {"A": "Description of Choice A and its potential outcomes and must not be empty"},
           {"B": "Description of Choice B and its potential outcomes and must not be empty"},
@@ -408,9 +408,9 @@ const GamePage = () => {
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
 
-        if (formatedData.character == '') {
+        if (formatedData.character == "" || formatedData.character == null) {
           setCharacterName('Renn Harlow');
-          setCharacterdisplayed('rennharlow');
+          setCharacterdisplayed(rennharlow);
         } else {
           const formattedCharacter = formatedData.character
             ? formatedData.character.replace(/\s/g, '').toLowerCase()
