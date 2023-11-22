@@ -55,7 +55,7 @@ class User {
     if (response.rows.length != 1) {
       throw new Error('Unable to update user achievements.');
     }
-    return new Story(response.rows[0]);
+    return new User(response.rows[0]);
   }
 }
 

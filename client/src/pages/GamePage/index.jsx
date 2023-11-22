@@ -2,19 +2,48 @@ import React, { useState, useEffect } from 'react';
 import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
+
 import {neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs } from '../../assets'
+
 //Character imports
 import {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
 } from '../../assets';
 //Item imports
-import { digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule, settings, RennHarlowVideo } from '../../assets';
-import { SettingsPopup, CharacterCard, TextToSpeech, SpeechToText} from '../../components';
-import '../../assets'
-import { mainStory, charactersInfo, StoryComponent, heistStory, warStory, techMagiStory, achievements } from '../../components/prompts/index'
-import {Background} from '../../assets';
+import {
+  digitalmapofcity72,
+  lotrartifacts,
+  mainframe,
+  holorecorder,
+  stealthcloak,
+  datapad,
+  ancienttechdetector,
+  neuralinterface,
+  timecapsule,
+  settings,
+  RennHarlowVideo,
+} from '../../assets';
+import {
+  SettingsPopup,
+  CharacterCard,
+  TextToSpeech,
+  SpeechToText,
+} from '../../components';
+import '../../assets';
+import {
+  mainStory,
+  charactersInfo,
+  StoryComponent,
+  heistStory,
+  warStory,
+  techMagiStory,
+  achievements,
+} from '../../components/prompts/index';
+import { Background } from '../../assets';
 
 const locationImages = {
+
   neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs 
+
 };
 const characterImages = {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
 };
@@ -23,11 +52,13 @@ const itemImages = {
 }
 
 import { useExample } from '../../contexts';
-import {BackgroundMusic} from'../../assets'
+import { BackgroundMusic } from '../../assets';
 
 const GamePage = () => {
+
   const [audioPlayed, setAudioPlayed] = useState(false);
   const [dialogue, setDialogue] = useState('Enter Continue');
+
   const [userInput, setUserInput] = useState('');
   const [visibleUserInput, setVisibleUserInput] = useState('Enter Continue');
   const [inventoryVisible, setInventoryVisible] = useState(false);
@@ -78,7 +109,6 @@ const GamePage = () => {
   // const { currentGameID } = useExample();
   // const [saveData, setSaveData] = useState();
 
-
   // async function grabSaveData() {
   //   try {
   //     const response = await fetch(
@@ -116,29 +146,32 @@ const GamePage = () => {
   //   }
   // }
 
-
   useEffect(() => {
-    document.body.classList.add("game-page-text");
-    document.body.classList.remove("home-page");
-    document.body.classList.remove("signup-page")
+    document.body.classList.add('game-page-text');
+    document.body.classList.remove('home-page');
+    document.body.classList.remove('signup-page');
 
     return () => {
-      document.body.classList.remove("game-page-text");
+      document.body.classList.remove('game-page-text');
     };
   }, []);
 
+
   let choiceMade = ""
   const [choicesMade, setChoicesMade] = useState([]);
+
   const submitUserInput = async () => {
     if (userInput.trim() !== '') {
       // Extract the choice from the user input
       const userChoice = userInput.trim().toUpperCase();
+
       // Show the choice in visibleUserInput
       if (userChoice == "CONTINUE") {
         setVisibleUserInput(`You Chose: ${userChoice}`);   
       } else if (userChoice == "A" || userChoice == "B" || userChoice == "C") {
+
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
-        choiceMade =choices[choiceIndex][userChoice]
+        choiceMade = choices[choiceIndex][userChoice];
         setVisibleUserInput(`You Chose: ${choiceMade}`);
       } else {
         setVisibleUserInput(`You Chose: ${choiceMade}`);
@@ -146,30 +179,38 @@ const GamePage = () => {
       const userMessage = { role: 'user', content: userInput };
       setConversation((prevConversation) => [...prevConversation, userMessage]);
       try {
-        const response = await fetch('https://city-72-wez6.onrender.com/chats', {
-          method: 'POST',
-          headers: { 'Content-type': 'application/json' },
-          body: JSON.stringify([...conversation, userMessage]),
-        });
-  
+        const response = await fetch(
+          'https://city-72-wez6.onrender.com/chats',
+          {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify([...conversation, userMessage]),
+          }
+        );
+
         const data = await response.json();
         console.log(data.message);
         const formatedData = JSON.parse(data.message);
-  
+
         console.log(formatedData);
         const formattedLocation = formatedData.current_location
           ? formatedData.current_location.replace(/\s/g, '').toLowerCase()
           : '';
         setLocation(locationImages[formattedLocation]);
+
   
+
         setDialogue(formatedData.narrative);
-  
+
         const formattedItems = formatedData.items.map((item) =>
-          item.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase()
+          item
+            .replace(/\s/g, '')
+            .replace(/[^\w\s]/g, '')
+            .toLowerCase()
         );
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
-  
+
         if (formatedData.character == '') {
           setCharacterName('Renn Harlow');
           setCharacterdisplayed('rennharlow');
@@ -195,7 +236,6 @@ const GamePage = () => {
 
     }
   };
-
 
   const toggleInventory = () => {
     setInventoryVisible(!inventoryVisible);

@@ -9,15 +9,18 @@ import leaderboardImg from "./leaderboard.png"
 import settingsImg from "./settings.png"
 import backgroundmp4 from "./background.mp4";
 import { TypeAnimation } from 'react-type-animation';
+import { useExample } from '../../contexts';
 
 export default function DashboardPage() {
 
-
-    const navigate = useNavigate();
-    const [user, setUser] = useState("");
-    const [about, setAbout] = useState(false);
-    useEffect(() => {
-        async function fetchUser() {
+  const { setAwardCount } = useExample();
+  const navigate = useNavigate();
+  const [user, setUser] = useState('');
+  const [about, setAbout] = useState(false);
+  
+  useEffect(() => {
+    setAwardCount(0);
+     async function fetchUser() {
             const option = {
                 method: 'POST',
                 headers: {
@@ -44,6 +47,10 @@ export default function DashboardPage() {
     function logout() {
         localStorage.removeItem("token");
         navigate('/login');
+    }
+
+    function leaderboard() {
+        navigate('/leaderboard');
     }
 
     
@@ -158,7 +165,7 @@ export default function DashboardPage() {
                     <img src={awardsImg} alt="Awards" className='img-fluid dashboard-btns'/>
                 </div>
                 <div className="col-2 text-left">
-                    <img src={leaderboardImg} alt="leaderboards" className='img-fluid dashboard-btns-row2'/>
+                    <img src={leaderboardImg} alt="leaderboards" className='img-fluid dashboard-btns-row2' onClick={leaderboard}/>
                 </div>
                 <div className="col-3 text-center about-box">
                     <div className="about-1"><span className='about-gap'>How to Play:</span><hr className='hr-about'/>
@@ -177,17 +184,15 @@ export default function DashboardPage() {
             
 
             <div className="row" id='all-dash-btns'>
-                <div className="col-3"></div>
-                <div className="col-2 text-right">
-                    <img src={resumeImg} alt="resumegame" className='img-fluid dashboard-btns-row2'/>
-                </div>
+                <div className="col-4"></div>
+                
                 <div className="col-2 text-center">
                     <img src={settingsImg} alt="settings" className='img-fluid dashboard-btns'/>
                 </div>
                 <div className="col-2 text-left">
                     <img src={logoutImg} alt="logout" className='img-fluid dashboard-btns' onClick={logout}/>
                 </div>
-                <div className="col-3"></div>
+                <div className="col-4"></div>
             </div>
 
 

@@ -4,7 +4,7 @@ export { default as lab } from './location/main/lab.png';
 export { default as centralplaza } from './location/main/centralplaza.png';
 export { default as industrialdistrict } from './location/main/IndustrialDistrict.png';
 export { default as mainframechamber } from './location/main/MainframeChamber.png';
-export { default as mainframeconsole} from './location/main/MainframeConsole.png';
+export { default as mainframeconsole } from './location/main/MainframeConsole.png';
 export { default as secretundergroundlab } from './location/main/SecretUndergroundLab.png';
 export { default as undergroundpaths } from './location/main/UndergroundPaths.png';
 export { default as virtualrealitypod } from './location/main/VirtualRealityPod.png';
@@ -41,7 +41,6 @@ export { default as capturedenemybunkers } from './location/war/CapturedEnemyBun
 export { default as makeshiftfieldhospitals } from './location/war/MakeshiftFieldHospitals.png';
 export { default as debriefingareas } from './location/war/DebriefingAreas.png';
 
-
 //tech-magi
 export { default as hightechresearchlabs } from './location/tech-magi/hightechresearchlabs.png';
 export { default as experimentaltestingareas } from './location/tech-magi/experimentaltestingarea.png';
@@ -58,9 +57,6 @@ export { default as highsecuritylabs } from './location/tech-magi/highsecurityla
 // export { default as aicoreroom } from './location/tech-magi/AICoreRoom.png';
 // export { default as digitalsimulationareas } from './location/tech-magi/DigitalSimulationAreas.png';
 // export { default as ethicaldebatechambers } from './location/tech-magi/EthicalDebateChambers.png';
-
-
-
 
 //Items
 export { default as digitalmapofcity72 } from './items/digital_map.png';
@@ -91,7 +87,6 @@ export { default as vega } from './characters/main/Vega.png';
 export { default as lyra } from './characters/main/Lyra.png';
 export { default as knox } from './characters/main/Knox.png';
 export { default as aimainframe } from './characters/main/AIMainframe.png';
-
 
 //heist
 export { default as mikaredstorm } from './characters/heist/MikaRedstorm.png';
@@ -124,8 +119,6 @@ export { default as securityexperthanakim } from './characters/tech-magi/Securit
 export { default as airesearcherdremlcarter } from './characters/tech-magi/AIResearcherDrEmilyCarter.png';
 export { default as theaientity } from './characters/tech-magi/TheAIEntity.png';
 
-
-
 //Animated Characters
 export { default as RennHarlowVideo } from './animatedCharacters/RennHarlowVideo.mp4';
 //Music
@@ -137,10 +130,12 @@ export { default as Background } from './music/Background.mp4';
 export { default as NeonNavigator } from './achievement/main/NeonNavigator.png';
 export { default as MainframeMaster } from './achievement/main/MainframeMaster.png';
 export { default as CyberSleuth } from './achievement/main/CyberSleuth.png';
-export { default as DiplomatOfTheDark } from './achievement/main/DiplomatoftheDark.png';
+
+export { default as DiplomatoftheDark } from './achievement/main/DiplomatoftheDark.png';
 export { default as FuturisticHistorian } from './achievement/main/FuturisticHistorian.png';
 export { default as DecisiveLeader } from './achievement/main/DecisiveLeader.png';
-export { default as GuardianOfThePast } from './achievement/main/GuardianofthePast.png';
+export { default as GuardianofthePast } from './achievement/main/GuardianofthePast.png';
+
 
 //heist
 export { default as StealthySteps } from './achievement/heist/StealthySteps.png';
@@ -170,4 +165,8 @@ export { default as SecuritySentinel } from './achievement/tech-magi/SecuritySen
 export { default as StoryWeaver } from './achievement/general/StoryWeaver.png';
 export { default as PuzzleProdigy } from './achievement/general/PuzzleProdigy.png';
 export { default as CyberpunkConnoisseur } from './achievement/general/CyberpunkConnoisseur.png';
-export { default as MasterOfCity72 } from './achievement/general/MasterofCity72.png';
+
+export { default as MasterofCity72 } from './achievement/general/MasterOfCity72.png';
+
+export { default as lockPic } from './achievement/lock.jpg';
+
