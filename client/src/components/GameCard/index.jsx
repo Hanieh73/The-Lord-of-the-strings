@@ -8,8 +8,14 @@ export default function GameCard({ game }) {
   const [difficulty, setDifficulty] = useState('');
   const [score, setScore] = useState(0);
   const [updatedAt, setUpdatedAt] = useState();
-  const [saveData, setSaveData] = useState();
-  const { setAllGames, userID, setCurrentGameID, currentGameID } = useExample();
+  const {
+    setAllGames,
+    userID,
+    setCurrentGameID,
+    currentGameID,
+    saveData,
+    setSaveData,
+  } = useExample();
 
   const navigate = useNavigate();
 
@@ -18,7 +24,7 @@ export default function GameCard({ game }) {
     setState(game.state);
     setDifficulty(game.difficulty);
     setScore(game.score);
-    setUpdatedAt(game.updated_at);
+    setUpdatedAt(game.updated_at.substring(0, 10));
   }, [currentGameID]);
 
   async function deleteGame() {

@@ -19,7 +19,7 @@ export default function Modal() {
       const options = {
         method: 'POST',
         body: JSON.stringify({
-          user_id: 1,
+          user_id: userID,
           state: 'in-progress',
           difficulty: gameDifficulty,
           story_id: 1,

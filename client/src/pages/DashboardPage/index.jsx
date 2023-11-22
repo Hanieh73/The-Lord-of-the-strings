@@ -140,6 +140,9 @@ export default function DashboardPage() {
             src={newgameImg}
             alt="newgame"
             className="img-fluid dashboard-btns-row2"
+            onClick={() => {
+              navigate('/load');
+            }}
           />
         </div>
         <div className="col-2 text-center">

@@ -65,7 +65,7 @@ export default function RegisterPage() {
       }),
     };
     const response = await fetch(
-      'https://city-72-wez6.onrender.com/users/register',
+      'http://localhost:3000/users/register',
       options
     );
     const data = await response.json();
@@ -93,20 +93,45 @@ export default function RegisterPage() {
       <div className="row">
         <div className="col-3"></div>
 
-          <div className="col-6 login-title text-center">
-            <img src={logoImg} alt="city 72" className='img-fluid' />
+        <div className="col-6 login-title text-center">
+          <img src={logoImg} alt="city 72" className="img-fluid" />
 
-            <form className='login-form'>
+          <form className="login-form">
+            <input
+              type="text"
+              placeholder="Name"
+              className="name-text"
+              onChange={handleInput}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Username"
+              className="username-text"
+              onChange={handleInput}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="password-text"
+              onChange={handlePassword}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Confirm password"
+              className="password-text"
+              onChange={handleConfirmPassword}
+              required
+            />
 
-            <input type="text" placeholder="Name" className="name-text" onChange={handleInput} required/>
-            <input type="text" placeholder="Username" className="username-text" onChange={handleInput} required/>
-            <input type="password" placeholder="Password" className="password-text" onChange={handlePassword} required/>
-            <input type="password" placeholder="Confirm password" className="password-text" onChange={handleConfirmPassword} required/>
-            
-
-            <button type="submit" className='register-btn' onClick={handleSubmit}>
-              <img src={registerImg} alt="register"/>
-
+            <button
+              type="submit"
+              className="register-btn"
+              onClick={handleSubmit}
+            >
+              <img src={registerImg} alt="register" />
             </button>
           </form>
         </div>
@@ -121,17 +146,16 @@ export default function RegisterPage() {
         </div>
       </div>
 
-
       {incorrectCredentials ? (
-          <h3 className="incorrect" style={{ color: '#FF0000', textAlign: 'center' }}>
-            Passwords do not match!
-          </h3>
-        ) : (
-          ''
-        )}
-
-
-
+        <h3
+          className="incorrect"
+          style={{ color: '#FF0000', textAlign: 'center' }}
+        >
+          Passwords do not match!
+        </h3>
+      ) : (
+        ''
+      )}
     </div>
   );
 }
