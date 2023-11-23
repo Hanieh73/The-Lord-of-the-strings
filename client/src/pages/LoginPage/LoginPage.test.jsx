@@ -1,11 +1,16 @@
 // LoginPage.test.jsx
 import React from 'react';
-import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { screen, render, cleanup, fireEvent, waitFor } from '@testing-library/react';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import {
+  screen,
+  render,
+  cleanup,
+  fireEvent,
+  waitFor,
+} from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-
 
 import LoginPage from '.';
 import { ExampleProvider } from '../../contexts'; // Adjust the import as needed
@@ -106,7 +111,9 @@ describe('Login Page', () => {
   });
 
   it('navigates to register page', () => {
-    const registerButton = screen.getByRole('button', { name: /Create an Account/ });
+    const registerButton = screen.getByRole('button', {
+      name: /Create an Account/,
+    });
     fireEvent.click(registerButton);
 
     expect(window.location.href).toEqual('http://localhost:3000/register');

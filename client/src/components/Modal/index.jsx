@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Modal() {
   const { modalState, setModalState, userID, setCurrentGameID } = useExample();
-  const [gameDifficulty, setGameDifficulty] = useState();
+
   const [gameData, setGameData] = useState({});
   const navigate = useNavigate();
 
   const handleBtnCancel = () => {
-    setModalState(false)
-  }
+    setModalState(false);
+  };
 
   function selectDifficulty(e) {
     //console.log(e.target.textContent);
@@ -25,14 +25,17 @@ export default function Modal() {
         body: JSON.stringify({
           user_id: userID,
           state: 'in-progress',
-          difficulty: gameDifficulty,
+          difficulty: 'Easy',
           story_id: 1,
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
       };
-      const response = await fetch('https://city-72-wez6.onrender.com/games/', options);
+      const response = await fetch(
+        'https://city-72-wez6.onrender.com/games/',
+        options
+      );
       const data = await response.json();
 
       setGameData(data);
@@ -46,10 +49,13 @@ export default function Modal() {
     }
   }
 
-
-
   return (
-    <div id="myModal" className={modalState ? 'modal' : 'modal-display-none modal-dialog modal-sm'}>
+    <div
+      id="myModal"
+      className={
+        modalState ? 'modal' : 'modal-display-none modal-dialog modal-sm'
+      }
+    >
       <div className="modal-content">
         <div>
           <span
@@ -61,42 +67,50 @@ export default function Modal() {
             &times;
           </span>
         </div>
-        <h1>Are Your Sure You Want To Start A New Game</h1>
+        <h1 className="modal-text">
+          Are You Sure You Want To Start A New Game?
+        </h1>
 
         {/* <div id="form">
           <h2>Choose Difficulty</h2>
           <div id="difficulty-btn">
-            <button className="difficulty-btn" onClick={selectDifficulty}>
-              Easy
+            <button
+              className="difficulty-btn"
+              onClick={async () => {
+                createGame();
+              }}
+            >
+              Yes
             </button>
-            <button className="difficulty-btn" onClick={selectDifficulty}>
-              Medium
-            </button>
-            <button className="difficulty-btn" onClick={selectDifficulty}>
-              Hard
+            <button
+              className="difficulty-btn"
+              onClick={() => {
+                setModalState(false);
+              }}
+            >
+              No
             </button>
           </div>
         </div> */}
 
-        <div className='buttons'>
-        <button
-          id="create-btn"
-          onClick={async () => {
-            createGame();
-          }}
-        >
-          Yes
-        </button>
-        <button
-          id="close-btn"
-          onClick={ () => {
-            handleBtnCancel();
-          }}
-        >
-          No
-        </button>
+        <div className="buttons">
+          <button
+            id="create-btn"
+            onClick={async () => {
+              createGame();
+            }}
+          >
+            Yes
+          </button>
+          <button
+            id="close-btn"
+            onClick={() => {
+              handleBtnCancel();
+            }}
+          >
+            No
+          </button>
         </div>
-        
       </div>
     </div>
   );

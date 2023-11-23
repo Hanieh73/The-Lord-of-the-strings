@@ -54,7 +54,7 @@ class Progress {
   static async create(game_id, data) {
     const response = await db.query(
       'INSERT INTO Progress (game_id, story_id, saved_chat, items) VALUES ($1, $2, $3, $4) RETURNING *;',
-      [game_id, data.story_id, '', []]
+      [game_id, data.story_id, [], []]
     );
 
     return new Progress(response.rows[0]);
