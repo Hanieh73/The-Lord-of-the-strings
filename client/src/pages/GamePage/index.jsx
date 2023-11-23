@@ -3,10 +3,87 @@ import './GamePage.css';
 import { TypeAnimation } from 'react-type-animation';
 //Location imports
 
-import {virtualrealitypods, neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs } from '../../assets'
+import {
+  virtualrealitypods,
+  neonstreetsofcity72,
+  mainpowercontrolroom,
+  city72,
+  neonstreets,
+  arrivalincity72,
+  lab,
+  centralplaza,
+  industrialdistrict,
+  mainframechamber,
+  mainframeconsole,
+  secretundergroundlab,
+  undergroundpaths,
+  crowdedmarketstreets,
+  digitalcitymapdisplay,
+  hiddenspeakeasy,
+  highspeedmainavenues,
+  hightechhideout,
+  lasergridprotectedexhibit,
+  marketstalls,
+  narrowalleyways,
+  securecommunicationsroom,
+  shadowyalleys,
+  ultramodernmuseum,
+  briefingtents,
+  traininggrounds,
+  planningrooms,
+  landingcrafts,
+  choppyseawaters,
+  beachlandingzones,
+  bombardedbeachzones,
+  enemybunkers,
+  makeshiftcommandcenters,
+  capturedenemybunkers,
+  makeshiftfieldhospitals,
+  debriefingareas,
+  hightechresearchlabs,
+  experimentaltestingareas,
+  conferencehalls,
+  debatestages,
+  privatemetingrooms,
+  corporateboardrooms,
+  highsecuritylabs,
+} from '../../assets';
 
 //Character imports
-import {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
+import {
+  ava,
+  cipher,
+  depictmayoranikavoss,
+  drelaramorn,
+  echo,
+  vega,
+  rennharlow,
+  axelblackwell,
+  irisflint,
+  jadevortex,
+  lunavega,
+  mikaredstorm,
+  zephyr,
+  aimainframe,
+  knox,
+  lyra,
+  airesearcherdremlcarter,
+  corporatespyalexmercer,
+  dravalin,
+  ethicistdrmayasingh,
+  geneticistdrrajivkumar,
+  professorleoZheng,
+  securityexperthanakim,
+  theaientity,
+  captainlucasford,
+  commanderwilliamharper,
+  diplomaticenvoymariedupont,
+  historiandrelizabethmorgan,
+  lieutenantgracebennett,
+  majorjohnathanellis,
+  privatesamuelking,
+  scoutoliverthompson,
+  sergeantemilyturner,
 } from '../../assets';
 //Item imports
 import {
@@ -23,7 +100,7 @@ import {
   RennHarlowVideo,
   speaking,
   PlayButton,
-  StopButton
+  StopButton,
 } from '../../assets';
 import {
   SettingsPopup,
@@ -69,39 +146,61 @@ const mainStory =  `City 72 Main Story: Summary
   Conclusion:
   The main story of City 72 intertwines Renn's journey with the city's history. Decisions in the main and mini-stories (discovered through relics) significantly influence the understanding and future of City 72.`;
 
-
 const charactersInfo = {
-  
-    "Renn Harlow": "Dynamic, resourceful adventurer. Skilled in navigating through the cyberpunk city and uncovering its secrets.",
-    "Vega": "Mysterious guide with deep knowledge of City 72's hidden truths. Enigmatic and knowledgeable.",
-    "Dr. Elara Morn": "Reclusive tech savant. Brilliant mind with expertise in ancient technology and the mainframe.",
-    "Cipher": "Street-smart hacker with a rebellious edge. Savvy in digital espionage and hacking.",
-    "Mayor Anika Voss": "Charismatic and influential politician. Holds significant power and ambition within City 72.",
-    "Echo": "Well-connected informant. Resourceful and knowledgeable about the city's affairs.",
-    "Mika Redstorm": "Key informant with insights into the city's underworld. Resourceful and cunning.",
-    "Axel Blackwell": "Mastermind of the heist. Strategic thinker and planner.",
-    "Jade Vortex": "Security expert specializing in infiltration and tech. Analytical and detail-oriented.",
-    // "Echo": "Tech-savvy hacker, crucial for information gathering and digital support.",
-    "Zephyr": "Stealth specialist with expertise in disabling security systems.",
-    "Iris Flint": "Safe cracking expert, skilled in breaking into high-security vaults.",
-    "Luna Vega": "Escape driver, adept at high-speed chases and evasive maneuvers.",
-    "Captain Rhys Dalton": "Determined police officer. Persistent in thwarting criminal activities.",
-    "Major Johnathan Ellis": "Intelligence officer, strategic and serious, focused on war strategies.",
-    "Sergeant Emily Turner": "Drill sergeant, authoritative and commanding, responsible for troop training.",
-    "Commander William Harper": "Naval commander, leads with courage and determination.",
-    "Lieutenant Grace Bennett": "Communications expert, critical in maintaining lines of communication.",
-    "Private Samuel King": "Lone survivor, resilient and resourceful in challenging situations.",
-    "Captain Lucas Ford": "Tactical leader, excels in strategizing and leading operations.",
-    "Scout Oliver Thompson": "Recon expert, adept at stealth and gathering crucial intel.",
-    "Dr. Ava Lin": "Leading bio-engineer, innovative in developing cybernetic enhancements.",
-    "Professor Leo Zheng": "Neurobiologist, expert in integrating technology with the human nervous system.",
-    "Ethicist Dr. Maya Singh": "Ethics specialist, challenges the moral implications of human augmentation.",
-    "Geneticist Dr. Rajiv Kumar": "Geneticist, explores the genetic impact of cybernetics on human evolution.",
-    "Corporate Spy Alex Mercer": "Sly and cunning, attempts to steal groundbreaking research.",
-    "Security Expert Hana Kim": "Protects sensitive information, specialized in security measures.",
-    "AI Researcher Dr. Emily Carter": "Studies the integration of AI with biological systems.",
-    "The AI Entity": "Newly conscious AI, interacts with the lab's work and poses ethical questions."
-}
+  'Renn Harlow':
+    'Dynamic, resourceful adventurer. Skilled in navigating through the cyberpunk city and uncovering its secrets.',
+  Vega: "Mysterious guide with deep knowledge of City 72's hidden truths. Enigmatic and knowledgeable.",
+  'Dr. Elara Morn':
+    'Reclusive tech savant. Brilliant mind with expertise in ancient technology and the mainframe.',
+  Cipher:
+    'Street-smart hacker with a rebellious edge. Savvy in digital espionage and hacking.',
+  'Mayor Anika Voss':
+    'Charismatic and influential politician. Holds significant power and ambition within City 72.',
+  Echo: "Well-connected informant. Resourceful and knowledgeable about the city's affairs.",
+  'Mika Redstorm':
+    "Key informant with insights into the city's underworld. Resourceful and cunning.",
+  'Axel Blackwell': 'Mastermind of the heist. Strategic thinker and planner.',
+  'Jade Vortex':
+    'Security expert specializing in infiltration and tech. Analytical and detail-oriented.',
+  // "Echo": "Tech-savvy hacker, crucial for information gathering and digital support.",
+  Zephyr: 'Stealth specialist with expertise in disabling security systems.',
+  'Iris Flint':
+    'Safe cracking expert, skilled in breaking into high-security vaults.',
+  'Luna Vega':
+    'Escape driver, adept at high-speed chases and evasive maneuvers.',
+  'Captain Rhys Dalton':
+    'Determined police officer. Persistent in thwarting criminal activities.',
+  'Major Johnathan Ellis':
+    'Intelligence officer, strategic and serious, focused on war strategies.',
+  'Sergeant Emily Turner':
+    'Drill sergeant, authoritative and commanding, responsible for troop training.',
+  'Commander William Harper':
+    'Naval commander, leads with courage and determination.',
+  'Lieutenant Grace Bennett':
+    'Communications expert, critical in maintaining lines of communication.',
+  'Private Samuel King':
+    'Lone survivor, resilient and resourceful in challenging situations.',
+  'Captain Lucas Ford':
+    'Tactical leader, excels in strategizing and leading operations.',
+  'Scout Oliver Thompson':
+    'Recon expert, adept at stealth and gathering crucial intel.',
+  'Dr. Ava Lin':
+    'Leading bio-engineer, innovative in developing cybernetic enhancements.',
+  'Professor Leo Zheng':
+    'Neurobiologist, expert in integrating technology with the human nervous system.',
+  'Ethicist Dr. Maya Singh':
+    'Ethics specialist, challenges the moral implications of human augmentation.',
+  'Geneticist Dr. Rajiv Kumar':
+    'Geneticist, explores the genetic impact of cybernetics on human evolution.',
+  'Corporate Spy Alex Mercer':
+    'Sly and cunning, attempts to steal groundbreaking research.',
+  'Security Expert Hana Kim':
+    'Protects sensitive information, specialized in security measures.',
+  'AI Researcher Dr. Emily Carter':
+    'Studies the integration of AI with biological systems.',
+  'The AI Entity':
+    "Newly conscious AI, interacts with the lab's work and poses ethical questions.",
+};
 
 const heistStory = ` The Heist of the Neon Symphony: Summary
   Core Information:
@@ -190,177 +289,272 @@ The story outcome depends on players' biology knowledge and ethical choices. Suc
 
 
 const achievements = {
-    "Main Storyline Achievements": [
-        {
-            "name": "Neon Navigator",
-            "description": "Successfully navigate the neon streets of City 72 without getting lost.",
-            "achieved": false
-        },
-        {
-            "name": "Mainframe Master",
-            "description": "Unlock all historical stories in the mainframe.",
-            "achieved": false
-        },
-        {
-            "name": "Cyber Sleuth",
-            "description": "Uncover every hidden secret in City 72.",
-            "achieved": false
-        },
-        {
-            "name": "Diplomat of the Dark",
-            "description": "Successfully negotiate with all factions in City 72.",
-            "achieved": false
-        },
-        {
-            "name": "Futuristic Historian",
-            "description": "Complete all historical scenarios in the mainframe.",
-            "achieved": false
-        },
-        {
-            "name": "Decisive Leader",
-            "description": "Make a critical decision that significantly alters the course of City 72's future.",
-            "achieved": false
-        },
-        {
-            "name": "Guardian of the Past",
-            "description": "Preserve the integrity and history of City 72.",
-            "achieved": false
-        }
-    ],
-    "The Heist of the Neon Symphony Achievements": [
-        {
-            "name": "Stealthy Steps",
-            "description": "Complete the heist using the Stealth Approach without triggering any alarms.",
-            "achieved": false
-        },
-        {
-            "name": "Inside Job Mastermind",
-            "description": "Successfully perform the heist using the Inside Job approach without getting caught.",
-            "achieved": false
-        },
-        {
-            "name": "High-Octane Heister",
-            "description": "Complete the High Octane Heist within a record time.",
-            "achieved": false
-        },
-        {
-            "name": "Code Cracker Extraordinaire",
-            "description": "Solve all puzzles in the heist without hints.",
-            "achieved": false
-        },
-        {
-            "name": "Artful Dodger",
-            "description": "Evade Captain Rhys Dalton in the final chase.",
-            "achieved": false
-        },
-        {
-            "name": "Neon Nightcrawler",
-            "description": "Navigate the night market flawlessly to gather all necessary information.",
-            "achieved": false
-        }
-    ],
-    "Echoes of the Forgotten War Achievements": [
-        {
-            "name": "Strategic Genius",
-            "description": "Perfectly execute the D-Day strategy without any major setbacks.",
-            "achieved": false
-        },
-        {
-            "name": "Lone Survivor",
-            "description": "Successfully complete the Lone Survivor scenario without losing any troop.",
-            "achieved": false
-        },
-        {
-            "name": "Diplomatic Victory",
-            "description": "Achieve success in the Diplomatic Resolution without resorting to combat.",
-            "achieved": false
-        },
-        {
-            "name": "War Historian",
-            "description": "Compile a flawless report on the day's events in the aftermath.",
-            "achieved": false
-        },
-        {
-            "name": "Beachhead Hero",
-            "description": "Secure the beachhead with minimal casualties.",
-            "achieved": false
-        },
-        {
-            "name": "Master Tactician",
-            "description": "Optimize resource allocation in the Commando Mission to achieve the best outcome.",
-            "achieved": false
-        }
-    ],
-    "Rise of the Tech-Magi Achievements": [
-        {
-            "name": "Innovation Pioneer",
-            "description": "Successfully develop and integrate a new cybernetic enhancement.",
-            "achieved": false
-        },
-        {
-            "name": "Ethical Guardian",
-            "description": "Navigate all ethical dilemmas without compromising moral standards.",
-            "achieved": false
-        },
-        {
-            "name": "Corporate Espionage Thwarted",
-            "description": "Prevent Alex Mercer from stealing any research.",
-            "achieved": false
-        },
-        {
-            "name": "AI Whisperer",
-            "description": "Effectively communicate and cooperate with the AI entity.",
-            "achieved": false
-        },
-        {
-            "name": "Biotech Visionary",
-            "description": "Make groundbreaking discoveries in the field of AI and biology.",
-            "achieved": false
-        },
-        {
-            "name": "Security Sentinel",
-            "description": "Keep all sensitive information secure from rival factions.",
-            "achieved": false
-        }
-    ],
-    "General Achievements": [
-        {
-            "name": "Story Weaver",
-            "description": "Explore all possible endings across all stories.",
-            "achieved": false
-        },
-        {
-            "name": "Puzzle Prodigy",
-            "description": "Solve all puzzles across the game without errors.",
-            "achieved": false
-        },
-        {
-            "name": "Cyberpunk Connoisseur",
-            "description": "Interact with every character in the game.",
-            "achieved": false
-        },
-        {
-            "name": "Master of City 72",
-            "description": "Complete all achievements in the game.",
-            "achieved": false
-        }
-    ]
-}
-const locationImages = {
-
-  virtualrealitypods,neonstreetsofcity72,mainpowercontrolroom, city72, neonstreets, arrivalincity72, lab, centralplaza, industrialdistrict, mainframechamber, mainframeconsole, secretundergroundlab, undergroundpaths,crowdedmarketstreets, digitalcitymapdisplay,hiddenspeakeasy,highspeedmainavenues,hightechhideout,lasergridprotectedexhibit,marketstalls,narrowalleyways,securecommunicationsroom,shadowyalleys,ultramodernmuseum,briefingtents,traininggrounds,planningrooms,landingcrafts,choppyseawaters,beachlandingzones,bombardedbeachzones,enemybunkers,makeshiftcommandcenters,capturedenemybunkers,makeshiftfieldhospitals,debriefingareas,hightechresearchlabs,experimentaltestingareas,conferencehalls,debatestages,privatemetingrooms,corporateboardrooms,highsecuritylabs 
-
+  'Main Storyline Achievements': [
+    {
+      name: 'Neon Navigator',
+      description:
+        'Successfully navigate the neon streets of City 72 without getting lost.',
+      achieved: false,
+    },
+    {
+      name: 'Mainframe Master',
+      description: 'Unlock all historical stories in the mainframe.',
+      achieved: false,
+    },
+    {
+      name: 'Cyber Sleuth',
+      description: 'Uncover every hidden secret in City 72.',
+      achieved: false,
+    },
+    {
+      name: 'Diplomat of the Dark',
+      description: 'Successfully negotiate with all factions in City 72.',
+      achieved: false,
+    },
+    {
+      name: 'Futuristic Historian',
+      description: 'Complete all historical scenarios in the mainframe.',
+      achieved: false,
+    },
+    {
+      name: 'Decisive Leader',
+      description:
+        "Make a critical decision that significantly alters the course of City 72's future.",
+      achieved: false,
+    },
+    {
+      name: 'Guardian of the Past',
+      description: 'Preserve the integrity and history of City 72.',
+      achieved: false,
+    },
+  ],
+  'The Heist of the Neon Symphony Achievements': [
+    {
+      name: 'Stealthy Steps',
+      description:
+        'Complete the heist using the Stealth Approach without triggering any alarms.',
+      achieved: false,
+    },
+    {
+      name: 'Inside Job Mastermind',
+      description:
+        'Successfully perform the heist using the Inside Job approach without getting caught.',
+      achieved: false,
+    },
+    {
+      name: 'High-Octane Heister',
+      description: 'Complete the High Octane Heist within a record time.',
+      achieved: false,
+    },
+    {
+      name: 'Code Cracker Extraordinaire',
+      description: 'Solve all puzzles in the heist without hints.',
+      achieved: false,
+    },
+    {
+      name: 'Artful Dodger',
+      description: 'Evade Captain Rhys Dalton in the final chase.',
+      achieved: false,
+    },
+    {
+      name: 'Neon Nightcrawler',
+      description:
+        'Navigate the night market flawlessly to gather all necessary information.',
+      achieved: false,
+    },
+  ],
+  'Echoes of the Forgotten War Achievements': [
+    {
+      name: 'Strategic Genius',
+      description:
+        'Perfectly execute the D-Day strategy without any major setbacks.',
+      achieved: false,
+    },
+    {
+      name: 'Lone Survivor',
+      description:
+        'Successfully complete the Lone Survivor scenario without losing any troop.',
+      achieved: false,
+    },
+    {
+      name: 'Diplomatic Victory',
+      description:
+        'Achieve success in the Diplomatic Resolution without resorting to combat.',
+      achieved: false,
+    },
+    {
+      name: 'War Historian',
+      description:
+        "Compile a flawless report on the day's events in the aftermath.",
+      achieved: false,
+    },
+    {
+      name: 'Beachhead Hero',
+      description: 'Secure the beachhead with minimal casualties.',
+      achieved: false,
+    },
+    {
+      name: 'Master Tactician',
+      description:
+        'Optimize resource allocation in the Commando Mission to achieve the best outcome.',
+      achieved: false,
+    },
+  ],
+  'Rise of the Tech-Magi Achievements': [
+    {
+      name: 'Innovation Pioneer',
+      description:
+        'Successfully develop and integrate a new cybernetic enhancement.',
+      achieved: false,
+    },
+    {
+      name: 'Ethical Guardian',
+      description:
+        'Navigate all ethical dilemmas without compromising moral standards.',
+      achieved: false,
+    },
+    {
+      name: 'Corporate Espionage Thwarted',
+      description: 'Prevent Alex Mercer from stealing any research.',
+      achieved: false,
+    },
+    {
+      name: 'AI Whisperer',
+      description: 'Effectively communicate and cooperate with the AI entity.',
+      achieved: false,
+    },
+    {
+      name: 'Biotech Visionary',
+      description:
+        'Make groundbreaking discoveries in the field of AI and biology.',
+      achieved: false,
+    },
+    {
+      name: 'Security Sentinel',
+      description: 'Keep all sensitive information secure from rival factions.',
+      achieved: false,
+    },
+  ],
+  'General Achievements': [
+    {
+      name: 'Story Weaver',
+      description: 'Explore all possible endings across all stories.',
+      achieved: false,
+    },
+    {
+      name: 'Puzzle Prodigy',
+      description: 'Solve all puzzles across the game without errors.',
+      achieved: false,
+    },
+    {
+      name: 'Cyberpunk Connoisseur',
+      description: 'Interact with every character in the game.',
+      achieved: false,
+    },
+    {
+      name: 'Master of City 72',
+      description: 'Complete all achievements in the game.',
+      achieved: false,
+    },
+  ],
 };
-const characterImages = {ava,cipher,depictmayoranikavoss,drelaramorn,echo,vega,rennharlow,axelblackwell, irisflint, jadevortex, lunavega, mikaredstorm, zephyr,aimainframe,knox,lyra,airesearcherdremlcarter,corporatespyalexmercer,dravalin,ethicistdrmayasingh,geneticistdrrajivkumar,professorleoZheng,securityexperthanakim, theaientity,captainlucasford,commanderwilliamharper,diplomaticenvoymariedupont,historiandrelizabethmorgan,lieutenantgracebennett,majorjohnathanellis,privatesamuelking,scoutoliverthompson,sergeantemilyturner
+const locationImages = {
+  virtualrealitypods,
+  neonstreetsofcity72,
+  mainpowercontrolroom,
+  city72,
+  neonstreets,
+  arrivalincity72,
+  lab,
+  centralplaza,
+  industrialdistrict,
+  mainframechamber,
+  mainframeconsole,
+  secretundergroundlab,
+  undergroundpaths,
+  crowdedmarketstreets,
+  digitalcitymapdisplay,
+  hiddenspeakeasy,
+  highspeedmainavenues,
+  hightechhideout,
+  lasergridprotectedexhibit,
+  marketstalls,
+  narrowalleyways,
+  securecommunicationsroom,
+  shadowyalleys,
+  ultramodernmuseum,
+  briefingtents,
+  traininggrounds,
+  planningrooms,
+  landingcrafts,
+  choppyseawaters,
+  beachlandingzones,
+  bombardedbeachzones,
+  enemybunkers,
+  makeshiftcommandcenters,
+  capturedenemybunkers,
+  makeshiftfieldhospitals,
+  debriefingareas,
+  hightechresearchlabs,
+  experimentaltestingareas,
+  conferencehalls,
+  debatestages,
+  privatemetingrooms,
+  corporateboardrooms,
+  highsecuritylabs,
+};
+const characterImages = {
+  ava,
+  cipher,
+  depictmayoranikavoss,
+  drelaramorn,
+  echo,
+  vega,
+  rennharlow,
+  axelblackwell,
+  irisflint,
+  jadevortex,
+  lunavega,
+  mikaredstorm,
+  zephyr,
+  aimainframe,
+  knox,
+  lyra,
+  airesearcherdremlcarter,
+  corporatespyalexmercer,
+  dravalin,
+  ethicistdrmayasingh,
+  geneticistdrrajivkumar,
+  professorleoZheng,
+  securityexperthanakim,
+  theaientity,
+  captainlucasford,
+  commanderwilliamharper,
+  diplomaticenvoymariedupont,
+  historiandrelizabethmorgan,
+  lieutenantgracebennett,
+  majorjohnathanellis,
+  privatesamuelking,
+  scoutoliverthompson,
+  sergeantemilyturner,
 };
 const itemImages = {
-  digitalmapofcity72, lotrartifacts, mainframe, holorecorder,stealthcloak, datapad, ancienttechdetector, neuralinterface, timecapsule
-}
+  digitalmapofcity72,
+  lotrartifacts,
+  mainframe,
+  holorecorder,
+  stealthcloak,
+  datapad,
+  ancienttechdetector,
+  neuralinterface,
+  timecapsule,
+};
 
 import { useExample } from '../../contexts';
 import { BackgroundMusic } from '../../assets';
 
 const GamePage = () => {
+  const { saveData, setSaveData, currentGameID } = useExample();
 
   const [audioPlayed, setAudioPlayed] = useState(true);
   const [dialogue, setDialogue] = useState('Enter Continue');
@@ -430,63 +624,92 @@ const GamePage = () => {
   const [characterdisplayed, setCharacterdisplayed] = useState(rennharlow);
   const [characterName, setCharacterName] = useState('Renn Harlow');
   const [choices, setChoices] = useState([]);
-  // const { currentGameID } = useExample();
-  // const [saveData, setSaveData] = useState();
+  let choiceMade = '';
+  const [choicesMade, setChoicesMade] = useState([]);
 
-  // async function grabSaveData() {
-  //   try {
-  //     const response = await fetch(
-  //       `https://city-72-wez6.onrender.com/progress/game/${currentGameID}`
-  //     );
-  //     const data = await response.json();
+  async function saveGame() {
+    const options = {
+      method: 'PATCH',
+      body: JSON.stringify({
+        saved_chat: conversation,
+        items: [7, 3, 9, 5],
+        score: 7395,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    };
 
-  //     setSaveData(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // async function saveGame() {
-  //   const options = {
-  //     method: 'PATCH',
-  //     body: JSON.stringify({
-  //       //CHANGE TO APPROPRIATE DATA FOR UPDATE
-  //     }),
-  //     headers: {
-  //       'Content-type': 'application/json; charset=UTF-8',
-  //     },
-  //   };
-
-  //   try {
-  //     const response = await fetch(
-  //       `https://city-72-wez6.onrender.com/games/${currentGameID}`,
-  //       options
-  //     );
-  //     const data = await response.json();
-
-  //     setSaveData(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+    try {
+      const response = await fetch(
+        `https://city-72-wez6.onrender.com/games/${currentGameID}`,
+        options
+      );
+      const data = await response.json();
+      console.log('YAHOOO!', data);
+      setSaveData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    document.getElementById('root').classList.add('game-page-text')
-    document.getElementById('root').classList.remove('home-page')
-    document.getElementById('root').classList.remove('signup-page')
+    async function fetchGames() {
+      try {
+        const response = await fetch(
+          `https://city-72-wez6.onrender.com/games/show/${userID}`
+        ); //HARDCODED FOR 1 FOR NOW
+        const data = await response.json();
+        // console.log(data);
+        setAllGames(data);
+        setHasGames(true);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchGames();
+
+    document.getElementById('root').classList.add('game-page-text');
+    document.getElementById('root').classList.remove('home-page');
+    document.getElementById('root').classList.remove('signup-page');
     document.body.classList.add('game-page-text');
     document.body.classList.remove('home-page');
     document.body.classList.remove('signup-page');
 
+    if (saveData.saved_chat.length > 0) {
+      setConversation(saveData.saved_chat);
+      console.log('converstation set: ', conversation);
+    } else {
+      setConversation([
+        {
+          role: 'system',
+          content: `"In 'City 72,' a text-based adventure game, you are the story master, guiding the narrative and presenting choices to players. Each choice, labeled A, B, and C, leads to new story developments. When a player sends 'h' or 'hint,' instead of the labeled choice the game will integrate a hint into the next narrative, providing guidance relevant to their current situation. This hint is offered only once per puzzle or scenario. and the game continues with the standard narrative and choice options. Format the response as a string JSON object with the keys: 'current_location', ''act', 'storyname', 'narrative', 'items', 'character', 'choices', and 'achievements' where applicable. ${mainStory}, ${heistStory}, ${warStory}, ${techMagiStory}, ${achievements}. Response format:{
+            "current_location": "The current character location, e.g., 'Neon Streets of City 72'",
+            "act": "current act e.g. Act 1",
+            "storyname": "current story"
+            "narrative": "Narrative text describing the scene, including a hint if requested, e.g., 'Lost in the labyrinthine paths, Renn notices a pattern in the wall markings, hinting at a hidden exit.'Start every narrative except the first one with You chose: the message.content that the user gives and then what the user selected,\n\nthen the narrative",
+            "items": ["List of items currently in the player's possession"],
+            "character": "Name of the main character or character being interacted with",
+            "choices": [
+              {"A": "Description of Choice A and its potential outcomes"},
+              {"B": "Description of Choice B and its potential outcomes"},
+              {"C": "Description of Choice C and its potential outcomes"}
+            ],
+            "achievements": {
+              "name": "Name of the achievement unlocked",
+              "achieved": true
+            }
+          }
+          Jump to a random scene in the main story"
+    `,
+        },
+      ]);
+    }
     return () => {
-      document.getElementById('root').classList.remove('game-page-text')
+      document.getElementById('root').classList.remove('game-page-text');
       document.body.classList.remove('game-page-text');
     };
   }, []);
-
-
-  let choiceMade = ""
-  const [choicesMade, setChoicesMade] = useState([]);
 
   const submitUserInput = async () => {
     if (userInput.trim() !== '') {
@@ -494,7 +717,7 @@ const GamePage = () => {
       const userChoice = userInput.trim().toUpperCase();
 
       // Show the choice in visibleUserInput
-    if (userChoice == "A" || userChoice == "B" || userChoice == "C") {
+      if (userChoice == 'A' || userChoice == 'B' || userChoice == 'C') {
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
         choiceMade = choices[choiceIndex][userChoice];
         setVisibleUserInput(`You Chose: ${choiceMade}`);
@@ -514,7 +737,7 @@ const GamePage = () => {
         );
 
         const data = await response.json();
-        console.log(data.message);
+        console.log('CHATGPT RESPONSE:', data.message);
         const formatedData = JSON.parse(data.message);
 
         console.log(formatedData);
@@ -522,8 +745,6 @@ const GamePage = () => {
           ? formatedData.current_location.replace(/\s/g, '').toLowerCase()
           : '';
         setLocation(locationImages[formattedLocation]);
-
-  
 
         setDialogue(formatedData.narrative);
 
@@ -536,17 +757,22 @@ const GamePage = () => {
         const itemsArray = formattedItems.map((item) => itemImages[item]);
         setItems(itemsArray);
 
-        if (formatedData.character == "" || formatedData.character == null || formatedData.character == "None") {
+        if (
+          formatedData.character == '' ||
+          formatedData.character == null ||
+          formatedData.character == 'None'
+        ) {
           setCharacterName('Renn Harlow');
           setCharacterdisplayed(rennharlow);
-        }else if(formatedData.character == "Street vendor"){
+        } else if (formatedData.character == 'Street vendor') {
           setCharacterName('Mika Redstorm');
           setCharacterdisplayed(mikaredstorm);
-        }else if(formatedData.character == "Ancient AI within the mainframe"){
+        } else if (
+          formatedData.character == 'Ancient AI within the mainframe'
+        ) {
           setCharacterName('Mainframe');
           setCharacterdisplayed(mainframe);
-        }
-        else {
+        } else {
           const formattedCharacter = formatedData.character
             ? formatedData.character.replace(/\s/g, '').toLowerCase()
             : '';
@@ -554,18 +780,16 @@ const GamePage = () => {
           setCharacterName(formatedData.character);
         }
         setChoices(formatedData.choices);
-        
+
         setConversation((prevConversation) => [
           ...prevConversation,
           { role: 'assistant', content: data.message },
         ]);
-        
       } catch (error) {
         console.error('Error fetching response:', error);
       }
       console.log(conversation);
       console.log(choicesMade);
-
     }
   };
 
@@ -579,113 +803,126 @@ const GamePage = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       submitUserInput();
-      setUserInput("");
+      setUserInput('');
     }
   };
 
   return (
     <>
-    <audio id='GameAudio'
+      <audio
+        id="GameAudio"
         src={BackgroundMusic}
         autoPlay={audioPlayed}
-        loop 
-        volume={0.2} 
+        loop
+        volume={0.2}
       >
         Your browser does not support the audio tag.
       </audio>
-    <div className="app-container">
-      <div className="left-section" style={{ backgroundImage: `url(${location})` }}></div>
-      <div className="middle-section">
-      <video autoPlay muted loop className="background-video">
-        <source src={Background} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-        <div className="top-container">
-          <p className="visibleUserInput">{visibleUserInput}</p>
-          <div className='conversation'>
-            {conversation.map((message, index) => (
-              <div key={index}>
-                {message.role === 'assistant' && 
-                  <TypeAnimation
-                    className={`${message.role}-text`}
-                    key={index}  // Use the index as the key
-                    sequence={[JSON.parse(message.content).narrative.toString()]}
-                    speed={80}
-                    cursor={false}
-                    style={{
-                      fontSize: '0.75em',
-                      display: 'block',
-                      color: 'yellow',
-                      fontFamily: 'Courier New',
-                      width: '100%',
-                    }}
-                  />
-                }
-              </div>
-            ))}
+      <div className="app-container">
+        <div
+          className="left-section"
+          style={{ backgroundImage: `url(${location})` }}
+        ></div>
+        <div className="middle-section">
+          <video autoPlay muted loop className="background-video">
+            <source src={Background} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="top-container">
+            <p className="visibleUserInput">{visibleUserInput}</p>
+            <div className="conversation">
+              {conversation.map((message, index) => (
+                <div key={index}>
+                  {message.role === 'assistant' && (
+                    <TypeAnimation
+                      className={`${message.role}-text`}
+                      key={index} // Use the index as the key
+                      sequence={[
+                        JSON.parse(message.content).narrative.toString(),
+                      ]}
+                      speed={80}
+                      cursor={false}
+                      style={{
+                        fontSize: '0.75em',
+                        display: 'block',
+                        color: 'yellow',
+                        fontFamily: 'Courier New',
+                        width: '100%',
+                      }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="choices">
+              {choices.map((choice, index) => (
+                <div key={index} className={`choice${index + 1}`}>
+                  <p>{Object.keys(choice)[0]}</p>
+                  <p>{choice[Object.keys(choice)[0]]}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className='choices'>
-            {choices.map((choice, index) => (
-              <div key={index} className={`choice${index + 1}`}>
-                <p>{Object.keys(choice)[0]}</p>
-                <p>{choice[Object.keys(choice)[0]]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="bottom-container">
-          <input
-            className="user-input"
-            type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Enter something..."
-          />
-          {/* <div className="settingsBar">
+          <div className="bottom-container">
+            <input
+              className="user-input"
+              type="text"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Enter something..."
+            />
+            {/* <div className="settingsBar">
             <TextToSpeech dialogue={dialogue} />
             <button className="toolBar" onClick={toggleSettings}>
               <img className="toolBarIcon" src={settings} />
             </button>
             <SpeechToText userInput={userInput} setUserInput={setUserInput} />
           </div> */}
+          </div>
         </div>
-      </div>
-      <div className="right-section">
-        <div className='topr-container'>
-          <CharacterCard
-            name={characterName}
-            img={characterdisplayed}
-            description={charactersInfo[characterName]}
-          />
-        </div>
-        <div className="bottom-container">
-          <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
-            {/* <div className="inventory-toggle" onClick={toggleInventory}>
+        <div className="right-section">
+          <div className="topr-container">
+            <CharacterCard
+              name={characterName}
+              img={characterdisplayed}
+              description={charactersInfo[characterName]}
+            />
+          </div>
+          <div className="bottom-container">
+            <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
+              {/* <div className="inventory-toggle" onClick={toggleInventory}>
               <span className='inventoryIcons'>
                 <h3>Inventory</h3>
                 {inventoryVisible ? '▼' : '▲'}
               </span>
             </div> */}
-            {true && (
-              <div className="settingsBar">
-                <TextToSpeech dialogue={dialogue} />
-                <SpeechToText userInput={userInput} setUserInput={setUserInput} />
-                
-                <button className="toolBar" onClick={toggleSettings}>
-                  <img className="toolBarIcon" src={settings} />
-                </button>
-                
+              {true && (
+                <div className="settingsBar">
+                  <TextToSpeech dialogue={dialogue} />
+                  <SpeechToText
+                    userInput={userInput}
+                    setUserInput={setUserInput}
+                  />
+
+                  <button className="toolBar" onClick={toggleSettings}>
+                    <img className="toolBarIcon" src={settings} />
+                  </button>
+                </div>
+              )}
             </div>
-            )}
           </div>
         </div>
+        {settingsVisible && (
+          <SettingsPopup
+            onClose={toggleSettings}
+            audioPlayed={audioPlayed}
+            setAudioPlayed={setAudioPlayed}
+          />
+        )}
       </div>
-      {settingsVisible && <SettingsPopup onClose={toggleSettings} audioPlayed={audioPlayed} setAudioPlayed={setAudioPlayed} />}
-    </div>
     </>
   );
-  
 };
 
 export default GamePage;

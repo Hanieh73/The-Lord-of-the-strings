@@ -68,12 +68,11 @@ export default function GameCard({ game }) {
 
   function ifClicked() {
     setCurrentGameID(gameID);
-    grabSaveData();
-    // setTimeout(() => {
-    //   navigate('/game');
-    // }, 250);
+    setTimeout(() => {
+      grabSaveData();
+    }, 1000);
   }
-
+  //Bug where you chave to click div twice to set saveData
   //MAKE THEM A LINK TO THE GAME PAGE
   return (
     <div

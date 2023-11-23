@@ -8,7 +8,6 @@ export default function NewGameButton() {
     useExample();
   function toggleModal() {
     setModalState(true);
-    console.log('hello');
   }
   return (
     <img

@@ -42,12 +42,12 @@ class Game {
 
   static async getAllByScore() {
     const response = await db.query(
-      'SELECT * from Game ORDER BY score DESC Limit 100'
+      'SELECT * FROM game AS g JOIN users AS u ON (g.user_id = u.user_id) ORDER BY score DESC LIMIT 100'
     );
     if (response.rows.length === 0) {
       throw new Error('No games available.');
     }
-    return response.rows.map((g) => new Game(g));
+    return response.rows;
   }
 
   static async create(data) {

@@ -34,5 +34,4 @@ describe('CharacterCard Component', () => {
     const descriptionElement = screen.getByText(characterData.description);
     expect(descriptionElement).toBeInTheDocument();
   });
-
 });
