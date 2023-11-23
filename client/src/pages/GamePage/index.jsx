@@ -21,6 +21,9 @@ import {
   timecapsule,
   settings,
   RennHarlowVideo,
+  speaking,
+  PlayButton,
+  StopButton
 } from '../../assets';
 import {
   SettingsPopup,
@@ -511,13 +514,13 @@ const GamePage = () => {
             onKeyDown={handleKeyDown}
             placeholder="Enter something..."
           />
-          <div className="settingsBar">
+          {/* <div className="settingsBar">
             <TextToSpeech dialogue={dialogue} />
             <button className="toolBar" onClick={toggleSettings}>
               <img className="toolBarIcon" src={settings} />
             </button>
             <SpeechToText userInput={userInput} setUserInput={setUserInput} />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="right-section">
@@ -530,23 +533,22 @@ const GamePage = () => {
         </div>
         <div className="bottom-container">
           <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
-            <div className="inventory-toggle" onClick={toggleInventory}>
+            {/* <div className="inventory-toggle" onClick={toggleInventory}>
               <span className='inventoryIcons'>
                 <h3>Inventory</h3>
                 {inventoryVisible ? '▼' : '▲'}
               </span>
+            </div> */}
+            {true && (
+              <div className="settingsBar">
+                <TextToSpeech dialogue={dialogue} />
+                <SpeechToText userInput={userInput} setUserInput={setUserInput} />
+                
+                <button className="toolBar" onClick={toggleSettings}>
+                  <img className="toolBarIcon" src={settings} />
+                </button>
+                
             </div>
-            {inventoryVisible && (
-              <>
-                {items.map((item, index) => (
-                  <img
-                    key={index}
-                    src={item}
-                    alt={item}
-                    className="inventoryItem"
-                  />
-                ))}
-              </>
             )}
           </div>
         </div>
