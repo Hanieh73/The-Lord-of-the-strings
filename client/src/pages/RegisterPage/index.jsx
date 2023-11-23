@@ -65,21 +65,21 @@ export default function RegisterPage() {
       }),
     };
     const response = await fetch(
-      'http://localhost:3000/users/register',
+      'https://city-72-wez6.onrender.com/users/register',
       options
     );
     const data = await response.json();
 
     if (response.status == 201) {
       //window.location.assign('/login');
-      navigate('/login');
+      navigate('/');
     } else {
       alert(data.error);
     }
   }
 
   function loginPage() {
-    navigate('/login');
+    navigate('/');
   }
 
   return (

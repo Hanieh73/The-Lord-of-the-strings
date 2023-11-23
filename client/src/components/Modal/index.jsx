@@ -8,6 +8,10 @@ export default function Modal() {
   const [gameData, setGameData] = useState({});
   const navigate = useNavigate();
 
+  const handleBtnCancel = () => {
+    setModalState(false);
+  };
+
   function selectDifficulty(e) {
     //console.log(e.target.textContent);
     setGameDifficulty(e.target.textContent);
@@ -28,7 +32,10 @@ export default function Modal() {
           'Content-type': 'application/json; charset=UTF-8',
         },
       };
-      const response = await fetch('http://localhost:3000/games/', options);
+      const response = await fetch(
+        'https://city-72-wez6.onrender.com/games/',
+        options
+      );
       const data = await response.json();
 
       setGameData(data);
@@ -43,7 +50,12 @@ export default function Modal() {
   }
 
   return (
-    <div id="myModal" className={modalState ? 'modal' : 'modal-display-none'}>
+    <div
+      id="myModal"
+      className={
+        modalState ? 'modal' : 'modal-display-none modal-dialog modal-sm'
+      }
+    >
       <div className="modal-content">
         <div>
           <span
@@ -55,8 +67,10 @@ export default function Modal() {
             &times;
           </span>
         </div>
-        <div id="form">
-          <h2>Are you sure you want to create a new game?</h2>
+        <h1>Are Your Sure You Want To Start A New Game</h1>
+
+        {/* <div id="form">
+          <h2>Choose Difficulty</h2>
           <div id="difficulty-btn">
             <button
               className="difficulty-btn"
@@ -75,6 +89,25 @@ export default function Modal() {
               No
             </button>
           </div>
+        </div> */}
+
+        <div className="buttons">
+          <button
+            id="create-btn"
+            onClick={async () => {
+              createGame();
+            }}
+          >
+            Yes
+          </button>
+          <button
+            id="close-btn"
+            onClick={() => {
+              handleBtnCancel();
+            }}
+          >
+            No
+          </button>
         </div>
       </div>
     </div>

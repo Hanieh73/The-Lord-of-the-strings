@@ -15,10 +15,20 @@ export default function GameLibraryPage() {
   const [hasGames, setHasGames] = useState(false);
 
   useEffect(() => {
+    document.body.classList.add('game-page-library');
+    document.body.classList.remove('home-page');
+    document.body.classList.remove('signup-page');
+
+    return () => {
+      document.body.classList.remove('game-page-library');
+    };
+  }, []);
+
+  useEffect(() => {
     async function fetchGames() {
       try {
         const response = await fetch(
-          `http://localhost:3000/games/show/${userID}`
+          `https://city-72-wez6.onrender.com/games/show/${userID}`
         ); //HARDCODED FOR 1 FOR NOW
         const data = await response.json();
         // console.log(data);

@@ -36,13 +36,13 @@ export default function GameCard({ game }) {
     };
     try {
       const response = await fetch(
-        `http://localhost:3000/games/${gameID}`,
+        `https://city-72-wez6.onrender.com/games/${gameID}`,
         options
       );
 
       if (response.status === 204) {
         const response2 = await fetch(
-          `http://localhost:3000/games/show/${userID}`
+          `https://city-72-wez6.onrender.com/games/show/${userID}`
         );
         const data = await response2.json();
 
@@ -56,7 +56,7 @@ export default function GameCard({ game }) {
   async function grabSaveData() {
     try {
       const response = await fetch(
-        `http://localhost:3000/progress/game/${currentGameID}`
+        `https://city-72-wez6.onrender.com/progress/game/${currentGameID}`
       );
       const data = await response.json();
       console.log(data);
@@ -80,8 +80,8 @@ export default function GameCard({ game }) {
       onClick={() => ifClicked()}
       style={
         gameID == currentGameID
-          ? { border: '5px solid yellow' }
-          : { border: '5px solid black' }
+          ? { border: '5px solid #ba00cc' }
+          : { border: '1px solid black' }
       }
     >
       <p>Game ID: {gameID}</p>
