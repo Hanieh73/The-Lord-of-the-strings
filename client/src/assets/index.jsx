@@ -70,9 +70,9 @@ export { default as neuralinterface } from './items/NeuralInterface.png';
 export { default as timecapsule } from './items/TimeCapsule.png';
 //Settings
 export { default as settings } from './settings/settings.svg';
-export { default as speaking } from './settings/speaking.svg';
-export { default as PlayButton } from './settings/play-button.svg';
-export { default as StopButton } from './settings/stop-button.svg';
+export { default as speaking } from './settings/speaking.png';
+export { default as PlayButton } from './settings/play-button.png';
+export { default as StopButton } from './settings/stop-button.png';
 //Characters
 //main
 export { default as ava } from './characters/main/Ava.png';
