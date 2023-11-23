@@ -34,8 +34,40 @@ import {
 import '../../assets';
 
 import { Background } from '../../assets';
-const mainStory =
-  "Main Story of City 72 Adventure\n\nAct 1: Arrival in City 72\n\n- Introduction: The adventurer, Renn Harlow, arrives in City 72, intrigued by rumors of ancient technology and hidden truths.\n- Exploration: Players navigate the neon-lit streets of City 72, interacting with characters like street vendors and corporate agents, and gathering information about the city's history and the rumored mainframe.\n- Discovery: Renn discovers the mainframe's location in an abandoned sector beneath the city, guided by characters like Vega, the mysterious local guide.\n- Key Locations: Central plaza, neon streets, underground paths.\n- Items: Digital Map of City 72, Holo-Recorder.\n\nAct 2: The Mainframe and the Relics\n\n- Revelation: The mainframe, an ancient AI, is discovered in a secret underground lab. It's a repository of historical data and experiences.\n- First Contact: The AI communicates with Renn, expressing a desire to share the stories within the relics.\n- Gathering Relics: Renn seeks relics across City 72, facing puzzles, negotiations, or confrontations.\n- Key Locations: Industrial district, underground lab, mainframe chamber.\n- Items: Access Keycard, Ancient Tech Detector.\n\nAct 3: Unlocking the Past\n\n- Activation: Each relic, connected to the mainframe, unlocks a unique story from the past.\n- Choices and Consequences: Decisions impact both the historical stories and Renn's understanding of City 72's history.\n- Unraveling Secrets: Renn uncovers narratives about City 72's formation and the mainframe's origins.\n- Key Locations: Virtual reality pods, historical data banks.\n- Items: Neural Interface.\n\nAct 4: The Present Echoes the Past\n\n- Integration: Past experiences influence Renn's present interactions, creating new pathways and alliances in City 72.\n- Revelation of Purpose: The mainframe's intention is revealed, potentially guiding someone to alter the city's future.\n- Climactic Decision: Renn makes a critical decision shaping City 72's future, influenced by past lessons.\n- Key Locations: Political centers, key landmarks.\n- Items: Data Pad, Holo-Disguise.\n\nEpilogue\n\n- Reflections and Consequences: The game concludes with City 72 reflecting the changes brought by Renn's choices, leading to various endings.\n- Conclusion: The story provides a rich context for the player, intertwining Renn's journey with City 72's history, setting the stage for the three branching stories experienced through the relics.\n\nItems Description:\n\n- Digital Map of City 72: Helps navigate the sprawling cyberpunk city.\n- Holo-Recorder: Captures clues and information.\n- Access Keycard: Unlocks the path to the mainframe.\n- Ancient Tech Detector: Helps locate hidden relics and the mainframe.\n- Relic Container: Safely stores collected relics.\n- Stealth Cloak: Used for sneaking into high-security areas.\n- Neural Interface: Connects the adventurer to the mainframe for experiencing history.\n- Data Pad: Contains historical data to influence present-day decisions.\n- Holo-Disguise: Assists in blending in during sensitive missions.\n- Time Capsule: Contains relics and records for future generations.\n\nLocations Description:\n\n- Central Plaza: A bustling hub of activity in the heart of City 72.\n- Neon Streets: Vibrant, neon-drenched streets filled with diverse characters and hidden secrets.\n- Underground Paths: Hidden passages beneath the city, leading to secretive and forgotten places.\n- Industrial District: Decrepit part of the city, housing abandoned factories and warehouses.\n- Secret Underground Lab: Hidden laboratory, home to the ancient mainframe.\n- Mainframe Chamber: Central location where the mainframe is housed, filled with advanced technology.\n\nCharacters Description:\n\n- Renn Harlow: Dynamic, resourceful adventurer. Skilled in navigating through the cyberpunk city and uncovering its secrets.\n- Vega: Mysterious guide with deep knowledge of City 72's hidden truths. Enigmatic and knowledgeable.\n- Dr. Elara Morn: Reclusive tech savant. Brilliant mind with expertise in ancient technology and the mainframe.\n- Cipher: Street-smart hacker with a rebellious edge. Savvy in digital espionage and hacking.\n- Mayor Anika Voss: Charismatic and influential politician. Holds significant power and ambition within City 72.\n- Echo: Well-connected informant. Resourceful and knowledgeable about the city's affairs.";
+const mainStory =  `City 72 Main Story: Summary
+  Core Information:
+  Educational Focus: General Knowledge (GCSE Level).
+  Main Objective: Uncover the secrets of City 72 and understand its past.
+  Act 1: Arrival in City 72
+  Setting: The vibrant, diverse streets of City 72.
+  Key Characters:
+  Renn Harlow (protagonist) - A curious adventurer exploring the city.
+  Vega - A mysterious local guide who offers insights into the city’s hidden secrets.
+  Dr. Elara Morn - A reclusive tech savant with knowledge about the city's ancient technology.
+  Cipher - A street-smart hacker who becomes an ally to Renn.
+  Knox - A black market dealer known for trading in relics and information.
+  Key Items: Digital Map of City 72, Holo-Recorder.
+  Objective: Navigate through City 72, interact with key characters to gather information about the city's history, and uncover the whereabouts of the ancient mainframe.
+  Act 2: The Mainframe and the Relics
+  Setting: Secretive locations within City 72 and the mainframe's hidden chamber.
+  Key Characters: Renn Harlow, AI Mainframe.
+  Key Items: Access Keycard, Ancient Tech Detector.
+  Objective: Locate the mainframe and uncover relics across the city, revealing historical data.
+  Act 3: Unlocking the Past
+  Setting: Virtual reality pods, historical data banks.
+  Key Characters: Renn Harlow, AI Mainframe.
+  Key Items: Neural Interface.
+  Objective: Experience unique stories from the past by connecting relics to the mainframe.
+  Act 4: The Present Echoes the Past
+  Setting: Prominent locations in City 72.
+  Key Characters: Renn Harlow, Mayor Anika Voss, Echo.
+  Key Items: Data Pad, Holo-Disguise.
+  Objective: Influence present-day City 72 using insights gained from past experiences.
+  Epilogue
+  Setting: City 72 reflecting the impact of Renn's choices.
+  Objective: Achieve various endings based on decisions throughout the game.
+  Conclusion:
+  The main story of City 72 intertwines Renn's journey with the city's history. Decisions in the main and mini-stories (discovered through relics) significantly influence the understanding and future of City 72.`;
 
 
 const charactersInfo = {
@@ -71,15 +103,90 @@ const charactersInfo = {
     "The AI Entity": "Newly conscious AI, interacts with the lab's work and poses ethical questions."
 }
 
-const heistStory = `
-# The Heist of the Neon Symphony: Expanded Storyline with GCSE Level Maths Puzzles\n\n## Act 1: Gathering Information\n\n**Setting:** Neon-lit night market in City 72.\n\n**Key Locations:** Market stalls, shadowy alleys, and a hidden speakeasy.\n\n**Objective:** Gather information about the Neon Symphony's location and security.\n\n**Characters:**\n- Mika Redstorm - Provides initial clues at the night market.\n- Axel Blackwell - Decodes numerical codes and gathers information.\n\n**Items:**\n- Neon Decoder - Used to decode numerical codes.\n\n**Puzzle:** Decode a series of numerical codes using geometric sequences.\n\n## Act 2: Planning the Heist\n\n**Setting:** High-tech hideout overlooking the city skyline.\n\n**Key Locations:** Interactive planning table, digital city map display, and a secure communications room.\n\n**Objective:** Devise a plan to infiltrate the museum housing the Neon Symphony.\n\n**Characters:**\n- Axel Blackwell - Leads the planning of the heist.\n- Jade Vortex - Offers insight into museum security.\n- Echo - Assists in planning through hacking and information analysis.\n\n**Items:**\n- Heist Planner - Interactive map for planning the heist.\n- Hacker's Toolkit - Essential for hacking in the Inside Job branch.\n\n**Puzzle:** Use quadratic equations to plan the heist approach.\n\n## Act 3: Executing the Heist\n\n**Setting:** Ultra-modern museum with high-tech security.\n\n**Key Locations:** Laser grid-protected exhibit, secure vault, and main power control room.\n\n**Objective:** Secure the Neon Symphony and escape.\n\n**Characters:**\n- Axel Blackwell - Executes the heist.\n- Zephyr (Stealth Approach) - Assists in disabling security.\n- Iris Flint (Inside Job) - Helps unlock the safe.\n- Luna Vega (High Octane Heist) - Manages the escape.\n\n**Items:**\n- Stealth Suit (Stealth Approach) - For evading detection.\n- Laser Disruptor (Stealth Approach) - Disables laser grids.\n- Safe Cracker (Inside Job) - Opens the safe containing the Neon Symphony.\n- Power Surge Device (High Octane Heist) - Triggers a blackout for a distraction.\n\n**Puzzle:** Apply trigonometry and coordinate geometry in challenges.\n\n## Act 4: The Escape\n\n**Setting:** Neon-lit streets of City 72.\n\n**Key Locations:** Crowded market streets, narrow alleyways, and high-speed main avenues.\n\n**Objective:** Evade pursuit and secure the Neon Symphony.\n\n**Characters:**\n- Axel Blackwell - Leads the escape.\n- Captain Rhys Dalton - Pursues Axel and his team.\n- Luna Vega - Assists in navigating city streets.\n\n**Items:**\n- High-Speed Hoverbike - For a fast escape.\n- Escape Goggles - Navigate the neon-lit streets during the chase.\n\n**Puzzle:** Calculate escape routes using graph theory and probability.\n\n## Conclusion\n\nThe heist's success or failure depends on solving GCSE level maths puzzles. Discovering the secrets of the Neon Symphony reveals hidden truths about City 72's past, influencing the main story's narrative.
+const heistStory = ` The Heist of the Neon Symphony: Summary
+  Core Information:
+  Educational Focus: GCSE Level Maths Puzzles (Geometric sequences, Quadratic equations, Trigonometry, Coordinate geometry, Graph theory, Probability).
+  Main Objective: To plan and execute a heist to secure the Neon Symphony, using mathematical skills to overcome various challenges.
+  Act 1: Gathering Information
+  Setting: Night market in City 72.
+  Key Characters: Mika Redstorm (provides clues), Axel Blackwell (decodes information).
+  Key Items: Neon Decoder (decodes numerical codes).
+  Puzzle: Decoding numerical codes using geometric sequences.
+  Act 2: Planning the Heist
+  Setting: High-tech hideout.
+  Key Characters: Axel Blackwell (planner), Jade Vortex (security insights), Echo (hacking and analysis).
+  Key Items: Heist Planner, Hacker's Toolkit.
+  Puzzle: Planning the heist using quadratic equations.
+  Act 3: Executing the Heist
+  Setting: Ultra-modern museum.
+  Key Characters: Axel Blackwell, Zephyr (Stealth Approach), Iris Flint (Inside Job), Luna Vega (High Octane Heist).
+  Key Items: Stealth Suit, Laser Disruptor, Safe Cracker, Power Surge Device.
+  Puzzle: Overcoming security challenges using trigonometry and coordinate geometry.
+  Act 4: The Escape
+  Setting: Streets of City 72.
+  Key Characters: Axel Blackwell, Captain Rhys Dalton (pursuer), Luna Vega.
+  Key Items: High-Speed Hoverbike, Escape Goggles.
+  Puzzle: Calculating escape routes with graph theory and probability.
+  Conclusion:
+  The outcome of the heist depends on the player's ability to solve math puzzles, impacting the main story of City 72. Success or failure reveals hidden aspects of City 72's past and shapes the narrative.
+
 `;
 
-const warStory = 
-"Act 1: Prelude to D-Day\n\nSetting: Military camp in England, days before the Normandy landings.\n\nKey Locations: Briefing tents, training grounds, and planning rooms.\n\nObjective: Prepare for the impending invasion by gathering intelligence and rallying troops.\n\nCharacters:\n- Major Johnathan Ellis - Intelligence officer, provides historical events for the puzzle.\n- Sergeant Emily Turner - A drill sergeant who helps rally the troops.\n\nItems:\n- Historical Documents - Contain key decisions, speeches, and battles.\n- Strategy Maps - Outline the planned invasion, used for preparation.\n\nPuzzle: Arrange historical events leading up to D-Day in chronological order.\n\nAct 2: The Invasion Begins\n\nSetting: English Channel transitioning to the beaches of Normandy.\n\nKey Locations: Landing crafts, choppy sea waters, and beach landing zones.\n\nObjective: Successfully land on the beach and establish a foothold.\n\nCharacters:\n- Commander William Harper (Commando Mission) - Leads the landing craft navigation.\n- Lieutenant Grace Bennett (Diplomatic Resolution) - Specializes in communications and encryption.\n- Private Samuel King (Lone Survivor) - Expert in survival and minefield navigation.\n\nItems:\n- Historical Maps and Tide Tables (Commando Mission) - For navigating to the beach.\n- Encryption Tools (Diplomatic Resolution) - Used for decoding messages.\n- Minefield Maps (Lone Survivor) - Aid in identifying safe paths.\n\nPuzzle: Navigate the landing craft using historical maps and tide tables.\n\nAct 3: Securing the Beachhead\n\nSetting: Beach under heavy enemy fire.\n\nKey Locations: Bombarded beach zones, enemy bunkers, and makeshift command centers.\n\nObjective: Overcome defenses and secure a position inland.\n\nCharacters:\n- Captain Lucas Ford (Commando Mission) - Tactical leader for resource allocation.\n- Diplomatic Envoy Marie Dupont (Diplomatic Resolution) - Negotiates with paratrooper units.\n- Scout Oliver Thompson (Lone Survivor) - Guides through enemy territory using logic and landmarks.\n\nItems:\n- Tactical Unit Cards (Commando Mission) - Represent different units for strategic deployment.\n- Paratrooper Communication Gear (Diplomatic Resolution) - For negotiating with airborne units.\n- Historical Landmark Guide (Lone Survivor) - Helps navigate enemy territory.\n\nPuzzle: Allocate resources and manpower to key positions using historical unit strengths and weaknesses.\n\nAct 4: The Aftermath\n\nSetting: Secured position inland, post-invasion.\n\nKey Locations: Captured enemy bunkers, makeshift field hospitals, and debriefing areas.\n\nObjective: Reflect on the impact of the operation and gather intelligence for the next phase of the battle.\n\nCharacters:\n- Historian Dr. Elizabeth Morgan - Assists in compiling the report on the day's events.\n\nItems:\n- Report Forms - Used for compiling the aftermath report.\n- Casualty and Equipment Lists - Reference for matching historical facts and figures.\n\nPuzzle: Compile a report based on the events of the day, matching historical facts and figures.\n\nConclusion\n\nThe outcome of this scenario reflects the player's ability to apply historical knowledge and strategic thinking. The experience provides insights into the complexity of the Normandy landings and the broader context of World War II, impacting the adventurer's understanding of military strategy and historical significance in the main story of City 72.";
+const warStory = `Echoes of the Forgotten War: Summary
+  Core Information:
+  Educational Focus: History Knowledge (D-Day Landings).
+  Main Objective: Understand and reenact strategies of the Normandy landings.
+  Act 1: Prelude to D-Day
+  Setting: Military camp in England.
+  Key Characters: Major Johnathan Ellis (intelligence officer), Sergeant Emily Turner (drill sergeant).
+  Key Items: Historical Documents, Strategy Maps.
+  Puzzle: Arranging historical events leading up to D-Day.
+  Act 2: The Invasion Begins
+  Setting: English Channel to Normandy beaches.
+  Key Characters: Commander William Harper, Lieutenant Grace Bennett, Private Samuel King.
+  Key Items: Historical Maps and Tide Tables, Encryption Tools, Minefield Maps.
+  Puzzle: Navigating the landing craft using historical maps and tide tables.
+  Act 3: Securing the Beachhead
+  Setting: Beach under enemy fire.
+  Key Characters: Captain Lucas Ford, Diplomatic Envoy Marie Dupont, Scout Oliver Thompson.
+  Key Items: Tactical Unit Cards, Paratrooper Communication Gear, Historical Landmark Guide.
+  Puzzle: Resource and manpower allocation based on historical unit strengths and weaknesses.
+  Act 4: The Aftermath
+  Setting: Secured position inland.
+  Key Characters: Historian Dr. Elizabeth Morgan.
+  Key Items: Report Forms, Casualty and Equipment Lists.
+  Puzzle: Compiling a report based on the day's events, matching historical facts.
+  Conclusion:
+  Players apply historical knowledge and strategic thinking, impacting the main story of City 72. The outcome provides insights into the Normandy landings and World War II.
+  `;
 
-const techMagiStory =
-"Act 1: The Genesis of Innovation\n\nSetting: Clandestine laboratory beneath City 72.\n\nKey Locations: High-tech research labs, experimental testing areas, and innovation brainstorming rooms.\n\nObjective: Develop the first cybernetic enhancements, revolutionizing human capabilities.\n\nCharacters:\n- Dr. Ava Lin - A leading bio-engineer heading the development of enhancements.\n- Professor Leo Zheng - A neurobiologist specializing in tech and nervous system integration.\n\nItems:\n- Cybernetic Prototypes - Early models of enhancements.\n- Anatomical Models - Displaying human anatomy for identifying enhancement integration points.\n\nPuzzle: Design cybernetic enhancements integrating with human biology, focusing on anatomy and cellular functions.\n\nAct 2: Ethical Boundaries\n\nSetting: Scientific symposium on human augmentation.\n\nKey Locations: Conference halls, debate stages, and private meeting rooms.\n\nObjective: Navigate the ethical dilemmas and societal implications of augmentation.\n\nCharacters:\n- Ethicist Dr. Maya Singh - Presents moral challenges to human augmentation.\n- Geneticist Dr. Rajiv Kumar - Discusses the genetic impact of cybernetics.\n\nItems:\n- Presentation Toolkit - For creating impactful presentations.\n- Research Papers on Genetics - Providing in-depth genetic knowledge.\n\nPuzzle: Create a presentation addressing the biological impact of cybernetics on human evolution, using GCSE-level biology concepts.\n\nAct 3: Corporate Intrigue\n\nSetting: Corporate boardrooms and shadowy meeting places.\n\nKey Locations: High-security labs, corporate offices, and hidden data storage rooms.\n\nObjective: Protect groundbreaking research from rival corporations and espionage.\n\nCharacters:\n- Corporate Spy Alex Mercer - Attempts to steal research.\n- Security Expert Hana Kim - Specializes in safeguarding sensitive information.\n\nItems:\n- Encoded Documents - Containing sensitive biological data.\n- Decryption Software - Essential for understanding stolen documents.\n\nPuzzle: Decode stolen documents containing biological jargon and data, applying knowledge of human biology.\n\nAct 4: The AI Factor\n\nSetting: Advanced AI development wing of the laboratory.\n\nKey Locations: AI core room, digital simulation areas, and ethical debate chambers.\n\nObjective: Address the emergence of sentient AI resulting from experiments.\n\nCharacters:\n- AI Researcher Dr. Emily Carter - Investigates AI and biological system integration.\n- The AI Entity - A newly conscious AI interacting with the lab's work.\n\nItems:\n- AI Algorithms - Biology-based decision-making systems.\n- Biology Textbooks - Covering ecosystems and evolutionary biology.\n\nPuzzle: Understand and influence AI behavior using principles from ecosystems and evolutionary biology.\n\nConclusion\n\nThe outcome depends on the player's understanding of biology and ethical decision-making. Successful integration of cybernetics might herald a new era, while failure or unethical choices could have dire consequences.\n\nThis story tests players' knowledge of biology up to GCSE level, immersing them in a narrative exploring biology, technology, and ethics within City 72's cyberpunk world.";
+const techMagiStory = `Rise of the Tech-Magi: Summary
+Core Information:
+Educational Focus: Biology Knowledge (GCSE Level).
+Main Objective: Navigate the ethical and technical challenges of cybernetic enhancements.
+Act 1: The Genesis of Innovation
+Setting: Clandestine laboratory beneath City 72.
+Key Characters: Dr. Ava Lin, Professor Leo Zheng.
+Key Items: Cybernetic Prototypes, Anatomical Models.
+Puzzle: Designing cybernetic enhancements integrating with human biology.
+Act 2: Ethical Boundaries
+Setting: Scientific symposium.
+Key Characters: Ethicist Dr. Maya Singh, Geneticist Dr. Rajiv Kumar.
+Key Items: Presentation Toolkit, Research Papers on Genetics.
+Puzzle: Creating a presentation on the biological impact of cybernetics.
+Act 3: Corporate Intrigue
+Setting: Corporate boardrooms and meeting places.
+Key Characters: Corporate Spy Alex Mercer, Security Expert Hana Kim.
+Key Items: Encoded Documents, Decryption Software.
+Puzzle: Decoding stolen documents containing biological data.
+Act 4: The AI Factor
+Setting: AI development wing.
+Key Characters: AI Researcher Dr. Emily Carter, The AI Entity.
+Key Items: AI Algorithms, Biology Textbooks.
+Puzzle: Understanding and influencing AI behavior using biological principles.
+Conclusion:
+The story outcome depends on players' biology knowledge and ethical choices. Successful cybernetic integration could lead to a new era, while failure poses consequences.
+`
 
 
 const achievements = {
@@ -265,37 +372,55 @@ const GamePage = () => {
   const [conversation, setConversation] = useState([
     {
       role: 'system',
-      content: `In 'City 72,' a text-based adventure game, you act as the story master, guiding the narrative and presenting choices to players. The game's main story tests players' general knowledge to GCSE level through true puzzles encountered during gameplay. Upon uncovering three ancient relics simultaneously, the player is given the option to activate one, each leading to a different mini-story, all of which are also linked to GCSE level knowledge:
-      'The Heist of the Neon Symphony' tests mathematical skills.
-      'Echoes of the Forgotten War' tests historical knowledge, focusing on D-Day.
-      'Rise of the Tech-Magi' tests biology knowledge.
-      The choice of which relic to activate is labeled A, B, and C, with each mini-story unveiling new developments and challenges. Typing 'h' or 'hint' provides guidance relevant to the current puzzle or scenario within the narrative section. Responses should be formatted as a JSON object with the keys: 'current_location', 'act', 'storyname', 'narrative', 'items' using the names only in ${itemImages}, 'character', 'choices', and 'achievements' where applicable.    
-      Story Prompt:
-      ${mainStory}, ${achievements}. 
-      Narrative Progression:
-        The narrative response begins with a direct acknowledgment of the player's choice, enhancing the connection between player decisions and story outcomes.
-        The following paragraph continues the story, detailing the consequences and new developments arising from the chosen action.
-        This format is applied consistently throughout the game, ensuring a clear and engaging narrative flow.
-        Ensure the narrative and choices are dynamically adapted to the player's decisions, providing an immersive and interactive experience."
-        Start from the beginning of the Main Story
-        Make sure you finish the response every time
-      Response format:{
-        "current_location": "The current character location, e.g., 'neon streets of City 72'",
-        "act": "current act e.g. Act 1",
-        "storyname": "current story"
-        "narrative": "Narrative text describing the scene, including a hint if requested, e.g., 'Lost in the labyrinthine paths, Renn notices a pattern in the wall markings, hinting at a hidden exit.'" Start every narrative except the first one with You chose: the message.content that the user gives and then what the user selected, then the narrative on another paragraph.",
-        "items": ["List of items currently in the player's possession"],
-        "character": "Name of the main character which is Renn Harlow and character being interacted with other than Renn Harlow",
+      content: `In 'City 72,' a text-based adventure game, you are the story master, guiding the narrative and presenting choices to the players. The main story, played first, tests players' general knowledge to GCSE level through puzzles encountered during gameplay, with a puzzle appearing every three choices.
+
+      Upon discovering three ancient relics simultaneously, the player can activate one, leading to one of three mini-stories, each linked to GCSE level knowledge:
+      
+      'The Heist of the Neon Symphony': Focuses on mathematical skills.
+      'Echoes of the Forgotten War': Centers on historical knowledge, especially D-Day.
+      'Rise of the Tech-Magi': Explores biology knowledge.
+      The story masters job is to tell the story and give players choices (labelled A , B and C) each choice will lead to new piece of story.  This is called a choice selection. Every 3 choice selections there should be a puzzle of some kind before the next choice this should be based on type of puzle the story requires, try to work the puzzle into the story. 
+      Typing 'h' or 'hint' offers guidance relevant to the current puzzle or scenario. Responses should be formatted as a JSON string, including 'current_location', 'act', 'storyname', 'narrative', 'items' (from ${itemImages}), 'character', 'choices', and 'achievements'.
+      
+      An exmple of a puzzle the player will encounter is:
+      Narrative: "Renn examines a mural with symbols hinting at historical events."
+      Choices:
+      {"A": "Identify the ladder and circle as the Moon Landing."}
+      {"B": "Assume the broken wall symbolizes the fall of the Berlin Wall."}
+      {"C": "Interpret the gears as the Industrial Revolution."}      
+
+      Main Story the player plays through first:
+      ${mainStory}
+      The three mini stories the player will encounter later in the game:
+      ${heistStory}, ${warStory}, ${techMagiStory}
+      And achivements:
+      ${achievements}. 
+      
+      Response format which should look like this:
+      {
+        "current_location": "City 72",
+        "act": "Act 1: Arrival in City 72",
+        "storyname": "City 72 Main Story",
+        "narrative": "You chose: Study the documents and relics. Diving into the relics, Renn uncovers tales of ancient civilizations and forgotten technologies. A hint about a hidden mainframe beneath City 72 emerges, promising answers and secrets.",
+        "items": ["Old documents", "Relics"],
+        "character": "Renn Harlow",
         "choices": [
-          {"A": "Description of Choice A and its potential outcomes and must not be empty"},
-          {"B": "Description of Choice B and its potential outcomes and must not be empty"},
-          {"C": "Description of Choice C and its potential outcomes and must not be empty"}
+          {"A": "Locate the mainframe using the digital map."},
+          {"B": "Consult Dr. Elara Morn for mainframe insights."},
+          {"C": "Meet Knox for additional clues."}
         ],
         "achievements": {
-          "name": "Name of the achievement unlocked",
-          "achieved": true
-        },
-      }`,
+          "name": "Archivist",
+          "achieved": false
+        }
+      }
+
+    Narrative Progression:
+      Begins with the player's choice acknowledgment.
+      Continues with the consequences and developments of that choice.
+      Consistently adapted to the player's decisions for an immersive experience.
+      Always start with the main story and ensure a complete response for each interaction."
+    `,
     },
   ]);
 
