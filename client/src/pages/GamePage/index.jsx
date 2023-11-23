@@ -98,6 +98,9 @@ import {
   timecapsule,
   settings,
   RennHarlowVideo,
+  speaking,
+  PlayButton,
+  StopButton
 } from '../../assets';
 import {
   SettingsPopup,
@@ -665,119 +668,107 @@ const GamePage = () => {
 
   return (
     <>
-      <audio
-        id="GameAudio"
+    <audio id='GameAudio'
         src={BackgroundMusic}
         autoPlay={audioPlayed}
-        loop
-        volume={0.2}
+        loop 
+        volume={0.2} 
       >
         Your browser does not support the audio tag.
       </audio>
-      <div className="app-container">
-        <div
-          className="left-section"
-          style={{ backgroundImage: `url(${location})` }}
-        ></div>
-        <div className="middle-section">
-          <video autoPlay muted loop className="background-video">
-            <source src={Background} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className="top-container">
-            <p className="visibleUserInput">{visibleUserInput}</p>
-            <div className="conversation">
-              {conversation.map((message, index) => (
-                <div key={index}>
-                  {message.role === 'assistant' && (
-                    <TypeAnimation
-                      className={`${message.role}-text`}
-                      key={index} // Use the index as the key
-                      sequence={[
-                        JSON.parse(message.content).narrative.toString(),
-                      ]}
-                      speed={80}
-                      cursor={false}
-                      style={{
-                        fontSize: '0.75em',
-                        display: 'block',
-                        color: 'yellow',
-                        fontFamily: 'Courier New',
-                        width: '100%',
-                      }}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="choices">
-              {choices.map((choice, index) => (
-                <div key={index} className={`choice${index + 1}`}>
-                  <p>{Object.keys(choice)[0]}</p>
-                  <p>{choice[Object.keys(choice)[0]]}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bottom-container">
-            <input
-              className="user-input"
-              type="text"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Enter something..."
-            />
-            <div className="settingsBar">
-              <TextToSpeech dialogue={dialogue} />
-              <button className="toolBar" onClick={toggleSettings}>
-                <img className="toolBarIcon" src={settings} />
-              </button>
-              <SpeechToText userInput={userInput} setUserInput={setUserInput} />
-            </div>
-          </div>
-        </div>
-        <div className="right-section">
-          <div className="topr-container">
-            <CharacterCard
-              name={characterName}
-              img={characterdisplayed}
-              description={charactersInfo[characterName]}
-            />
-          </div>
-          <div className="bottom-container">
-            <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
-              <div className="inventory-toggle" onClick={toggleInventory}>
-                <span className="inventoryIcons">
-                  <h3>Inventory</h3>
-                  {inventoryVisible ? '▼' : '▲'}
-                </span>
+    <div className="app-container">
+      <div className="left-section" style={{ backgroundImage: `url(${location})` }}></div>
+      <div className="middle-section">
+      <video autoPlay muted loop className="background-video">
+        <source src={Background} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+        <div className="top-container">
+          <p className="visibleUserInput">{visibleUserInput}</p>
+          <div className='conversation'>
+            {conversation.map((message, index) => (
+              <div key={index}>
+                {message.role === 'assistant' && 
+                  <TypeAnimation
+                    className={`${message.role}-text`}
+                    key={index}  // Use the index as the key
+                    sequence={[JSON.parse(message.content).narrative.toString()]}
+                    speed={80}
+                    cursor={false}
+                    style={{
+                      fontSize: '0.75em',
+                      display: 'block',
+                      color: 'yellow',
+                      fontFamily: 'Courier New',
+                      width: '100%',
+                    }}
+                  />
+                }
               </div>
-              {inventoryVisible && (
-                <>
-                  {items.map((item, index) => (
-                    <img
-                      key={index}
-                      src={item}
-                      alt={item}
-                      className="inventoryItem"
-                    />
-                  ))}
-                </>
-              )}
-            </div>
+            ))}
+          </div>
+          <div className='choices'>
+            {choices.map((choice, index) => (
+              <div key={index} className={`choice${index + 1}`}>
+                <p>{Object.keys(choice)[0]}</p>
+                <p>{choice[Object.keys(choice)[0]]}</p>
+              </div>
+            ))}
           </div>
         </div>
-        {settingsVisible && (
-          <SettingsPopup
-            onClose={toggleSettings}
-            audioPlayed={audioPlayed}
-            setAudioPlayed={setAudioPlayed}
+        <div className="bottom-container">
+          <input
+            className="user-input"
+            type="text"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Enter something..."
           />
-        )}
+          {/* <div className="settingsBar">
+            <TextToSpeech dialogue={dialogue} />
+            <button className="toolBar" onClick={toggleSettings}>
+              <img className="toolBarIcon" src={settings} />
+            </button>
+            <SpeechToText userInput={userInput} setUserInput={setUserInput} />
+          </div> */}
+        </div>
       </div>
+      <div className="right-section">
+        <div className='topr-container'>
+          <CharacterCard
+            name={characterName}
+            img={characterdisplayed}
+            description={charactersInfo[characterName]}
+          />
+        </div>
+        <div className="bottom-container">
+          <div className={`inventory ${inventoryVisible ? 'visible' : ''}`}>
+            {/* <div className="inventory-toggle" onClick={toggleInventory}>
+              <span className='inventoryIcons'>
+                <h3>Inventory</h3>
+                {inventoryVisible ? '▼' : '▲'}
+              </span>
+            </div> */}
+            {true && (
+              <div className="settingsBar">
+                <TextToSpeech dialogue={dialogue} />
+                <SpeechToText userInput={userInput} setUserInput={setUserInput} />
+                
+                <button className="toolBar" onClick={toggleSettings}>
+                  <img className="toolBarIcon" src={settings} />
+                </button>
+                
+            </div>
+            )}
+          </div>
+        </div>
+      </div>
+      {settingsVisible && <SettingsPopup onClose={toggleSettings} audioPlayed={audioPlayed} setAudioPlayed={setAudioPlayed} />}
+    </div>
     </>
   );
+  
 };
 
 export default GamePage;
