@@ -654,21 +654,19 @@ const GamePage = () => {
   }
 
   useEffect(() => {
-    async function fetchGames() {
+    async function grabSaveData() {
       try {
         const response = await fetch(
-          `https://city-72-wez6.onrender.com/games/show/${userID}`
-        ); //HARDCODED FOR 1 FOR NOW
+          `https://city-72-wez6.onrender.com/progress/game/${currentGameID}`
+        );
         const data = await response.json();
-        // console.log(data);
-        setAllGames(data);
-        setHasGames(true);
+        console.log('GAME PAGE', data);
+        setSaveData(data);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchGames();
-
+    grabSaveData();
     document.getElementById('root').classList.add('game-page-text');
     document.getElementById('root').classList.remove('home-page');
     document.getElementById('root').classList.remove('signup-page');
@@ -676,14 +674,15 @@ const GamePage = () => {
     document.body.classList.remove('home-page');
     document.body.classList.remove('signup-page');
 
-    if (saveData.saved_chat.length > 0) {
-      setConversation(saveData.saved_chat);
-      console.log('converstation set: ', conversation);
-    } else {
-      setConversation([
-        {
-          role: 'system',
-          content: `"In 'City 72,' a text-based adventure game, you are the story master, guiding the narrative and presenting choices to players. Each choice, labeled A, B, and C, leads to new story developments. When a player sends 'h' or 'hint,' instead of the labeled choice the game will integrate a hint into the next narrative, providing guidance relevant to their current situation. This hint is offered only once per puzzle or scenario. and the game continues with the standard narrative and choice options. Format the response as a string JSON object with the keys: 'current_location', ''act', 'storyname', 'narrative', 'items', 'character', 'choices', and 'achievements' where applicable. ${mainStory}, ${heistStory}, ${warStory}, ${techMagiStory}, ${achievements}. Response format:{
+    setTimeout(() => {
+      if (saveData.saved_chat.length > 0) {
+        setConversation(saveData.saved_chat);
+        console.log('converstation set: ', conversation);
+      } else {
+        setConversation([
+          {
+            role: 'system',
+            content: `"In 'City 72,' a text-based adventure game, you are the story master, guiding the narrative and presenting choices to players. Each choice, labeled A, B, and C, leads to new story developments. When a player sends 'h' or 'hint,' instead of the labeled choice the game will integrate a hint into the next narrative, providing guidance relevant to their current situation. This hint is offered only once per puzzle or scenario. and the game continues with the standard narrative and choice options. Format the response as a string JSON object with the keys: 'current_location', ''act', 'storyname', 'narrative', 'items', 'character', 'choices', and 'achievements' where applicable. ${mainStory}, ${heistStory}, ${warStory}, ${techMagiStory}, ${achievements}. Response format:{
             "current_location": "The current character location, e.g., 'Neon Streets of City 72'",
             "act": "current act e.g. Act 1",
             "storyname": "current story"
@@ -702,9 +701,11 @@ const GamePage = () => {
           }
           Jump to a random scene in the main story"
     `,
-        },
-      ]);
-    }
+          },
+        ]);
+      }
+    }, 1000);
+
     return () => {
       document.getElementById('root').classList.remove('game-page-text');
       document.body.classList.remove('game-page-text');
