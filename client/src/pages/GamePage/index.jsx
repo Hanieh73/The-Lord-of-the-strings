@@ -284,8 +284,6 @@ const GamePage = () => {
     document.body.classList.add('game-page-text');
     document.body.classList.remove('home-page');
     document.body.classList.remove('signup-page');
-    //console.log(JSON.stringify(conversation));
-    // saveGame();
 
     if (saveData.saved_chat.length > 0) {
       setConversation(saveData.saved_chat);
@@ -346,7 +344,7 @@ const GamePage = () => {
         });
 
         const data = await response.json();
-        console.log(data.message);
+        console.log('CHATGPT RESPONSE:', data.message);
         const formatedData = JSON.parse(data.message);
 
         console.log(formatedData);

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Modal() {
   const { modalState, setModalState, userID, setCurrentGameID } = useExample();
-  const [gameDifficulty, setGameDifficulty] = useState();
+
   const [gameData, setGameData] = useState({});
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export default function Modal() {
         body: JSON.stringify({
           user_id: userID,
           state: 'in-progress',
-          difficulty: gameDifficulty,
+          difficulty: 'Easy',
           story_id: 1,
         }),
         headers: {
@@ -55,30 +55,27 @@ export default function Modal() {
             &times;
           </span>
         </div>
-        <h1>Create Game</h1>
-
         <div id="form">
-          <h2>Choose Difficulty</h2>
+          <h2>Are you sure you want to create a new game?</h2>
           <div id="difficulty-btn">
-            <button className="difficulty-btn" onClick={selectDifficulty}>
-              Easy
+            <button
+              className="difficulty-btn"
+              onClick={async () => {
+                createGame();
+              }}
+            >
+              Yes
             </button>
-            <button className="difficulty-btn" onClick={selectDifficulty}>
-              Medium
-            </button>
-            <button className="difficulty-btn" onClick={selectDifficulty}>
-              Hard
+            <button
+              className="difficulty-btn"
+              onClick={() => {
+                setModalState(false);
+              }}
+            >
+              No
             </button>
           </div>
         </div>
-        <button
-          id="create-btn"
-          onClick={async () => {
-            createGame();
-          }}
-        >
-          Create Game
-        </button>
       </div>
     </div>
   );
