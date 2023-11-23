@@ -7,7 +7,7 @@ import CharacterCard from '.';
 describe('CharacterCard Component', () => {
   const characterData = {
     name: 'John Doe',
-    img: 'https://city-72-game.onrender.com/path/to/image.jpg',
+    img: 'http://localhost:3000/path/to/image.jpg',
     description: 'A description of the character.',
   };
 

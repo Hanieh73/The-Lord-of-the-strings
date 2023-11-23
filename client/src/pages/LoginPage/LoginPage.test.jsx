@@ -74,9 +74,7 @@ describe('Login Page', () => {
 
     await vi.waitFor(() => {
       expect(fetchSpy).toHaveBeenCalled();
-      expect(window.location.href).toEqual(
-        'https://city-72-game.onrender.com/dashboard'
-      );
+      expect(window.location.href).toEqual('http://localhost:3000/dashboard');
     });
 
     fetchSpy.mockRestore();
@@ -118,8 +116,6 @@ describe('Login Page', () => {
     });
     fireEvent.click(registerButton);
 
-    expect(window.location.href).toEqual(
-      'https://city-72-game.onrender.com/register'
-    );
+    expect(window.location.href).toEqual('http://localhost:3000/register');
   });
 });
