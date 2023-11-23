@@ -528,6 +528,21 @@ const GamePage = () => {
   }
 
   useEffect(() => {
+    async function fetchGames() {
+      try {
+        const response = await fetch(
+          `https://city-72-wez6.onrender.com/games/show/${userID}`
+        ); //HARDCODED FOR 1 FOR NOW
+        const data = await response.json();
+        // console.log(data);
+        setAllGames(data);
+        setHasGames(true);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchGames();
+
     document.getElementById('root').classList.add('game-page-text');
     document.getElementById('root').classList.remove('home-page');
     document.getElementById('root').classList.remove('signup-page');
