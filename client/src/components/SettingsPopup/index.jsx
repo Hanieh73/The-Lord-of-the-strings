@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { BackgroundMusic } from '../../assets'; // Adjust the import path based on your project structure
 import { useExample } from '../../contexts';
+import { useNavigate } from 'react-router-dom';
 
 const SettingsPopup = ({
   onClose,
@@ -9,6 +10,8 @@ const SettingsPopup = ({
   conversation,
 }) => {
   const { currentGameID } = useExample();
+  const navigate = useNavigate();
+
   let vid = document.getElementById('GameAudio');
   useEffect(() => {
     vid.muted = !audioPlayed;
@@ -35,6 +38,9 @@ const SettingsPopup = ({
       const data = await response.json();
       console.log('YAHOOO!', data);
       // setSaveData(data);
+      if (response.ok) {
+        navigate('/dashboard');
+      }
     } catch (error) {
       console.log(error);
     }

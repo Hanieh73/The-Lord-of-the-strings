@@ -67,7 +67,9 @@ export default function Modal() {
             &times;
           </span>
         </div>
-        <h1>Are Your Sure You Want To Start A New Game</h1>
+        <h1 className="modal-text">
+          Are You Sure You Want To Start A New Game?
+        </h1>
 
         {/* <div id="form">
           <h2>Choose Difficulty</h2>
