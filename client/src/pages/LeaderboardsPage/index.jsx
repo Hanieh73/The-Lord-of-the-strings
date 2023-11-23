@@ -9,7 +9,7 @@ export default function LeaderboardsPage() {
   useEffect(() => {
     async function fetchLeaderboardData() {
       const response = await fetch(
-        'https://city-72-game.onrender.com/games/scores/leaderboard'
+        'https://city-72-wez6.onrender.com/games/scores/leaderboard'
       );
       const resData = await response.json();
       let currentDisplayed = 1;
