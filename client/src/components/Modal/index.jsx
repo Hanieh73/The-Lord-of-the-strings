@@ -8,6 +8,10 @@ export default function Modal() {
   const [gameData, setGameData] = useState({});
   const navigate = useNavigate();
 
+  const handleBtnCancel = () => {
+    setModalState(false)
+  }
+
   function selectDifficulty(e) {
     //console.log(e.target.textContent);
     setGameDifficulty(e.target.textContent);
@@ -42,8 +46,10 @@ export default function Modal() {
     }
   }
 
+
+
   return (
-    <div id="myModal" className={modalState ? 'modal' : 'modal-display-none'}>
+    <div id="myModal" className={modalState ? 'modal' : 'modal-display-none modal-dialog modal-sm'}>
       <div className="modal-content">
         <div>
           <span
@@ -55,9 +61,9 @@ export default function Modal() {
             &times;
           </span>
         </div>
-        <h1>Create Game</h1>
+        <h1>Are Your Sure You Want To Start A New Game</h1>
 
-        <div id="form">
+        {/* <div id="form">
           <h2>Choose Difficulty</h2>
           <div id="difficulty-btn">
             <button className="difficulty-btn" onClick={selectDifficulty}>
@@ -70,15 +76,27 @@ export default function Modal() {
               Hard
             </button>
           </div>
-        </div>
+        </div> */}
+
+        <div className='buttons'>
         <button
           id="create-btn"
           onClick={async () => {
             createGame();
           }}
         >
-          Create Game
+          Yes
         </button>
+        <button
+          id="close-btn"
+          onClick={ () => {
+            handleBtnCancel();
+          }}
+        >
+          No
+        </button>
+        </div>
+        
       </div>
     </div>
   );
