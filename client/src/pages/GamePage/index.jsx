@@ -513,7 +513,7 @@ const GamePage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/games/${currentGameID}`,
+        `https://city-72-game.onrender.com/games/${currentGameID}`,
         options
       );
       const data = await response.json();
@@ -583,11 +583,14 @@ const GamePage = () => {
       const userMessage = { role: 'user', content: userInput };
       setConversation((prevConversation) => [...prevConversation, userMessage]);
       try {
-        const response = await fetch('http://localhost:3000/chats', {
-          method: 'POST',
-          headers: { 'Content-type': 'application/json' },
-          body: JSON.stringify([...conversation, userMessage]),
-        });
+        const response = await fetch(
+          'https://city-72-game.onrender.com/chats',
+          {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify([...conversation, userMessage]),
+          }
+        );
 
         const data = await response.json();
         console.log('CHATGPT RESPONSE:', data.message);

@@ -32,7 +32,7 @@ const SettingsPopup = ({
 
     try {
       const response = await fetch(
-        `http://localhost:3000/games/${currentGameID}`,
+        `https://city-72-game.onrender.com/games/${currentGameID}`,
         options
       );
       const data = await response.json();

@@ -7,7 +7,7 @@ import CharacterCard from '.';
 describe('CharacterCard Component', () => {
   const characterData = {
     name: 'John Doe',
-    img: 'http://localhost:3000/path/to/image.jpg',
+    img: 'https://city-72-game.onrender.com/path/to/image.jpg',
     description: 'A description of the character.',
   };
 
@@ -34,5 +34,4 @@ describe('CharacterCard Component', () => {
     const descriptionElement = screen.getByText(characterData.description);
     expect(descriptionElement).toBeInTheDocument();
   });
-
 });
