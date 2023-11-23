@@ -151,7 +151,7 @@ main {
 
 
 .character-info {
-  background-color: #242424;
+  background-color: #6a097b;
   border: solid 1px white;
   border-radius: 10px;
   display: flex;
@@ -161,17 +161,19 @@ main {
   margin: auto ;
   width:80%;
   margin-top: 10px;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 .characterImg{
   border-radius: 10px;
-  width:150px;
-  height:170px;
+  width:11rem;
+  height:auto;
 }
 h3 {
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   color: white;
-  font-family: "Courier New";
+  font-family: "Press Start 2p";
 }
  p {
   font-size: 12px;;
