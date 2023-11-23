@@ -414,6 +414,9 @@ const GamePage = () => {
         }else if(formatedData.character == "Street vendor"){
           setCharacterName('Mika Redstorm');
           setCharacterdisplayed(mikaredstorm);
+        }else if(formatedData.character == "Ancient AI within the mainframe"){
+          setCharacterName('Mainframe');
+          setCharacterdisplayed(mainframe);
         }
         else {
           const formattedCharacter = formatedData.character

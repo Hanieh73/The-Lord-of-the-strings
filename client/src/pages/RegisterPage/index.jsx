@@ -79,7 +79,7 @@ export default function RegisterPage() {
   }
 
   function loginPage() {
-    navigate('/login');
+    navigate('/');
   }
 
   return (
