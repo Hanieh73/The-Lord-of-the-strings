@@ -410,7 +410,7 @@ const GamePage = () => {
           {"C": "Meet Knox for additional clues."}
         ],
         "achievements": {
-          "name": "Archivist",
+          "name": "name of the achivement",
           "achieved": false
         }
       }
