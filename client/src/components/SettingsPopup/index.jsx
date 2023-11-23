@@ -1,24 +1,30 @@
-import React, { useEffect, useRef } from 'react';
-import { BackgroundMusic } from '../../assets'; // Adjust the import path based on your project structure
+import React, { useEffect } from 'react';
+import { BackgroundMusic } from '../../assets';
 
 const SettingsPopup = ({ onClose, audioPlayed, setAudioPlayed }) => {
-  let vid = document.getElementById("GameAudio");
   useEffect(() => {
-    vid.muted = !audioPlayed; 
+    const vid = document.getElementById("GameAudio");
+
+    if (vid) {
+      vid.muted = !audioPlayed;
+    }
   }, [audioPlayed]);
+
   const handleCheckboxChange = () => {
-    setAudioPlayed(!audioPlayed);}
+    setAudioPlayed(!audioPlayed);
+  };
+
   return (
     <div className="settings-popup">
       <h2>Settings</h2>
-        <label className='checkbox-label'>
+      <label className='checkbox-label'>
         <span style={{ marginRight: '20px' }}>Background Music</span>
-          <input
-            type="checkbox"
-            defaultChecked={audioPlayed}
-            onChange={handleCheckboxChange}
-          />
-        </label>
+        <input
+          type="checkbox"
+          defaultChecked={audioPlayed}
+          onChange={handleCheckboxChange}
+        />
+      </label>
       <button>Save</button>
       <button onClick={onClose}>Close</button>
     </div>

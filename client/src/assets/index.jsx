@@ -7,7 +7,7 @@ export { default as mainframechamber } from './location/main/MainframeChamber.pn
 export { default as mainframeconsole } from './location/main/MainframeConsole.png';
 export { default as secretundergroundlab } from './location/main/SecretUndergroundLab.png';
 export { default as undergroundpaths } from './location/main/UndergroundPaths.png';
-export { default as virtualrealitypod } from './location/main/VirtualRealityPod.png';
+export { default as virtualrealitypods } from './location/main/VirtualRealityPod.png';
 export { default as city72 } from './location/main/City72.png';
 export { default as arrivalincity72 } from './location/main/City72.png';
 export { default as neonstreets } from './location/main/City72.png';

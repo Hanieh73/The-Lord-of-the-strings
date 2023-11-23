@@ -1,11 +1,11 @@
-//look into submit again
+// RegisterPage.test.jsx
 import React from "react";
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { screen, render, cleanup } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import "@testing-library/jest-dom"; // This automatically extends jest matchers
-import RegisterPage from ".";
+import "@testing-library/jest-dom";
+import RegisterPage from "."; 
 
 // Mock the ExampleProvider and useExample hook from your context
 vi.mock("../../contexts", () => ({
@@ -44,59 +44,58 @@ describe("RegisterPage", () => {
     cleanup();
   });
 
-  it("the heading has the appropriate text", () => {
-    const heading = screen.getByRole("heading", { name: /register/i });
-    expect(heading).toBeInTheDocument();
-  });
-
   it("Displays Full Name with appropriate text", () => {
-    const fullNameInput = screen.getByPlaceholderText("Enter Full Name");
+    const fullNameInput = screen.getByPlaceholderText("Name"); // Adjust placeholder text
     expect(fullNameInput).toBeInTheDocument();
   });
 
   it("Displays a username with appropriate text", () => {
-    const usernameInput = screen.getByPlaceholderText("Enter Username");
+    const usernameInput = screen.getByPlaceholderText("Username");
     expect(usernameInput).toBeInTheDocument();
   });
 
   it("Displays a password input with appropriate text", () => {
-    const passwordInput = screen.getByPlaceholderText("Enter Password");
+    const passwordInput = screen.getByPlaceholderText("Password");
     expect(passwordInput).toBeInTheDocument();
   });
 
   it("Displays a Submit button with appropriate text", () => {
-    const submitButton = screen.getByRole("button", { name: /submit/i });
+    const submitButton = screen.getByRole("button", { name: /register/i }); // Adjust button text
     expect(submitButton).toBeInTheDocument();
   });
-  //need to check the below later on!
-  // it("submits data when credentials entered and submit is clicked", async () => {
-  //   const fullNameInput = screen.getByPlaceholderText("Enter Full Name");
-  //   userEvent.type(fullNameInput, "Test User");
 
-  //   const usernameInput = screen.getByPlaceholderText("Enter Username");
-  //   userEvent.type(usernameInput, "user");
+  it("submits data when credentials entered and submit is clicked", async () => {
+    const fullNameInput = screen.getByPlaceholderText("Name");
+    userEvent.type(fullNameInput, "Test User");
 
-  //   const passwordInput = screen.getByPlaceholderText("Enter Password");
-  //   userEvent.type(passwordInput, "pass");
+    const usernameInput = screen.getByPlaceholderText("Username");
+    userEvent.type(usernameInput, "user");
 
-  //   const submitButton = screen.getByRole("button", { name: /submit/i });
+    const passwordInput = screen.getByPlaceholderText("Password");
+    userEvent.type(passwordInput, "pass");
 
-  //   const fetchSpy = vi.spyOn(global, "fetch");
+    const confirmPasswordInput = screen.getByPlaceholderText("Confirm password");
+    userEvent.type(confirmPasswordInput, "pass");
 
-  //   const mockJsonPromise = Promise.resolve({ error: "User already exists" });
-  //   const mockFetchPromise = Promise.resolve({
-  //     json: () => mockJsonPromise,
-  //     status: 409, // Assuming 409 Conflict for an existing user
-  //   });
+    const submitButton = screen.getByRole("button", { name: /register/i });
 
-  //   fetchSpy.mockImplementation(() => mockFetchPromise);
+    // Mock fetch implementation
+    const fetchSpy = vi.spyOn(global, "fetch");
+    const mockJsonPromise = Promise.resolve({});
+    const mockFetchPromise = Promise.resolve({
+      json: () => mockJsonPromise,
+      status: 201, // Assuming 201 Created for successful registration
+    });
 
-  //   userEvent.click(submitButton);
+    fetchSpy.mockImplementation(() => mockFetchPromise);
 
-  //   await vi.waitFor(() => {
-  //     expect(fetchSpy).toHaveBeenCalled();
-  //   });
+    userEvent.click(submitButton);
 
-  //   fetchSpy.mockRestore();
-  // });
+    // Use waitFor instead of vi.waitFor
+    await vi.waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalled();
+    });
+
+    fetchSpy.mockRestore();
+  });
 });

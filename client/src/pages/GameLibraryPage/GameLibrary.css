@@ -1,4 +1,4 @@
-body {
+body.game-page-library {
   color: blue;
   align-items: center;
   text-align: center;
@@ -50,8 +50,10 @@ body {
 .game-card:hover {
   cursor: pointer;
 }
-/* 
-button {
+
+
+/* button {
+
   padding: 30px 60px;
   margin: 100px 10px;
   border-radius: 15px;

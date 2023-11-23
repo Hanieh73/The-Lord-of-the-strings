@@ -25,7 +25,7 @@ const App = () => {
     <ExampleProvider>
       <Routes>
         <Route path="/">
-          <Route index element={<HomePage />} />
+          <Route index element={<LoginPage />} />
           <Route
             path="/about"
             element={
@@ -34,7 +34,7 @@ const App = () => {
               </Protected>
             }
           />
-          <Route path="/login" element={<LoginPage />} />
+          
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Route>

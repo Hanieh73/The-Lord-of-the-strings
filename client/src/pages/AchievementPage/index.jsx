@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { LoadAchievements } from '../../components';
 import { useExample } from '../../contexts';
 import { TypeAnimation } from 'react-type-animation';
+import { useNavigate, Link } from 'react-router-dom';
 import './awards.css';
 
 export default function AchievementPage() {
@@ -74,9 +75,16 @@ export default function AchievementPage() {
   //   achievements['Rise of the Tech-Magi Achievements'],
   //   achievements['General Achievements']
   // );
+  const navigate = useNavigate();
+
+  function backToDash() {
+      navigate("/dashboard");
+  }
+  
 
   return (
     <div id="example">
+    <div className="back-leaderboard" onClick={backToDash}>{"<"}</div>
       <TypeAnimation
         key={'award'}
         sequence={[`AWARDS`]}
