@@ -84,8 +84,8 @@ Contributions are welcome. Please get in touch if you would like to contribute t
 
 ## Authors & Acknowledgment 🙌
 
-Hanieh Zaab
-Tayeeb Islam
-Adil Wadud
-Khalifa Bamikole
+Hanieh Zaab,
+Tayeeb Islam,
+Adil Wadud,
+Khalifa Bamikole,
 Nadim Ahmed
