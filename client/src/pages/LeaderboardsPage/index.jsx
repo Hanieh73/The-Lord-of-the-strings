@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import backgroundmp4 from './background.mp4';
 import { TypeAnimation } from 'react-type-animation';
-
 import scrollImg from './scroll.png';
+
 export default function LeaderboardsPage() {
   useEffect(() => {
     async function fetchLeaderboardData() {
@@ -13,7 +12,7 @@ export default function LeaderboardsPage() {
       );
       const resData = await response.json();
       let currentDisplayed = 1;
-      resData.forEach((e) => {
+      resData.forEach((e, index) => {
         if (currentDisplayed <= 15) {
           const tr = document.createElement('tr');
 
@@ -31,17 +30,16 @@ export default function LeaderboardsPage() {
               console.log('bronze');
               break;
           }
+
           const tdName = document.createElement('td');
           tdName.textContent = e.name;
           const tdScore = document.createElement('td');
           tdScore.textContent = e.score;
           tr.appendChild(tdName);
           tr.appendChild(tdScore);
-          document.querySelector('.retro-futuristic-table').appendChild(tr);
+          document.querySelector('.retro-futuristic-table tbody').appendChild(tr);
           currentDisplayed++;
         }
-        //console.log(currentDisplayed);
-        console.log(e.name);
       });
     }
     fetchLeaderboardData();
@@ -81,12 +79,17 @@ export default function LeaderboardsPage() {
       <div className="container">
         <div className="row dashboard2 justify-content-center">
           <div className="col-12 scroll-bg">
-            <div className="leaderboard-table text-center">
-              <table className="retro-futuristic-table">
-                <th>Name</th>
-                <th>Score</th>
-              </table>
-            </div>
+          <div className="leaderboard-table text-center">
+            <table className="retro-futuristic-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
             <img src={scrollImg} alt="scroll" className="scroll-img" />
           </div>
         </div>

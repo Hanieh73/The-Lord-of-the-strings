@@ -699,7 +699,7 @@ const GamePage = () => {
               "achieved": true
             }
           }
-          Jump to a random scene in the main story"
+          Start from the beginning of the main story"
     `,
           },
         ]);
@@ -745,11 +745,17 @@ const GamePage = () => {
         const formatedData = JSON.parse(data.message);
 
         console.log(formatedData);
+        if (formatedData.current_location === "Night market in City 72"){
+          setLocation(crowdedmarketstreets)
+        }else if (formatedData.current_location === "The vibrant, diverse streets of City 72"){
+          setLocation(city72)
+        }
+        else{
         const formattedLocation = formatedData.current_location
           ? formatedData.current_location.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase()
           : '';
-        setLocation(locationImages[formattedLocation]);
-
+          setLocation(locationImages[formattedLocation]);
+        }  
         setDialogue(formatedData.narrative);
 
         const formattedItems = formatedData.items.map((item) =>
