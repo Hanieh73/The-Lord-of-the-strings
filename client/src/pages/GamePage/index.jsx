@@ -675,7 +675,7 @@ const GamePage = () => {
     document.body.classList.remove('signup-page');
 
     setTimeout(() => {
-      if (saveData.saved_chat.length > 0) {
+      if (saveData && saveData.saved_chat && saveData.saved_chat.length > 0) {
         setConversation(saveData.saved_chat);
         console.log('converstation set: ', conversation);
       } else {
@@ -722,7 +722,10 @@ const GamePage = () => {
         const choiceIndex = userChoice.charCodeAt(0) - 'A'.charCodeAt(0);
         choiceMade = choices[choiceIndex][userChoice];
         setVisibleUserInput(`You Chose: ${choiceMade}`);
-      } else {
+      }else if (userChoice == 'CONTINUE'){
+        setVisibleUserInput(`You Chose: ${choiceMade}`)
+      } 
+      else {
         setVisibleUserInput(`You Chose: ${choiceMade}`);
       }
       const userMessage = { role: 'user', content: userInput };
@@ -743,7 +746,7 @@ const GamePage = () => {
 
         console.log(formatedData);
         const formattedLocation = formatedData.current_location
-          ? formatedData.current_location.replace(/\s/g, '').toLowerCase()
+          ? formatedData.current_location.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase()
           : '';
         setLocation(locationImages[formattedLocation]);
 
@@ -775,7 +778,7 @@ const GamePage = () => {
           setCharacterdisplayed(mainframe);
         } else {
           const formattedCharacter = formatedData.character
-            ? formatedData.character.replace(/\s/g, '').toLowerCase()
+            ? formatedData.character.replace(/\s/g, '').replace(/[^\w\s]/g, '').toLowerCase()
             : '';
           setCharacterdisplayed(characterImages[formattedCharacter]);
           setCharacterName(formatedData.character);
@@ -871,7 +874,7 @@ const GamePage = () => {
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Enter something..."
+              placeholder="Enter your command"
             />
             {/* <div className="settingsBar">
             <TextToSpeech dialogue={dialogue} />
